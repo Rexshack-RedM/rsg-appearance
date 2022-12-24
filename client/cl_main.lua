@@ -322,13 +322,13 @@ function OpenHairMenu()
 		-- male hair selection
 		local category = hairs_list["male"]["hair"]
         for k, v in pairs(category) do
-            table.insert(options, RSG.Texts.Style .. k)
+            table.insert(options, k)
         end
         table.insert(elements, {label = RSG.Texts.HairStyle, value = CreatorCache["hair"].model or 0, category = "hair", desc = "", type = "slider", min = 0, max = #category, change_type = "model", id = a, options = options})
         a = a + 1
         options = {}
         for i = 1, GetMaxTexturesForModel("hair", CreatorCache["hair"].model or 1), 1 do
-            table.insert(options, RSG.Texts.Color .. i)
+            table.insert(options, i)
         end
         table.insert(elements, {label = RSG.Texts.HairColor, value = CreatorCache["hair"].texture or 1, category = "hair", desc = "", type = "slider", min = 1, max = GetMaxTexturesForModel("hair", CreatorCache["hair"].model or 1), change_type = "texture", id = a, options = options})
         options = {}
@@ -336,13 +336,13 @@ function OpenHairMenu()
 		-- male beard selection
 		local category = hairs_list["male"]["beard"]
         for k, v in pairs(category) do
-            table.insert(options, RSG.Texts.Style .. k)
+            table.insert(options, k)
         end
         table.insert(elements, { label = RSG.Texts.BeardStyle, value = CreatorCache["beard"].model or 0, category = "beard", desc = "", type = "slider", min = 0, max = #category, change_type = "model", id = a, options = options})
         a = a + 1
         options = {}
         for i = 1, GetMaxTexturesForModel("beard", CreatorCache["beard"].model or 1), 1 do
-            table.insert(options, RSG.Texts.Color .. i)
+            table.insert(options, i)
         end
         table.insert(elements, {label = RSG.Texts.BeardColor, value = CreatorCache["beard"].texture or 1, category = "beard", desc = "", type = "slider", min = 1, max = GetMaxTexturesForModel("beard", CreatorCache["beard"].model or 1), change_type = "texture", id = a, options = options})
         options = {}
@@ -358,7 +358,7 @@ function OpenHairMenu()
 		-- female hair options
         local category = hairs_list["female"]["hair"]
 		for k, v in pairs(category) do
-            table.insert(options, RSG.Texts.Style .. k)
+            table.insert(options, k)
         end
         table.insert(elements,
             {label = RSG.Texts.Hair, value = CreatorCache["hair"].model or 0, category = "hair", desc = "", type = "slider", min = 0, max = #category, change_type = "model", id = a, options = options}
@@ -366,7 +366,7 @@ function OpenHairMenu()
         a = a + 1
         options = {}
         for i = 1, GetMaxTexturesForModel("hair", CreatorCache["hair"].model or 1), 1 do
-            table.insert(options, RSG.Texts.HairColor .. i)
+            table.insert(options, i)
         end
         table.insert(elements,
             {label = RSG.Texts.Hair, value = CreatorCache["hair"].texture or 1, category = "hair", desc = "", type = "slider", min = 1, max = GetMaxTexturesForModel("hair", CreatorCache["hair"].model or 1), change_type = "texture", id = a, options = options}
@@ -388,7 +388,7 @@ function OpenHairMenu()
                     local options = {}
                     if GetMaxTexturesForModel(data.current.category, data.current.value) > 1 then
                         for i = 1, GetMaxTexturesForModel(data.current.category, data.current.value), 1 do
-                            table.insert(options, RSG.Texts.Color .. i)
+                            table.insert(options, i)
                         end
                     else
                         table.insert(options, "Brak")
