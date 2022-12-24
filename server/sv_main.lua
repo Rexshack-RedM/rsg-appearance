@@ -20,8 +20,8 @@ end)
 
 RegisterServerEvent('rsg-appearance:SetPlayerBucket')
 AddEventHandler('rsg-appearance:SetPlayerBucket', function(b)
-print(b)
-print(GetPlayerRoutingBucket(source))
+--print(b)
+--print(GetPlayerRoutingBucket(source))
    SetPlayerRoutingBucket(source, b)
 end)
 
