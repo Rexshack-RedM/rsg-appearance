@@ -589,7 +589,7 @@ function FixIssues(target)
         NativeSetPedComponentEnabled(target, tonumber(ComponentsMale["BODIES_LOWER"][1]), false, true, true)
         NativeSetPedComponentEnabled(target, tonumber(ComponentsMale["heads"][1]), false, true, true)
         NativeSetPedComponentEnabled(target, tonumber(ComponentsMale["eyes"][1]), false, true, true)
-        NativeSetPedComponentEnabled(target, tonumber(ComponentsFemale["teeth"][1]), false, true, true)
+        NativeSetPedComponentEnabled(target, tonumber(ComponentsMale["teeth"][1]), false, true, true)
         texture_types["male"].albedo = GetHashKey("mp_head_mr1_sc08_c0_000_ab")
         Citizen.InvokeNative(0xD710A5007C2AC539, target, 0x1D4C528A, 0)
     else
