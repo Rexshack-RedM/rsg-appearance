@@ -8,7 +8,7 @@ AddEventHandler('rsg-appearance:SaveSkin', function(skin)
     local Player = RSGCore.Functions.GetPlayer(source)
     local citizenid = Player.PlayerData.citizenid
     local license = RSGCore.Functions.GetIdentifier(source, 'license')
-    TriggerEvent("redemrp_db:retrieveSkin", citizenid, license, function(call)
+    TriggerEvent("rsg-appearance:retrieveSkin", citizenid, license, function(call)
         if call then
             MySQL.Async.execute("UPDATE playerskins SET `skin` = ? WHERE `citizenid`= ? AND `license`= ?", {encode, citizenid, license})
         else
@@ -20,8 +20,6 @@ end)
 
 RegisterServerEvent('rsg-appearance:SetPlayerBucket')
 AddEventHandler('rsg-appearance:SetPlayerBucket', function(b)
---print(b)
---print(GetPlayerRoutingBucket(source))
    SetPlayerRoutingBucket(source, b)
 end)
 
@@ -41,7 +39,7 @@ AddEventHandler('rsg-appearance:LoadSkin', function()
     end
 end)
 
-AddEventHandler('redemrp_db:retrieveSkin', function(citizenid, license, callback)
+AddEventHandler('rsg-appearance:retrieveSkin', function(citizenid, license, callback)
     local Callback = callback
     local skins = MySQL.Sync.fetchAll('SELECT * FROM playerskins WHERE citizenid = ? AND license = ?', {citizenid, license})
     if skins[1] then
