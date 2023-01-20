@@ -187,6 +187,7 @@ end)
 
 RegisterNetEvent('rsg-appearance:ApplySkin')
 AddEventHandler('rsg-appearance:ApplySkin', function(SkinData, Target, ClothesData)
+    local savedhealth = RSGCore.Functions.GetPlayerData().metadata["health"]
     CreateThread(function()
         local _Target = Target or PlayerPedId()
         local _SkinData = SkinData
@@ -217,6 +218,7 @@ AddEventHandler('rsg-appearance:ApplySkin', function(SkinData, Target, ClothesDa
                 {name = m.name, visibility = 0, tx_id = 1, tx_normal = 0, tx_material = 0, tx_color_type = 0, tx_opacity = 1.0, tx_unk = 0, palette = 0, palette_color_primary = 0, palette_color_secondary = 0, palette_color_tertiary = 0, var = 0, opacity = 0.0}
             end
         end
+        SetEntityHealth(PlayerPedId(), savedhealth, 0)
     end)
 end)
 
