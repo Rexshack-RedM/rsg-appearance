@@ -208,7 +208,6 @@ AddEventHandler('rsg-appearance:ApplySkin', function(SkinData, Target, ClothesDa
         LoadBodyWaist(_Target, _SkinData)
         LoadOverlays(_Target, _SkinData)
         SetEntityAlpha(_Target, 255)
-        TriggerEvent("rsg-appearance:SkinLoaded", _SkinData, _Target, ClothesData)
         if _Target == PlayerPedId() then
             TriggerServerEvent("rsg-clothes:LoadClothes", 1)
         else
