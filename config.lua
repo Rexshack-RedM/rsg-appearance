@@ -43,7 +43,6 @@ RSG.Texts = {
     LowerLipHeight = "Lower Lip Height",
     LowerLipWidth = "Lower Lip Width",
     LowerLipDepth = "Lower Lip Depth",
-    Mouth = "Mouth",
     Make_up = "Make-up",
     Older = "Older",
     Scars = "Type Scars",
