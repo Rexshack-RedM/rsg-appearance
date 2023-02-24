@@ -564,6 +564,11 @@ function LoadBodyWaist(target, data)
     Citizen.InvokeNative(0x1902C4CFCC5BE57C, target, WAIST_TYPES[tonumber(data.body_waist)])
 end
 
+function LoadBodyChest(target, data)
+    Citizen.InvokeNative(0x1902C4CFCC5BE57C, target, CHEST_TYPE[tonumber(data.chest_size)])
+    Citizen.InvokeNative(0xCC8CA3E88256E58F, target, false, true, true, true, false)
+end
+
 function LoadFeatures(target, data)
     local feature
     for k, v in pairs(features_name) do
