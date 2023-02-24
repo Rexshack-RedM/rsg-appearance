@@ -576,6 +576,14 @@ function LoadFeatures(target, data)
         if data[v] ~= nil then
             local value = data[v] / 100
             NativeSetPedFaceFeature(target, feature, value)
+
+            if v == 'teeth' then
+                if IsPedMale(PlayerPedId()) then
+                    Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), ComponentsMale["teeth"][tonumber(data.teeth) or 0], true, true, true)
+                else
+                    Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), ComponentsFemale["teeth"][tonumber(data.teeth) or 0], true, true, true)
+                end
+            end
         end
     end
 end

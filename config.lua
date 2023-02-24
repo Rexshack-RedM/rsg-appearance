@@ -22,6 +22,7 @@ RSG.Texts = {
     Eyebrows = "Eyebrows",
     Nose = "Nose",
     Mouth = "Mouth",
+    Teeth = "Teeth",
     Cheekbones = "Cheek Bones",
     Jaw = "Jaw",
     Ears = "Ears",

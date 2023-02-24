@@ -544,7 +544,17 @@ end
 
 function OpenMouthMenu()
     MenuData.CloseAll()
+
+    RequestAnimDict("FACE_HUMAN@GEN_MALE@BASE")
+
+    while not HasAnimDictLoaded("FACE_HUMAN@GEN_MALE@BASE") do
+        Wait(100)
+    end
+
+    TaskPlayAnim(PlayerPedId(), "FACE_HUMAN@GEN_MALE@BASE", "Face_Dentistry_Loop", 1090519040, -4, -1, 17, 0, 0, 0, 0, 0, 0)
+
     local elements = {
+        {label = RSG.Texts.Teeth,          value = CreatorCache["teeth"] or 0,      category = "teeth",      desc = "", type = "slider", min = 0, max = 6},
         {label = RSG.Texts.Width,          value = CreatorCache["mouth_width"] or 0,      category = "mouth_width",      desc = "", type = "slider", min = -100, max = 100, hop = 5},
         {label = RSG.Texts.Depth,          value = CreatorCache["mouth_depth"] or 0,      category = "mouth_depth",      desc = "", type = "slider", min = -100, max = 100, hop = 5},
         {label = RSG.Texts.UP_DOWN,        value = CreatorCache["mouth_x_pos"] or 0,      category = "mouth_x_pos",      desc = "", type = "slider", min = -100, max = 100, hop = 5},
@@ -559,6 +569,7 @@ function OpenMouthMenu()
     MenuData.Open('default', GetCurrentResourceName(), 'mouth_character_creator_menu',
         {title = RSG.Texts.Mouth, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
     end, function(data, menu)
+        ClearPedTasks(PlayerPedId())
         OpenFaceMenu()
     end, function(data, menu)
         if CreatorCache[data.current.category] ~= data.current.value then
