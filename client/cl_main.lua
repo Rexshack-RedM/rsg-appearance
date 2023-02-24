@@ -64,10 +64,10 @@ local BodyFunctions = {
     end,
     ["body_waist"] = function(target, data)
         LoadBodyWaist(target, data)
-    end
+    end,
     ["chest_size"] = function(target, data)
         LoadBodyChest(target, data)
-    end,
+    end
 }
 
 local FaceFunctions = {
@@ -300,7 +300,7 @@ function OpenBodyMenu()
         {label = RSG.Texts.Width,    value = CreatorCache["face_width"] or 0, category = "face_width", desc = "", type = "slider", min = -100, max = 100, hop = 5},
         {label = RSG.Texts.SkinTone, value = CreatorCache["skin_tone"] or 1,  category = "skin_tone",  desc = "", type = "slider", min = 1, max = 6,      options = SkinToneOptions},
         {label = RSG.Texts.Size,     value = CreatorCache["body_size"] or 3,  category = "body_size",  desc = "", type = "slider", min = 1, max = 5,      options = BodySizeOptions},
-        {label = RSG.Texts.Waist,    value = CreatorCache["body_waist"] or 7, category = "body_waist", desc = "", type = "slider", min = 1, max = 21,     options = BodyWaistOptions}
+        {label = RSG.Texts.Waist,    value = CreatorCache["body_waist"] or 7, category = "body_waist", desc = "", type = "slider", min = 1, max = 21,     options = BodyWaistOptions},
         {label = RSG.Texts.Chest, value = CreatorCache["chest_size"] or 1, category = "chest_size", desc = "", type = "slider", min = 1, max = 11, options = BodyChestOptions},
     }
     MenuData.Open('default', GetCurrentResourceName(), 'body_character_creator_menu',
