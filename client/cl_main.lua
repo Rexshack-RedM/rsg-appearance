@@ -65,6 +65,9 @@ local BodyFunctions = {
     ["body_waist"] = function(target, data)
         LoadBodyWaist(target, data)
     end
+    ["chest_size"] = function(target, data)
+        LoadBodyChest(target, data)
+    end,
 }
 
 local FaceFunctions = {
@@ -207,6 +210,7 @@ AddEventHandler('rsg-appearance:ApplySkin', function(SkinData, Target, ClothesDa
         LoadFeatures(_Target, _SkinData)
         LoadBodySize(_Target, _SkinData)
         LoadBodyWaist(_Target, _SkinData)
+        LoadBodyChest(_Target, _SkinData)
         LoadOverlays(_Target, _SkinData)
         SetEntityAlpha(_Target, 255)
         if _Target == PlayerPedId() then
@@ -283,8 +287,12 @@ function OpenBodyMenu()
     MenuData.CloseAll()
     local BodySizeOptions = {RSG.Texts.Slim, RSG.Texts.Sporty, RSG.Texts.Medium, RSG.Texts.Fat,RSG.Texts.Strong}
     local BodyWaistOptions = {}
+    local BodyChestOptions = {}
     for i, v in ipairs(WAIST_TYPES) do
         table.insert(BodyWaistOptions, "+ " .. (i / 2) .. " kg")
+    end
+    for i, v in ipairs(CHEST_TYPE) do
+        table.insert(BodyChestOptions, i)
     end
     local SkinToneOptions = {RSG.Texts.Color1,RSG.Texts.Color2,RSG.Texts.Color3,RSG.Texts.Color4,RSG.Texts.Color5,RSG.Texts.Color6}
     local elements = {
@@ -293,6 +301,7 @@ function OpenBodyMenu()
         {label = RSG.Texts.SkinTone, value = CreatorCache["skin_tone"] or 1,  category = "skin_tone",  desc = "", type = "slider", min = 1, max = 6,      options = SkinToneOptions},
         {label = RSG.Texts.Size,     value = CreatorCache["body_size"] or 3,  category = "body_size",  desc = "", type = "slider", min = 1, max = 5,      options = BodySizeOptions},
         {label = RSG.Texts.Waist,    value = CreatorCache["body_waist"] or 7, category = "body_waist", desc = "", type = "slider", min = 1, max = 21,     options = BodyWaistOptions}
+        {label = RSG.Texts.Chest, value = CreatorCache["chest_size"] or 1, category = "chest_size", desc = "", type = "slider", min = 1, max = 11, options = BodyChestOptions},
     }
     MenuData.Open('default', GetCurrentResourceName(), 'body_character_creator_menu',
         {title = RSG.Texts.Appearance, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)

@@ -73,6 +73,7 @@ RSG.Texts = {
     Height = "Height",
     Depth = "Depth",
     Waist = "Waist",
+    Chest = "Chest",
     Distance = "Distance",
     Angle = "Angle",
     Clarity = "Clarity",

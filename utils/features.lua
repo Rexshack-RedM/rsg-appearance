@@ -3,6 +3,7 @@ features = {
     0x8D0A,0xEBAE ,0x1DF6,0x3C0F,0xC3B2,0xE323,0x8B2B ,0x1B6B ,0xEE44 ,0xD266 ,0xA54E, 0xDDFB ,0x6E7F ,0x3471,0x03F5,
     0x34B1,0xF156,0x561E ,0xF065,0xAA69,0x7AC3, 0x410D, 0x1A00,0x91C1,0xC375,0xBB4D,0xB0B0,0x5D16,
 }
+
 features_name = {
     "face_width",
     "eyebrow_height",
@@ -52,6 +53,7 @@ BODY_TYPES = {
     -20262001,
     32611963,
 }
+
 WAIST_TYPES = {
     -2045421226,    -- smallest
     -1745814259,
@@ -74,4 +76,19 @@ WAIST_TYPES = {
     -1173634986,
     -867801909,
     1960266524,        -- biggest
+}
+
+CHEST_TYPE =
+{
+    1676751061,	-- upperbody size -- smallest
+    1437242440,	-- upperbody size
+    3025752508,	-- upperbody size
+    3319526593,	-- upperbody size
+    1492392695,	-- upperbody size
+    1781382506,	-- upperbody size
+    1824113282,	-- upperbody size
+    2123392559,	-- upperbody size
+    290229161,	-- upperbody size
+    870174923,	-- upperbody size
+    465805723,	-- upperbody size -- biggest
 }
