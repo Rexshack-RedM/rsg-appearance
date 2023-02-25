@@ -216,7 +216,7 @@ function LightAndCam()
         Wait(0)
         DrawLightWithRange(-561.36, SpawnCoords[AcitveCamera].y, SpawnCoords[AcitveCamera].z + 1, 255, 255, 255, 5.5,
             25.0)
-        local SelectString = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING", "WELCOME TO RSG FRAMEWORK", Citizen.ResultAsLong())
+        local SelectString = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING", RSG.WelcomeText, Citizen.ResultAsLong())
         Citizen.InvokeNative(0xFA233F8FE190514C, SelectString)
         Citizen.InvokeNative(0xE9990552DEC71600)
         local ChoiceGroupName = CreateVarString(10, 'LITERAL_STRING', "Choose a Character")

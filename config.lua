@@ -1,5 +1,7 @@
 RSG = {}
 
+RSG.WelcomeText = "WELCOME TO RSG FRAMEWORK"
+
 RSG.Texts = {
     Body = "Body",
     Face = "Face",
