@@ -34,7 +34,6 @@ features_name = {
     "nose_angle",
     "nose_curvature",
     "nostrils_distance",
-    "teeth",
     "mouth_width",
     "mouth_depth",
     "mouth_y_pos",
