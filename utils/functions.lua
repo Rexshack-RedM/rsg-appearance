@@ -579,11 +579,13 @@ function LoadFeatures(target, data)
 
             if v == 'teeth' then
                 if IsPedMale(PlayerPedId()) then
-                    Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), ComponentsMale["teeth"][tonumber(data.teeth) or 0], true, true, true)
+                    Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), ComponentsMale["teeth"][tonumber(data.teeth) or 1], true, true, true)
                 else
-                    Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), ComponentsFemale["teeth"][tonumber(data.teeth) or 0], true, true, true)
+                    Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), ComponentsFemale["teeth"][tonumber(data.teeth) or 1], true, true, true)
                 end
             end
+
+            Citizen.InvokeNative(0xCC8CA3E88256E58F, target, false, true, true, true, false)
         end
     end
 end
