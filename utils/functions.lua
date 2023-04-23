@@ -591,8 +591,12 @@ function LoadFeatures(target, data)
 end
 
 function LoadHeight(target, data)
-    if data.height ~= nil then
-        SetPedScale(target, tonumber(data.height / 100))
+    if data.height then
+        local height = tonumber(data.height * 0.01)
+
+        Wait(100)
+
+        SetPedScale(target, height)
     end
 end
 
