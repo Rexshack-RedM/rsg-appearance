@@ -67,6 +67,9 @@ local BodyFunctions = {
     end,
     ["chest_size"] = function(target, data)
         LoadBodyChest(target, data)
+    end,
+    ["height"] = function(target, data)
+        LoadHeight(target, data)
     end
 }
 
@@ -202,6 +205,7 @@ AddEventHandler('rsg-appearance:ApplySkin', function(SkinData, Target, ClothesDa
             LoadedComponents = _SkinData
         end
         FixIssues(_Target, _SkinData)
+        LoadHeight(_Target, _SkinData)
         LoadBoody(_Target, _SkinData)
         LoadHead(_Target, _SkinData)
         LoadHair(_Target, _SkinData)
@@ -302,6 +306,7 @@ function OpenBodyMenu()
         {label = RSG.Texts.Size,     value = CreatorCache["body_size"] or 3,  category = "body_size",  desc = "", type = "slider", min = 1, max = 5,      options = BodySizeOptions},
         {label = RSG.Texts.Waist,    value = CreatorCache["body_waist"] or 7, category = "body_waist", desc = "", type = "slider", min = 1, max = 21,     options = BodyWaistOptions},
         {label = RSG.Texts.Chest, value = CreatorCache["chest_size"] or 1, category = "chest_size", desc = "", type = "slider", min = 1, max = 11, options = BodyChestOptions},
+        {label = RSG.Texts.Height,   value = CreatorCache["height"] or 100,      category = "height",      desc = "", type = "slider", min = 95, max = 105}
     }
     MenuData.Open('default', GetCurrentResourceName(), 'body_character_creator_menu',
         {title = RSG.Texts.Appearance, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
