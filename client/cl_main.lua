@@ -244,6 +244,17 @@ end)
 
 RegisterCommand('loadskin', function(source, args, raw)
     if isLoggedIn then
+        local ped = PlayerPedId()
+        local isdead = IsEntityDead(ped)
+        local cuffed = IsPedCuffed(ped)
+        local hogtied = Citizen.InvokeNative(0x3AA24CCC0D451379, ped)
+        local lassoed = Citizen.InvokeNative(0x9682F850056C9ADE, ped)
+        local dragged = Citizen.InvokeNative(0xEF3A8772F085B4AA, ped)
+        local ragdoll = IsPedRagdoll(ped)
+        local falling = IsPedFalling(ped)
+
+        if isdead or cuffed or hogtied or lassoed or dragged or ragdoll or falling then return end
+
         TriggerServerEvent("rsg-appearance:LoadSkin")
     end
 end)
