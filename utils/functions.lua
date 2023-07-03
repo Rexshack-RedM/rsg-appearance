@@ -271,6 +271,11 @@ function CreatorLight()
             DisableAllControlActions(0)
             DisableAllControlActions(1)
             DisableAllControlActions(2)
+
+            local str = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING", 'Press ~INPUT_FRONTEND_LB~~INPUT_DYNAMIC_SCENARIO~ to Rotate Character',
+            Citizen.ResultAsLong())
+            Citizen.InvokeNative(0xFA233F8FE190514C, str)
+            Citizen.InvokeNative(0xE9990552DEC71600)
         end
     end)
 end
