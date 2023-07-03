@@ -744,6 +744,9 @@ exports('GetBodyCurrentComponentHash', function(name)
     local hash
     if name == "hair" or name == "beard" then
         local info = LoadedComponents[name]
+
+        if not info then return end
+
         local texture = info.texture
         local model = info.model
         if model == 0 or texture == 0 then
