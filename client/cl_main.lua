@@ -238,6 +238,14 @@ end)
 RegisterNetEvent('rsg-appearance:LoadSkinClient')
 AddEventHandler('rsg-appearance:LoadSkinClient', function()
     if isLoggedIn then
+        local isJailed = 0
+
+        RSGCore.Functions.GetPlayerData(function(player)
+            isJailed = player.metadata["injail"]
+        end)
+
+        if isJailed > 0 then return end
+
         TriggerServerEvent("rsg-appearance:LoadSkin")
     end
 end)
@@ -252,8 +260,13 @@ RegisterCommand('loadskin', function(source, args, raw)
         local dragged = Citizen.InvokeNative(0xEF3A8772F085B4AA, ped)
         local ragdoll = IsPedRagdoll(ped)
         local falling = IsPedFalling(ped)
+        local isJailed = 0
 
-        if isdead or cuffed or hogtied or lassoed or dragged or ragdoll or falling then return end
+        RSGCore.Functions.GetPlayerData(function(player)
+            isJailed = player.metadata["injail"]
+        end)
+
+        if isdead or cuffed or hogtied or lassoed or dragged or ragdoll or falling or isJailed > 0 then return end
 
         TriggerServerEvent("rsg-appearance:LoadSkin")
     end
