@@ -509,6 +509,13 @@ function LoadHair(target, data)
                     Citizen.InvokeNative(0xD710A5007C2AC539, target, 0x864B03AE, 0)
                     NativeUpdatePedVariation(target)
                 end
+            elseif data.hair.hash then
+                if data.hair.hash > 0 then
+                    NativeSetPedComponentEnabled(target, tonumber(data.hair.hash), false, true, true)
+                else
+                    Citizen.InvokeNative(0xD710A5007C2AC539, target, 0x864B03AE, 0)
+                    NativeUpdatePedVariation(target)
+                end
             end
         end
     end
@@ -529,6 +536,13 @@ function LoadBeard(target, data)
 
                         end
                     end
+                else
+                    Citizen.InvokeNative(0xD710A5007C2AC539, target, 0xF8016BCA, 0)
+                    NativeUpdatePedVariation(target)
+                end
+            elseif data.beard.hash then
+                if data.beard.hash > 0 then
+                    NativeSetPedComponentEnabled(target, tonumber(data.beard.hash), false, true, true)
                 else
                     Citizen.InvokeNative(0xD710A5007C2AC539, target, 0xF8016BCA, 0)
                     NativeUpdatePedVariation(target)
