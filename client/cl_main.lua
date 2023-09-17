@@ -688,15 +688,15 @@ function OpenDefectsMenu()
     MenuData.CloseAll()
     local elements = {
         {label = RSG.Texts.Scars,    value = CreatorCache["scars_t"] or 1,     category = "scars_t",     desc = "", type = "slider", min = 1, max = 16,  options = nil},
-        {label = RSG.Texts.Clarity,  value = CreatorCache["scars_op"] or 0,    category = "scars_op",    desc = "", type = "slider", min = 0, max = 100, hop = 5},
+        {label = RSG.Texts.Clarity,  value = CreatorCache["scars_op"] or 50,    category = "scars_op",    desc = "", type = "slider", min = 0, max = 100, hop = 5},
         {label = RSG.Texts.Older,    value = CreatorCache["ageing_t"] or 1,    category = "ageing_t",    desc = "", type = "slider", min = 1, max = 24,  options = nil},
-        {label = RSG.Texts.Clarity,  value = CreatorCache["ageing_op"] or 0,   category = "ageing_op",   desc = "", type = "slider", min = 0, max = 100, hop = 5},
+        {label = RSG.Texts.Clarity,  value = CreatorCache["ageing_op"] or 50,   category = "ageing_op",   desc = "", type = "slider", min = 0, max = 100, hop = 5},
         {label = RSG.Texts.Freckles, value = CreatorCache["freckles_t"] or 1,  category = "freckles_t",  desc = "", type = "slider", min = 1, max = 15,  options = nil},
-        {label = RSG.Texts.Clarity,  value = CreatorCache["freckles_op"] or 0, category = "freckles_op", desc = "", type = "slider", min = 0, max = 100, hop = 5},
+        {label = RSG.Texts.Clarity,  value = CreatorCache["freckles_op"] or 50, category = "freckles_op", desc = "", type = "slider", min = 0, max = 100, hop = 5},
         {label = RSG.Texts.Moles,    value = CreatorCache["moles_t"] or 1,     category = "moles_t",     desc = "", type = "slider", min = 1, max = 16,  options = nil},
-        {label = RSG.Texts.Clarity,  value = CreatorCache["moles_op"] or 0,    category = "moles_op",    desc = "", type = "slider", min = 0, max = 100, hop = 5},
+        {label = RSG.Texts.Clarity,  value = CreatorCache["moles_op"] or 50,    category = "moles_op",    desc = "", type = "slider", min = 0, max = 100, hop = 5},
         {label = RSG.Texts.Spots,    value = CreatorCache["spots_t"] or 1,     category = "spots_t",     desc = "", type = "slider", min = 1, max = 16,  options = nil},
-        {label = RSG.Texts.Clarity,  value = CreatorCache["spots_op"] or 0,    category = "spots_op",    desc = "", type = "slider", min = 0, max = 100, hop = 5}
+        {label = RSG.Texts.Clarity,  value = CreatorCache["spots_op"] or 50,    category = "spots_op",    desc = "", type = "slider", min = 0, max = 100, hop = 5}
     }
     MenuData.Open('default', GetCurrentResourceName(), 'defects_character_creator_menu',
         {title = RSG.Texts.Disadvantages, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
