@@ -63,3 +63,13 @@ AddEventHandler("rsg-appearance:deleteSkin", function(license, Callback)
     MySQL.Async.fetchAll('DELETE FROM playerskins WHERE `citizenid`= ? AND`license`= ?;', {id, license})
 end)
 
+RegisterServerEvent('rsg-appearance:updategender', function(gender)
+    local Player = RSGCore.Functions.GetPlayer(source)
+    local citizenid = Player.PlayerData.citizenid
+    local license = RSGCore.Functions.GetIdentifier(source, 'license')
+
+    local result = MySQL.Sync.fetchAll('SELECT * FROM players WHERE citizenid = ? AND license = ?', {citizenid, license})
+    local Charinfo = json.decode(result[1].charinfo)
+    Charinfo.gender = gender
+    MySQL.Async.execute("UPDATE players SET `charinfo` = ? WHERE `citizenid`= ? AND `license`= ?", {json.encode(Charinfo), citizenid, license})
+end)
