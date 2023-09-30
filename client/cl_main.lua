@@ -287,6 +287,7 @@ function StartCreator()
     SpawnedPeds = SpawnPeds()
     local selectedSex = StartSelectCam()
     CreatorCache["sex"] = selectedSex
+    TriggerServerEvent('rsg-appearance:updategender', selectedSex)
     local model = GetPedModel(selectedSex)
     LoadModel(PlayerPedId(), model)
     FixIssues(PlayerPedId())
