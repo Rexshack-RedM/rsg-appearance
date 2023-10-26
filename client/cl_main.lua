@@ -272,10 +272,6 @@ RegisterCommand('loadskin', function(source, args, raw)
     end
 end)
 
-RegisterCommand('creator', function(source, args, raw)
-    StartCreator()
-end)
-
 function StartCreator()
     TriggerServerEvent("rsg-appearance:SetPlayerBucket" , BucketId)
     Wait(1)
