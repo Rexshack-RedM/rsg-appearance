@@ -3,7 +3,7 @@ rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aw
 game 'rdr3'
 
 description 'rsg-appearance'
-version '1.0.1'
+version '1.0.2'
 
 client_scripts {
     'utils/hairs.lua',
