@@ -260,6 +260,8 @@ RegisterCommand('loadskin', function(source, args, raw)
         local falling = IsPedFalling(ped)
         local isJailed = 0
         local currentHealth = GetEntityHealth(PlayerPedId())
+        local maxStamina = Citizen.InvokeNative(0xCB42AFE2B613EE55, PlayerPedId(), Citizen.ResultAsFloat())
+        local currentStamina = Citizen.InvokeNative(0x775A1CA7893AA8B5, PlayerPedId(), Citizen.ResultAsFloat()) / maxStamina * 100
 
         RSGCore.Functions.GetPlayerData(function(player)
             isJailed = player.metadata["injail"]
@@ -269,7 +271,8 @@ RegisterCommand('loadskin', function(source, args, raw)
 
         TriggerServerEvent("rsg-appearance:LoadSkin")
         Wait(1000)
-        SetEntityHealth(PlayerPedId(), currentHealth )
+        SetEntityHealth(PlayerPedId(), currentHealth)
+        Citizen.InvokeNative(0xC3D4B754C0E86B9E, PlayerPedId(), currentStamina)
     end
 end)
 
