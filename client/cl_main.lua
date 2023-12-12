@@ -259,6 +259,7 @@ RegisterCommand('loadskin', function(source, args, raw)
         local ragdoll = IsPedRagdoll(ped)
         local falling = IsPedFalling(ped)
         local isJailed = 0
+        local currentHealth = GetEntityHealth(PlayerPedId())
 
         RSGCore.Functions.GetPlayerData(function(player)
             isJailed = player.metadata["injail"]
@@ -267,6 +268,8 @@ RegisterCommand('loadskin', function(source, args, raw)
         if isdead or cuffed or hogtied or lassoed or dragged or ragdoll or falling or isJailed > 0 then return end
 
         TriggerServerEvent("rsg-appearance:LoadSkin")
+        Wait(1000)
+        SetEntityHealth(PlayerPedId(), currentHealth )
     end
 end)
 
