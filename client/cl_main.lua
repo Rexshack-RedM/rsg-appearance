@@ -244,7 +244,13 @@ AddEventHandler('rsg-appearance:LoadSkinClient', function()
 
         if isJailed > 0 then return end
 
+        local currentHealth = GetEntityHealth(PlayerPedId())
+        local maxStamina = Citizen.InvokeNative(0xCB42AFE2B613EE55, PlayerPedId(), Citizen.ResultAsFloat())
+        local currentStamina = Citizen.InvokeNative(0x775A1CA7893AA8B5, PlayerPedId(), Citizen.ResultAsFloat()) / maxStamina * 100
         TriggerServerEvent("rsg-appearance:LoadSkin")
+        Wait(1000)
+        SetEntityHealth(PlayerPedId(), currentHealth )
+        Citizen.InvokeNative(0xC3D4B754C0E86B9E, PlayerPedId(), currentStamina)
     end
 end)
 
@@ -269,9 +275,12 @@ RegisterCommand('loadskin', function(source, args, raw)
 
         if isdead or cuffed or hogtied or lassoed or dragged or ragdoll or falling or isJailed > 0 then return end
 
+        local currentHealth = GetEntityHealth(PlayerPedId())
+        local maxStamina = Citizen.InvokeNative(0xCB42AFE2B613EE55, PlayerPedId(), Citizen.ResultAsFloat())
+        local currentStamina = Citizen.InvokeNative(0x775A1CA7893AA8B5, PlayerPedId(), Citizen.ResultAsFloat()) / maxStamina * 100
         TriggerServerEvent("rsg-appearance:LoadSkin")
         Wait(1000)
-        SetEntityHealth(PlayerPedId(), currentHealth)
+        SetEntityHealth(PlayerPedId(), currentHealth )
         Citizen.InvokeNative(0xC3D4B754C0E86B9E, PlayerPedId(), currentStamina)
     end
 end)
