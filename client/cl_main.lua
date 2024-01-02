@@ -283,7 +283,7 @@ RegisterCommand('loadskin', function(source, args, raw)
         SetEntityHealth(PlayerPedId(), currentHealth )
         Citizen.InvokeNative(0xC3D4B754C0E86B9E, PlayerPedId(), currentStamina)
     end
-end)
+end, false)
 
 function StartCreator()
     TriggerServerEvent("rsg-appearance:SetPlayerBucket" , BucketId)
@@ -355,7 +355,6 @@ function OpenBodyMenu()
 end
 
 function OpenFaceMenu()
-    MoveCharacterCreatorCamera(-558.97, -3780.95, 239.18)
     MenuData.CloseAll()
     local elements = {
         {label = RSG.Texts.Eyes,       value = 'eyes',       desc = ""},
@@ -373,13 +372,11 @@ function OpenFaceMenu()
         {title = RSG.Texts.Face, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
         FaceFunctions[data.current.value]()
     end, function(data, menu)
-        MoveCharacterCreatorCamera(-560.133, -3780.92, 238.6)
         MainMenu()
     end)
 end
 
 function OpenHairMenu()
-    MoveCharacterCreatorCamera(-558.97, -3780.95, 239.18)
     MenuData.CloseAll()
     local elements = {}
     if IsPedMale(PlayerPedId()) then
@@ -454,7 +451,6 @@ function OpenHairMenu()
     MenuData.Open('default', GetCurrentResourceName(), 'hair_main_character_creator_menu',
         {title = RSG.Texts.Hair_beard, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
     end, function(data, menu)
-        MoveCharacterCreatorCamera(-560.133, -3780.92, 238.6)
         MainMenu()
     end, function(data, menu)
         if data.current.change_type == "model" then
@@ -721,7 +717,6 @@ function OpenDefectsMenu()
 end
 
 function OpenMakeupMenu()
-    MoveCharacterCreatorCamera(-558.97, -3780.95, 239.18)
     MenuData.CloseAll()
     local elements = {
         {label = RSG.Texts.Shadow,           value = CreatorCache["shadows_t"] or 1,    category = "shadows_t",    desc = "", type = "slider", min = 1, max = 5},
@@ -745,7 +740,6 @@ function OpenMakeupMenu()
     MenuData.Open('default', GetCurrentResourceName(), 'makeup_character_creator_menu',
         {title = RSG.Texts.Make_up, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
     end, function(data, menu)
-        MoveCharacterCreatorCamera(-560.133, -3780.92, 238.6)
         MainMenu()
     end, function(data, menu)
         if CreatorCache[data.current.category] ~= data.current.value then

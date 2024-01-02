@@ -3,6 +3,8 @@ local overlay_opacity = 1.0
 local is_overlay_change_active = false
 local SpawnCoords = {vector3(-558.71, -3775.46, 238.6), vector3(-558.56, -3776.83, 238.6)}
 local CameraCoords = {vector3(-561.16, -3775.46, 238.9), vector3(-561.16, -3776.83, 238.9)}
+local pedloc = vector4(-558.0, -3781.0, 237.60, 91.0)
+local camloc = vector4(-560.0, -3781.0, 239.0, 268.0)
 
 local PromptRight
 local PromptLeft
@@ -12,7 +14,6 @@ local cam
 local CharacterCreatorCamera
 
 local ChoiceGroup = GetRandomIntInRange(0, 0xffffff)
--- print('ChoiceGroup: ' .. ChoiceGroup)
 
 function ChangeOverlays(name, visibility, tx_id, tx_normal, tx_material, tx_color_type, tx_opacity, tx_unk, palette_id,
     palette_color_primary, palette_color_secondary, palette_color_tertiary, var, opacity)
@@ -42,7 +43,6 @@ function ChangeOverlays(name, visibility, tx_id, tx_normal, tx_material, tx_colo
             end
         end
     end
-
 end
 
 function ApplyOverlays(overlayTarget)
@@ -189,10 +189,63 @@ function StartAcceptPrompt()
 
     end)
 end
+
 Citizen.CreateThread(function()
     StartRightPrompt()
     StartLeftPrompt()
     StartAcceptPrompt()
+end)
+
+local CameraPrompt, RotatePrompt, ZoomPrompt, Cancelprompt
+local RoomPrompts = GetRandomIntInRange(0, 0xffffff)
+
+Citizen.CreateThread(function()
+	local str = RSG.CameraPrompt
+	CameraPrompt = PromptRegisterBegin()
+	PromptSetControlAction(CameraPrompt, RSG.CameraWS[1])
+	PromptSetControlAction(CameraPrompt, RSG.CameraWS[2])
+	str = CreateVarString(10, 'LITERAL_STRING', str)
+	PromptSetText(CameraPrompt, str)
+	PromptSetEnabled(CameraPrompt, true)
+	PromptSetVisible(CameraPrompt, true)
+	PromptSetStandardMode(CameraPrompt, 1)
+	PromptSetGroup(CameraPrompt, RoomPrompts)
+	PromptRegisterEnd(CameraPrompt)
+
+	str = RSG.RotatePrompt
+	RotatePrompt = PromptRegisterBegin()
+	PromptSetControlAction(RotatePrompt, RSG.Rotate[1])
+	PromptSetControlAction(RotatePrompt, RSG.Rotate[2])
+	str = CreateVarString(10, 'LITERAL_STRING', str)
+	PromptSetText(RotatePrompt, str)
+	PromptSetEnabled(RotatePrompt, true)
+	PromptSetVisible(RotatePrompt, true)
+	PromptSetStandardMode(RotatePrompt, 1)
+	PromptSetGroup(RotatePrompt, RoomPrompts)
+	PromptRegisterEnd(RotatePrompt)
+
+	str = RSG.ZoomPrompt
+	ZoomPrompt = PromptRegisterBegin()
+	PromptSetControlAction(ZoomPrompt, RSG.Zoom[1])
+	PromptSetControlAction(ZoomPrompt, RSG.Zoom[2])
+	str = CreateVarString(10, 'LITERAL_STRING', str)
+	PromptSetText(ZoomPrompt, str)
+	PromptSetEnabled(ZoomPrompt, true)
+	PromptSetVisible(ZoomPrompt, true)
+	PromptSetStandardMode(ZoomPrompt, 1)
+	PromptSetGroup(ZoomPrompt, RoomPrompts)
+	PromptRegisterEnd(ZoomPrompt)
+
+    str = "Back/Select Character"
+    Cancelprompt = PromptRegisterBegin()
+    PromptSetControlAction(Cancelprompt, 0x39336A4F)
+    str = CreateVarString(10, 'LITERAL_STRING', str)
+    PromptSetText(Cancelprompt, str)
+    PromptSetEnabled(Cancelprompt, true)
+    PromptSetVisible(Cancelprompt, true)
+    PromptSetHoldMode(Cancelprompt, 1000)
+    PromptSetGroup(Cancelprompt, RoomPrompts)
+    PromptRegisterEnd(Cancelprompt)
 end)
 
 function StartSelectCam()
@@ -200,8 +253,7 @@ function StartSelectCam()
     Wait(1000)
     SetEntityCoords(PlayerPedId(), -563.99, -3776.72, 237.60)
     Wait(2000)
-    cam = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", CameraCoords[1].x, CameraCoords[1].y, CameraCoords[1].z, 0, 0,
-        0, GetGameplayCamFov())
+    cam = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", CameraCoords[1].x, CameraCoords[1].y, CameraCoords[1].z, 0, 0, 0, GetGameplayCamFov())
     PointCamAtCoord(cam, SpawnCoords[1])
     SetCamActive(cam, true)
     RenderScriptCams(true, true, 1000, true, false)
@@ -214,8 +266,7 @@ end
 function LightAndCam()
     while cam do
         Wait(0)
-        DrawLightWithRange(-561.36, SpawnCoords[AcitveCamera].y, SpawnCoords[AcitveCamera].z + 1, 255, 255, 255, 5.5,
-            25.0)
+        DrawLightWithRange(-561.36, SpawnCoords[AcitveCamera].y, SpawnCoords[AcitveCamera].z + 1, 255, 255, 255, 5.5, 25.0)
         local SelectString = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING", RSG.WelcomeText, Citizen.ResultAsLong())
         Citizen.InvokeNative(0xFA233F8FE190514C, SelectString)
         Citizen.InvokeNative(0xE9990552DEC71600)
@@ -237,9 +288,6 @@ function LightAndCam()
             StartCharacterCreatorCamera()
         end
     end
-    local blank = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING", " ", Citizen.ResultAsLong())
-    Citizen.InvokeNative(0xFA233F8FE190514C, blank)
-    Citizen.InvokeNative(0xE9990552DEC71600)
     return AcitveCamera
 end
 
@@ -253,29 +301,50 @@ function MoveSelectCamera(c)
     DestroyCam(cam)
     cam = cam2
 end
-local CharacterCreatorCamera
 
 function CreatorLight()
     Citizen.CreateThread(function()
         while CharacterCreatorCamera do
             Wait(0)
-            DrawLightWithRange(-560.133, -3780.92, 238.6, 255, 255, 255, 10.5, 50.0)
-            if IsDisabledControlPressed(0, 0x06052D11) then
-                local heading = GetEntityHeading(PlayerPedId())
-                SetEntityHeading(PlayerPedId(), heading + 2)
-            end
-            if IsDisabledControlPressed(0, 0x110AD1D2) then
-                local heading = GetEntityHeading(PlayerPedId())
-                SetEntityHeading(PlayerPedId(), heading - 2)
-            end
-            DisableAllControlActions(0)
-            DisableAllControlActions(1)
-            DisableAllControlActions(2)
+            DrawLightWithRange(camloc.x, camloc.y, camloc.z, 255, 255, 255, 10.0, 100.0)
 
-            local str = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING", 'Press ~INPUT_FRONTEND_LB~~INPUT_DYNAMIC_SCENARIO~ to Rotate Character',
-            Citizen.ResultAsLong())
-            Citizen.InvokeNative(0xFA233F8FE190514C, str)
-            Citizen.InvokeNative(0xE9990552DEC71600)
+            local label = CreateVarString(10, 'LITERAL_STRING', 'RSGCORE CREATOR')
+            PromptSetActiveGroupThisFrame(RoomPrompts, label)
+
+            if IsControlPressed(0, RSG.CameraWS[1]) then
+                local CamCoords = GetCamCoord(CharacterCreatorCamera)
+                local z = math.min(CamCoords.z + 0.01, camloc.z + 1)
+                SetCamCoord(CharacterCreatorCamera, camloc.x, camloc.y, z)
+            end
+
+            if IsControlPressed(0, RSG.CameraWS[2]) then
+                local CamCoords = GetCamCoord(CharacterCreatorCamera)
+                local HasZ, PosZ = GetGroundZAndNormalFor_3dCoord(camloc.x, camloc.y, camloc.z + 0.5)
+                local z = math.max(CamCoords.z - 0.01, PosZ + 0.2)
+                SetCamCoord(CharacterCreatorCamera, camloc.x, camloc.y, z)
+            end
+
+            if IsControlPressed(0, RSG.Rotate[1]) then
+                local heading = GetEntityHeading(PlayerPedId())
+                SetPedDesiredHeading(PlayerPedId(), heading - 40)
+            end
+
+            if IsControlPressed(0, RSG.Rotate[2]) then
+                local heading = GetEntityHeading(PlayerPedId())
+                SetPedDesiredHeading(PlayerPedId(), heading + 40)
+            end
+
+            if IsControlPressed(0, RSG.Zoom[1]) then
+                SetCamFov(CharacterCreatorCamera, GetCamFov(CharacterCreatorCamera) - 1.5)
+            end
+
+            if IsControlPressed(0, RSG.Zoom[2]) then
+                SetCamFov(CharacterCreatorCamera, GetCamFov(CharacterCreatorCamera) + 1.5)
+            end
+
+            if PromptHasHoldModeCompleted(Cancelprompt) then
+                StartCreator()
+            end
         end
     end)
 end
@@ -283,9 +352,8 @@ end
 -- EZC74cSnnr
 
 function StartCharacterCreatorCamera()
-    SetEntityCoords(PlayerPedId(), -558.32, -3781.11, 237.60)
-    SetEntityHeading(PlayerPedId(), 102.0)
-    local cam2 = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", -558.84, -3779.27, 238.6, 0, 0, 0, GetGameplayCamFov())
+    Citizen.InvokeNative(0x203BEFFDBE12E96A, PlayerPedId(), pedloc, false, false, false)
+    local cam2 = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", pedloc.x, pedloc.y, pedloc.z, 0, 0, 0, GetGameplayCamFov())
     SetCamActive(cam2, true)
     SetCamActiveWithInterp(cam2, cam, 1000)
     PointCamAtCoord(cam2, -558.32, -3781.11, 238.60)
@@ -293,24 +361,12 @@ function StartCharacterCreatorCamera()
     SetCamActive(cam, false)
     DestroyCam(cam)
     cam = nil
-    CharacterCreatorCamera = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", -560.133, -3780.92, 238.6, 0, 0, 0,
-        GetGameplayCamFov())
+    local HasZ, z = GetGroundZAndNormalFor_3dCoord(camloc.x, camloc.y, camloc.z + 0.5)
+    CharacterCreatorCamera = CreateCamWithParams('DEFAULT_SCRIPTED_CAMERA', camloc.x, camloc.y, z + 1.5, 0.0, 0.0, camloc.w, 65.00, false, 0)
     SetCamActive(CharacterCreatorCamera, true)
+    RenderScriptCams(true, true, 0, 1, 0)
     SetCamActiveWithInterp(CharacterCreatorCamera, cam2, 1000)
-    PointCamAtCoord(CharacterCreatorCamera, -558.32, -3781.11, 238.60)
     CreatorLight()
-
-end
-
-function MoveCharacterCreatorCamera(x, y, z)
-    local cam2 = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", x, y, z, 0, 0, 0, GetGameplayCamFov())
-    SetCamActive(cam2, true)
-    SetCamActiveWithInterp(cam2, CharacterCreatorCamera, 750)
-    PointCamAtCoord(cam2, -558.32, -3781.11, z)
-    Wait(150)
-    SetCamActive(CharacterCreatorCamera, false)
-    DestroyCam(CharacterCreatorCamera)
-    CharacterCreatorCamera = cam2
 end
 
 function EndCharacterCreatorCam()
