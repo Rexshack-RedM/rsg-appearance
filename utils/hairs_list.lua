@@ -1,4 +1,4 @@
-return {
+hairs_list = {
     ['female'] = {
         ['hair'] = {
             [1] = {
