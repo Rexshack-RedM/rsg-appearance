@@ -5,7 +5,7 @@ local SpawnCoords = {vector3(-558.71, -3775.46, 238.6), vector3(-558.56, -3776.8
 local CameraCoords = {vector3(-561.16, -3775.46, 238.9), vector3(-561.16, -3776.83, 238.9)}
 local pedloc = vector4(-558.0, -3781.0, 237.60, 91.0)
 local camloc = vector4(-560.0, -3781.0, 239.0, 268.0)
-
+local SpawnedPeds = {}
 local PromptRight
 local PromptLeft
 local PromptAccept
@@ -96,7 +96,6 @@ function LoadModel(target, model)
 end
 
 function SpawnPeds()
-    local SpawnedPeds = {}
     local maleHash = GetHashKey("mp_male")
     local femaleHash = GetHashKey("mp_female")
     modelrequest(maleHash)
@@ -136,7 +135,7 @@ function SpawnPeds()
     return SpawnedPeds
 end
 
-function DeletePeds(SpawnedPeds)
+function DeletePeds()
     for i = 1, 2 do
         DeleteEntity(SpawnedPeds[i])
     end
@@ -212,17 +211,17 @@ Citizen.CreateThread(function()
 	PromptSetGroup(CameraPrompt, RoomPrompts)
 	PromptRegisterEnd(CameraPrompt)
 
-	str = RSG.RotatePrompt
-	RotatePrompt = PromptRegisterBegin()
-	PromptSetControlAction(RotatePrompt, RSG.Rotate[1])
-	PromptSetControlAction(RotatePrompt, RSG.Rotate[2])
-	str = CreateVarString(10, 'LITERAL_STRING', str)
-	PromptSetText(RotatePrompt, str)
-	PromptSetEnabled(RotatePrompt, true)
-	PromptSetVisible(RotatePrompt, true)
-	PromptSetStandardMode(RotatePrompt, 1)
-	PromptSetGroup(RotatePrompt, RoomPrompts)
-	PromptRegisterEnd(RotatePrompt)
+	-- str = RSG.RotatePrompt
+	-- RotatePrompt = PromptRegisterBegin()
+	-- PromptSetControlAction(RotatePrompt, RSG.Rotate[1])
+	-- PromptSetControlAction(RotatePrompt, RSG.Rotate[2])
+	-- str = CreateVarString(10, 'LITERAL_STRING', str)
+	-- PromptSetText(RotatePrompt, str)
+	-- PromptSetEnabled(RotatePrompt, true)
+	-- PromptSetVisible(RotatePrompt, true)
+	-- PromptSetStandardMode(RotatePrompt, 1)
+	-- PromptSetGroup(RotatePrompt, RoomPrompts)
+	-- PromptRegisterEnd(RotatePrompt)
 
 	str = RSG.ZoomPrompt
 	ZoomPrompt = PromptRegisterBegin()
@@ -324,15 +323,15 @@ function CreatorLight()
                 SetCamCoord(CharacterCreatorCamera, camloc.x, camloc.y, z)
             end
 
-            if IsControlPressed(0, RSG.Rotate[1]) then
-                local heading = GetEntityHeading(PlayerPedId())
-                SetPedDesiredHeading(PlayerPedId(), heading - 40)
-            end
+            -- if IsControlPressed(0, RSG.Rotate[1]) then
+            --     local heading = GetEntityHeading(PlayerPedId())
+            --     SetPedDesiredHeading(PlayerPedId(), heading - 40)
+            -- end
 
-            if IsControlPressed(0, RSG.Rotate[2]) then
-                local heading = GetEntityHeading(PlayerPedId())
-                SetPedDesiredHeading(PlayerPedId(), heading + 40)
-            end
+            -- if IsControlPressed(0, RSG.Rotate[2]) then
+            --     local heading = GetEntityHeading(PlayerPedId())
+            --     SetPedDesiredHeading(PlayerPedId(), heading + 40)
+            -- end
 
             if IsControlPressed(0, RSG.Zoom[1]) then
                 SetCamFov(CharacterCreatorCamera, GetCamFov(CharacterCreatorCamera) - 1.5)
@@ -367,6 +366,9 @@ function StartCharacterCreatorCamera()
     RenderScriptCams(true, true, 0, 1, 0)
     SetCamActiveWithInterp(CharacterCreatorCamera, cam2, 1000)
     CreatorLight()
+    if SpawnedPeds ~= nil then
+        DeletePeds()
+    end
 end
 
 function EndCharacterCreatorCam()

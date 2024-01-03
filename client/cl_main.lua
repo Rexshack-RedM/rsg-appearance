@@ -293,7 +293,7 @@ function StartCreator()
         {name = m.name, visibility = 0, tx_id = 1, tx_normal = 0, tx_material = 0, tx_color_type = 0, tx_opacity = 1.0, tx_unk = 0, palette = 0, palette_color_primary = 0, palette_color_secondary = 0, palette_color_tertiary = 0, var = 0, opacity = 0.0}
     end
     MenuData.CloseAll()
-    SpawnedPeds = SpawnPeds()
+    SpawnPeds()
     local selectedSex = StartSelectCam()
     CreatorCache["sex"] = selectedSex
     TriggerServerEvent('rsg-appearance:updategender', selectedSex)
@@ -301,7 +301,6 @@ function StartCreator()
     LoadModel(PlayerPedId(), model)
     FixIssues(PlayerPedId())
     SetEntityVisible(PlayerPedId(), true)
-    DeletePeds(SpawnedPeds)
     MainMenu()
 end
 
