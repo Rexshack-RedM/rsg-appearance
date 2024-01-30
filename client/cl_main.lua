@@ -1,12 +1,17 @@
 RSGCore = exports['rsg-core']:GetCoreObject()
 local isLoggedIn = false
-local PlayerData = {}
 BucketId = GetRandomIntInRange(0, 0xffffff)
 ComponentsMale = {}
 ComponentsFemale = {}
 LoadedComponents = {}
 CreatorCache = {}
-local SpawnedPeds = {}
+
+Firstname = nil
+Lastname = nil
+Nationality = nil
+Selectedsex = nil
+Birthdate = nil
+Cid = nil
 
 AddEventHandler('RSGCore:Client:OnPlayerLoaded', function()
     isLoggedIn = true
@@ -36,11 +41,6 @@ local MainMenus = {
     end,
     ["makeup"] = function()
         OpenMakeupMenu()
-    end,
-    ["save"] = function()
-        MenuData.CloseAll()
-        LoadedComponents = CreatorCache
-        FotoMugshots()
     end
 }
 
@@ -248,9 +248,17 @@ end
 
 exports('ApplySkinMultiChar', ApplySkinMultiChar)
 
-RegisterNetEvent('rsg-appearance:OpenCreator')
-AddEventHandler('rsg-appearance:OpenCreator', function()
+RegisterNetEvent('rsg-appearance:OpenCreator', function(data, empty)
+    if data then
+        Cid = data.cid
+        -- print('Cid')
+    elseif empty then
+        Skinkosong = true
+        -- print('Skinkosong')
+    end
+
     StartCreator()
+
 end)
 
 RegisterNetEvent('rsg-appearance:LoadSkinClient')
@@ -305,6 +313,15 @@ RegisterCommand('loadskin', function(source, args, raw)
     end
 end, false)
 
+local function checkStrings(input)
+    if RSG.ProfanityWords[input:lower()] then return false end
+    if not string.match(input, '%u%l*') then
+        RSGCore.Functions.Notify('Input must start with a capital letter, and only letters are allowed.', 'error', 10000)
+        return false
+    end
+    return true
+end
+
 function StartCreator()
     TriggerServerEvent("rsg-appearance:SetPlayerBucket" , BucketId)
     Wait(1)
@@ -316,6 +333,201 @@ function StartCreator()
     SpawnPeds()
 end
 
+function FirstMenu()
+    MenuData.CloseAll()
+
+    local elements = {}
+
+    if Skinkosong then
+        Labelsave = RSG.Texts.firsmenu.Start
+        Valuesave = 'save'
+    end
+
+    if (IsInCharCreation or Skinkosong) then
+        elements[#elements + 1] = {
+            label = "Appearance",
+            value = "appearance",
+            desc = "Choose Your Appearance"
+        }
+    end
+
+    if IsInCharCreation and not Skinkosong then
+        elements[#elements + 1] = {
+            label = Firstname or RSG.Texts.firsmenu.label_firstname .. "<br><span style='opacity:0.6;'>" .. RSG.Texts.firsmenu.none .. "</span>",
+            value = "firstname",
+            desc = "",
+        }
+        elements[#elements + 1] = {
+            label = Lastname or
+                RSG.Texts.firsmenu.label_lastname ..
+                "<br><span style='opacity:0.6;'>" .. "" .. RSG.Texts.firsmenu.none .. "" .. "</span>",
+            value = "lastname",
+            desc = ""
+        }
+        elements[#elements + 1] = {
+            label = Nationality or
+                RSG.Texts.firsmenu.Nationality ..
+                "<br><span style='opacity:0.6;'>" .. "" .. RSG.Texts.firsmenu.none .. "" .. "</span>",
+            value = "nationality",
+            desc = ""
+
+        }
+
+        elements[#elements + 1] = {
+            label = Birthdate or
+                RSG.Texts.firsmenu.Birthdate ..
+                "<br><span style='opacity:0.6;'>" .. "" .. RSG.Texts.firsmenu.none .. "" .. "</span>",
+            value = "birthdate",
+            desc = ""
+        }
+    end
+
+    elements[#elements + 1] = {
+        label = Labelsave or ("<span style='color: Grey;'>" .. RSG.Texts.firsmenu.Start .. "<br>" .. RSG.Texts.firsmenu.empty .. "" .. "</span>"),
+        value = Valuesave or 'not',
+        desc = ""
+
+    }
+    MenuData.Open('default', GetCurrentResourceName(), 'FirstMenu',
+        {
+            title = RSG.Texts.Creator,
+            subtext = RSG.Texts.Options,
+            align = RSG.Texts.align,
+            elements = elements,
+            itemHeight = "4vh"
+        }, function(data, menu)
+            if (data.current.value == 'appearance') then
+                return MainMenu()
+            end
+
+            if (data.current.value == 'firstname') then
+
+                :: noMatch ::
+
+                local dialog = lib.inputDialog('Registration', {
+                    {
+                        type = 'input',
+                        required = true,
+                        icon = 'user-pen',
+                        label = 'First Name',
+                        placeholder = 'Hank'
+                    },
+                })
+                if not dialog then return false end
+                local firstName = dialog[1]
+                if not checkStrings(firstName) then
+                    goto noMatch
+                end
+
+                Firstname = firstName
+                menu.setElement(2, "label", Firstname)
+                menu.setElement(2, "itemHeight", "4vh")
+                menu.refresh()
+            end
+            if (data.current.value == 'lastname') then
+                
+                :: noMatch ::
+
+                local dialog = lib.inputDialog('Registration', {
+                    {
+                        type = 'input',
+                        required = true,
+                        icon = 'user-pen',
+                        label = 'Last name',
+                        placeholder = 'Jordan'
+                    },
+                })
+                if not dialog then return false end
+                local lastname = dialog[1]
+                if not checkStrings(lastname) then
+                    goto noMatch
+                end
+                Lastname = lastname
+                menu.setElement(3, "label", Lastname)
+                menu.setElement(3, "itemHeight", "4vh")
+                menu.refresh()
+            end
+            
+            if (data.current.value == 'nationality') then
+
+                :: noMatch ::
+
+                local dialog = lib.inputDialog('Registration', {
+                    {
+                        type = 'input',
+                        required = true,
+                        icon = 'user-shield',
+                        label = 'Nationality',
+                        placeholder = 'Mexico'
+                    },
+                })
+                if not dialog then return false end
+                local national = dialog[1]
+                if not checkStrings(national) then
+                    goto noMatch
+                end
+                Nationality = national
+                menu.setElement(4, "label", Nationality)
+                menu.setElement(4, "itemHeight", "4vh")
+                menu.refresh()
+            end
+
+            if (data.current.value == 'birthdate') then
+
+                local dialog = lib.inputDialog('Registration', {
+                    {
+                        type = 'date',
+                        required = true,
+                        icon = 'calendar-days',
+                        label = 'Birth Date',
+                        format = 'YYYY-MM-DD',
+                        returnString = true,
+                        min = '1889-01-01', -- Has to be in the same in the same format as the format argument
+                        max = '1990-12-31', -- Has to be in the same in the same format as the format argument
+                        default = '1990-12-31'
+                    }
+                })
+                if not dialog then return false end
+                Birthdate = dialog[1]
+                Labelsave = RSG.Texts.firsmenu.Start
+                Valuesave = 'save'
+                menu.setElement(5, "label", Birthdate)
+                menu.setElement(5, "itemHeight", "4vh")
+                menu.removeElementByIndex(6)
+                menu.addNewElement({
+                    label = RSG.Texts.firsmenu.Start,
+                    value = Valuesave,
+                    desc = ""
+                })
+                menu.refresh()
+            end
+            if data.current.value == 'save' then
+                MenuData.CloseAll()
+                LoadedComponents = CreatorCache
+
+                if Skinkosong then
+                    Skinkosong = false
+                    Firstname = RSGCore.Functions.GetPlayerData().charinfo.firstname
+                    Lastname = RSGCore.Functions.GetPlayerData().charinfo.lastname
+                    FotoMugshots()
+                else
+                    local newData = {
+                        firstname = Firstname,
+                        lastname = Lastname,
+                        nationality = Nationality,
+                        gender = Selectedsex == 1 and 0 or 1,
+                        birthdate = Birthdate,
+                        cid = Cid
+                    }
+                    TriggerServerEvent('rsg-multicharacter:server:createCharacter', newData)
+                    Wait(500)
+                    FotoMugshots()
+                end
+            end
+        end, function(data, menu)
+        end)
+end
+
 function MainMenu()
     MenuData.CloseAll()
     local elements = {
@@ -323,11 +535,12 @@ function MainMenu()
         {label = RSG.Texts.Face,       value = 'face',   desc = ""},
         {label = RSG.Texts.Hair_beard, value = 'hair',   desc = ""},
         {label = RSG.Texts.Makeup,     value = 'makeup', desc = ""},
-        {label = RSG.Texts.save,       value = 'save',   desc = ""}
     }
     MenuData.Open('default', GetCurrentResourceName(), 'main_character_creator_menu',
-        {title = RSG.Texts.Appearance, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
-        MainMenus[data.current.value]() end, function(data, menu)
+        {title = RSG.Texts.Appearance, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements, itemHeight = "4vh"}, function(data, menu)
+        MainMenus[data.current.value]()
+    end, function(data, menu)
+        FirstMenu()
     end)
 end
 
@@ -353,7 +566,7 @@ function OpenBodyMenu()
         {label = RSG.Texts.Height,   value = CreatorCache["height"] or 100,      category = "height",      desc = "", type = "slider", min = 95, max = 105}
     }
     MenuData.Open('default', GetCurrentResourceName(), 'body_character_creator_menu',
-        {title = RSG.Texts.Appearance, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
+        {title = RSG.Texts.Appearance, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements, itemHeight = "4vh"}, function(data, menu)
     end, function(data, menu)
         MainMenu()
     end, function(data, menu)
@@ -379,7 +592,7 @@ function OpenFaceMenu()
         {label = RSG.Texts.Defects,    value = 'defects',    desc = ""}
     }
     MenuData.Open('default', GetCurrentResourceName(), 'face_main_character_creator_menu',
-        {title = RSG.Texts.Face, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
+        {title = RSG.Texts.Face, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements, itemHeight = "4vh"}, function(data, menu)
         FaceFunctions[data.current.value]()
     end, function(data, menu)
         MainMenu()
@@ -459,7 +672,7 @@ function OpenHairMenu()
         a = a + 1
     end
     MenuData.Open('default', GetCurrentResourceName(), 'hair_main_character_creator_menu',
-        {title = RSG.Texts.Hair_beard, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
+        {title = RSG.Texts.Hair_beard, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements, itemHeight = "4vh"}, function(data, menu)
     end, function(data, menu)
         MainMenu()
     end, function(data, menu)
@@ -513,7 +726,7 @@ function OpenEyesMenu()
         {label = RSG.Texts.Distance, value = CreatorCache["eyes_distance"] or 0, category = "eyes_distance", desc = "", type = "slider", min = -100, max = 100, hop = 5}
     }
     MenuData.Open('default', GetCurrentResourceName(), 'eyes_character_creator_menu', 
-    {title = RSG.Texts.Eyes, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
+    {title = RSG.Texts.Eyes, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements, itemHeight = "4vh"}, function(data, menu)
     end, function(data, menu)
         OpenFaceMenu()
     end, function(data, menu)
@@ -531,7 +744,7 @@ function OpenEyelidsMenu()
         {label = RSG.Texts.Width,  value = CreatorCache["eyelid_width"] or 0,  category = "eyelid_width",  desc = "", type = "slider", min = -100, max = 100, hop = 5}
     }
     MenuData.Open('default', GetCurrentResourceName(), 'eyelid_character_creator_menu',
-        {title = RSG.Texts.Eyelids, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
+        {title = RSG.Texts.Eyelids, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements, itemHeight = "4vh"}, function(data, menu)
     end, function(data, menu)
         OpenFaceMenu()
     end, function(data, menu)
@@ -554,7 +767,7 @@ function OpenEyebrowsMenu()
         {label = RSG.Texts.ColorFirstrate, value = CreatorCache["eyebrows_c1"] or 0,    category = "eyebrows_c1",    desc = "", type = "slider", min = 0, max = 64}
     }
     MenuData.Open('default', GetCurrentResourceName(), 'eyebrows_character_creator_menu',
-        {title = RSG.Texts.Eyebrows, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
+        {title = RSG.Texts.Eyebrows, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements, itemHeight = "4vh"}, function(data, menu)
     end, function(data, menu)
         OpenFaceMenu()
     end, function(data, menu)
@@ -576,7 +789,7 @@ function OpenNoseMenu()
         {label = RSG.Texts.Distance,      value = CreatorCache["nostrils_distance"] or 0, category = "nostrils_distance", desc = "", type = "slider", min = -100, max = 100, hop = 5}
     }
     MenuData.Open('default', GetCurrentResourceName(), 'nose_character_creator_menu',
-        {title = RSG.Texts.Nose, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
+        {title = RSG.Texts.Nose, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements, itemHeight = "4vh"}, function(data, menu)
     end, function(data, menu)
         OpenFaceMenu()
     end, function(data, menu)
@@ -612,7 +825,7 @@ function OpenMouthMenu()
         {label = RSG.Texts.LowerLipDepth,  value = CreatorCache["lower_lip_depth"] or 0,  category = "lower_lip_depth",  desc = "", type = "slider", min = -100, max = 100, hop = 5}
     }
     MenuData.Open('default', GetCurrentResourceName(), 'mouth_character_creator_menu',
-        {title = RSG.Texts.Mouth, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
+        {title = RSG.Texts.Mouth, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements, itemHeight = "4vh"}, function(data, menu)
     end, function(data, menu)
         ClearPedTasks(PlayerPedId())
         OpenFaceMenu()
@@ -632,7 +845,7 @@ function OpenCheekbonesMenu()
         {label = RSG.Texts.Depth,  value = CreatorCache["cheekbones_depth"] or 0,  category = "cheekbones_depth",  desc = "", type = "slider", min = -100, max = 100, hop = 5}
     }
     MenuData.Open('default', GetCurrentResourceName(), 'cheekbones_character_creator_menu',
-        {title = 'Cheek Bones', subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
+        {title = 'Cheek Bones', subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements, itemHeight = "4vh"}, function(data, menu)
     end, function(data, menu)
         OpenFaceMenu()
     end, function(data, menu)
@@ -671,7 +884,7 @@ function OpenEarsMenu()
         {label = RSG.Texts.Size,   value = CreatorCache["earlobe_size"] or 0, category = "earlobe_size", desc = "", type = "slider", min = -100, max = 100, hop = 5}
     }
     MenuData.Open('default', GetCurrentResourceName(), 'ears_character_creator_menu',
-        {title = RSG.Texts.Ears, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
+        {title = RSG.Texts.Ears, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements, itemHeight = "4vh"}, function(data, menu)
     end, function(data, menu)
         OpenFaceMenu()
     end, function(data, menu)
@@ -689,7 +902,7 @@ function OpenChinMenu()
         {label = RSG.Texts.Size, value = CreatorCache["chin_width"] or 0,  category = "chin_width",  desc = "", type = "slider", min = -100, max = 100, hop = 5},
         {label = RSG.Texts.Size, value = CreatorCache["chin_depth"] or 0,  category = "chin_depth",  desc = "", type = "slider", min = -100, max = 100, hop = 5}}
     MenuData.Open('default', GetCurrentResourceName(), 'chin_character_creator_menu',
-        {title = RSG.Texts.Chin, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
+        {title = RSG.Texts.Chin, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements, itemHeight = "4vh"}, function(data, menu)
     end, function(data, menu)
         OpenFaceMenu()
     end, function(data, menu)
@@ -715,7 +928,7 @@ function OpenDefectsMenu()
         {label = RSG.Texts.Clarity,  value = CreatorCache["spots_op"] or 50,    category = "spots_op",    desc = "", type = "slider", min = 0, max = 100, hop = 5}
     }
     MenuData.Open('default', GetCurrentResourceName(), 'defects_character_creator_menu',
-        {title = RSG.Texts.Disadvantages, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
+        {title = RSG.Texts.Disadvantages, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements, itemHeight = "4vh"}, function(data, menu)
     end, function(data, menu)
         OpenFaceMenu()
     end, function(data, menu)
@@ -748,7 +961,7 @@ function OpenMakeupMenu()
         {label = RSG.Texts.eyeliners_c1,     value = CreatorCache["eyeliners_c1"] or 0, category = "eyeliners_c1", desc = "", type = "slider", min = 0, max = 64}
     }
     MenuData.Open('default', GetCurrentResourceName(), 'makeup_character_creator_menu',
-        {title = RSG.Texts.Make_up, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
+        {title = RSG.Texts.Make_up, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements, itemHeight = "4vh"}, function(data, menu)
     end, function(data, menu)
         MainMenu()
     end, function(data, menu)

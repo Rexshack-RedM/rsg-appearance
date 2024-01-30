@@ -2,6 +2,12 @@ RSG = {}
 
 RSG.WelcomeText = "WELCOME TO RSG FRAMEWORK"
 
+RSG.ProfanityWords = {
+    ['bad word'] = true,
+    ['dick'] = true,
+    ['ass'] = true
+}
+
 RSG.CameraPromptText = 'Up/Down'
 RSG.RotatePromptText = 'Left/Right'
 RSG.ZoomPromptText = 'Zoom'
@@ -103,4 +109,18 @@ RSG.Texts = {
     Color4 = "<img src='nui://rsg-appearance/img/skin4.png' height='20'>",
     Color5 = "<img src='nui://rsg-appearance/img/skin5.png' height='20'>",
     Color6 = "<img src='nui://rsg-appearance/img/skin6.png' height='20'>",
+    Creator = "RSG CREATOR",
+
+    --FirstMenu
+
+    firsmenu = {
+        label_firstname = "Choose a Firstname",
+        label_lastname = "Choose a Firstname",
+        desc = "How do you want to be called by people?",
+        none = "Empty",
+        Start = "Start Your Journey",
+        empty = "Fill out everything first",
+        Nationality = "Choose a Nationality",
+        Birthdate = "Choose a Birthdate",
+    }
 }

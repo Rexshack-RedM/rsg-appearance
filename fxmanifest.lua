@@ -4,7 +4,11 @@ game 'rdr3'
 lua54 'yes'
 
 description 'rsg-appearance'
-version '2.0.0'
+version '2.1.0'
+
+shared_scripts {
+  '@ox_lib/init.lua'
+}
 
 client_scripts {
   'utils/overlays.lua',
@@ -23,4 +27,9 @@ server_scripts {
 
 files {
   'img/*.png'
+}
+
+dependencies {
+  'rsg-core',
+  'ox_lib'
 }
