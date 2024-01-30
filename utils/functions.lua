@@ -15,10 +15,10 @@ local cameraMale
 local cameraFemale
 local isSelectSexActive
 
-InCharacterCreator  = false
-IsInCharCreation 	= false
-FemalePed		 	= nil
-MalePed 			= nil
+InCharacterCreator = false
+IsInCharCreation   = false
+FemalePed          = nil
+MalePed            = nil
 
 local PromptGroup1 = GetRandomIntInRange(0, 0xffffff)
 local CameraPrompt, RotatePrompt, ZoomPrompt
@@ -61,41 +61,41 @@ end)
 
 
 Citizen.CreateThread(function()
-	local str = RSG.CameraPromptText
-	CameraPrompt = PromptRegisterBegin()
-	PromptSetControlAction(CameraPrompt, RSG.Prompt.CameraUp)
-	PromptSetControlAction(CameraPrompt, RSG.Prompt.CameraDown)
-	str = CreateVarString(10, 'LITERAL_STRING', str)
-	PromptSetText(CameraPrompt, str)
-	PromptSetEnabled(CameraPrompt, true)
-	PromptSetVisible(CameraPrompt, true)
-	PromptSetStandardMode(CameraPrompt, 1)
-	PromptSetGroup(CameraPrompt, RoomPrompts)
-	PromptRegisterEnd(CameraPrompt)
+    local str = RSG.CameraPromptText
+    CameraPrompt = PromptRegisterBegin()
+    PromptSetControlAction(CameraPrompt, RSG.Prompt.CameraUp)
+    PromptSetControlAction(CameraPrompt, RSG.Prompt.CameraDown)
+    str = CreateVarString(10, 'LITERAL_STRING', str)
+    PromptSetText(CameraPrompt, str)
+    PromptSetEnabled(CameraPrompt, true)
+    PromptSetVisible(CameraPrompt, true)
+    PromptSetStandardMode(CameraPrompt, 1)
+    PromptSetGroup(CameraPrompt, RoomPrompts)
+    PromptRegisterEnd(CameraPrompt)
 
-	str = RSG.RotatePromptText
-	RotatePrompt = PromptRegisterBegin()
-	PromptSetControlAction(RotatePrompt, RSG.Prompt.RotateLeft)
-	PromptSetControlAction(RotatePrompt, RSG.Prompt.RotateRight)
-	str = CreateVarString(10, 'LITERAL_STRING', str)
-	PromptSetText(RotatePrompt, str)
-	PromptSetEnabled(RotatePrompt, true)
-	PromptSetVisible(RotatePrompt, true)
-	PromptSetStandardMode(RotatePrompt, 1)
-	PromptSetGroup(RotatePrompt, RoomPrompts)
-	PromptRegisterEnd(RotatePrompt)
+    str = RSG.RotatePromptText
+    RotatePrompt = PromptRegisterBegin()
+    PromptSetControlAction(RotatePrompt, RSG.Prompt.RotateLeft)
+    PromptSetControlAction(RotatePrompt, RSG.Prompt.RotateRight)
+    str = CreateVarString(10, 'LITERAL_STRING', str)
+    PromptSetText(RotatePrompt, str)
+    PromptSetEnabled(RotatePrompt, true)
+    PromptSetVisible(RotatePrompt, true)
+    PromptSetStandardMode(RotatePrompt, 1)
+    PromptSetGroup(RotatePrompt, RoomPrompts)
+    PromptRegisterEnd(RotatePrompt)
 
-	str = RSG.ZoomPromptText
-	ZoomPrompt = PromptRegisterBegin()
-	PromptSetControlAction(ZoomPrompt, RSG.Prompt.Zoom1)
-	PromptSetControlAction(ZoomPrompt, RSG.Prompt.Zoom2)
-	str = CreateVarString(10, 'LITERAL_STRING', str)
-	PromptSetText(ZoomPrompt, str)
-	PromptSetEnabled(ZoomPrompt, true)
-	PromptSetVisible(ZoomPrompt, true)
-	PromptSetStandardMode(ZoomPrompt, 1)
-	PromptSetGroup(ZoomPrompt, RoomPrompts)
-	PromptRegisterEnd(ZoomPrompt)
+    str = RSG.ZoomPromptText
+    ZoomPrompt = PromptRegisterBegin()
+    PromptSetControlAction(ZoomPrompt, RSG.Prompt.Zoom1)
+    PromptSetControlAction(ZoomPrompt, RSG.Prompt.Zoom2)
+    str = CreateVarString(10, 'LITERAL_STRING', str)
+    PromptSetText(ZoomPrompt, str)
+    PromptSetEnabled(ZoomPrompt, true)
+    PromptSetVisible(ZoomPrompt, true)
+    PromptSetStandardMode(ZoomPrompt, 1)
+    PromptSetGroup(ZoomPrompt, RoomPrompts)
+    PromptRegisterEnd(ZoomPrompt)
 end)
 
 function ChangeOverlays(name, visibility, tx_id, tx_normal, tx_material, tx_color_type, tx_opacity, tx_unk, palette_id,
@@ -204,18 +204,18 @@ function LoadPlayer(model)
 end
 
 local function Setup()
-	DoScreenFadeOut(500)
-	Wait(2000)
-	exports.weathersync:setMyTime(10, 0, 0, 0, true)
-	exports.weathersync:setMyWeather("sunny", 10, false)                                                       -- Disable weather and time sync and set a weather for this client.
-	Citizen.InvokeNative(0x513F8AA5BF2F17CF, -561.4, -3782.6, 237.6, 50.0, 20)                                 -- loadshpere
-	Citizen.InvokeNative(0x9748FA4DE50CCE3E, "AZL_RDRO_Character_Creation_Area", true, true)                   -- load sound
-	Citizen.InvokeNative(0x9748FA4DE50CCE3E, "AZL_RDRO_Character_Creation_Area_Other_Zones_Disable", false, true) -- load sound
-	SetTimecycleModifier('Online_Character_Editor')
+    DoScreenFadeOut(500)
+    Wait(2000)
+    exports.weathersync:setMyTime(10, 0, 0, 0, true)
+    exports.weathersync:setMyWeather("sunny", 10, false)                                                       -- Disable weather and time sync and set a weather for this client.
+    Citizen.InvokeNative(0x513F8AA5BF2F17CF, -561.4, -3782.6, 237.6, 50.0, 20)                                 -- loadshpere
+    Citizen.InvokeNative(0x9748FA4DE50CCE3E, "AZL_RDRO_Character_Creation_Area", true, true)                   -- load sound
+    Citizen.InvokeNative(0x9748FA4DE50CCE3E, "AZL_RDRO_Character_Creation_Area_Other_Zones_Disable", false, true) -- load sound
+    SetTimecycleModifier('Online_Character_Editor')
     SetEntityCoords(PlayerPedId(), -549.4303588867188, -3778.28271484375, 238.597412109375, false, false, false, false) -- coords of where it spawns
-	while not HasCollisionLoadedAroundEntity(PlayerPedId()) do
-		Wait(500)
-	end
+    while not HasCollisionLoadedAroundEntity(PlayerPedId()) do
+        Wait(500)
+    end
 end
 
 function SpawnPeds()
@@ -228,14 +228,14 @@ function SpawnPeds()
     local fModel = joaat("mp_female")
     local mModel = joaat("mp_male")
 
-	LoadPlayer(fModel)
-	FemalePed = CreatePed(fModel, vector4(0.0, 0.0, 0.0, 0.0), false)
-	SetModelAsNoLongerNeeded(fModel)
+    LoadPlayer(fModel)
+    FemalePed = CreatePed(fModel, vector4(0.0, 0.0, 0.0, 0.0), false)
+    SetModelAsNoLongerNeeded(fModel)
     SetPedOutfitPreset(FemalePed, 3, true)
-	
-	LoadPlayer(mModel)
-	MalePed = CreatePed(mModel, vector4(0.0, 0.0, 0.0, 0.0), false)
-	SetModelAsNoLongerNeeded(mModel)
+
+    LoadPlayer(mModel)
+    MalePed = CreatePed(mModel, vector4(0.0, 0.0, 0.0, 0.0), false)
+    SetModelAsNoLongerNeeded(mModel)
     SetPedOutfitPreset(MalePed, 3, true)
 
     Sheriff = CreatePedAtCoords(`MP_U_M_O_BlWPoliceChief_01`, vector4(0.0, 0.0, 0.0, 0.0), false)
@@ -379,27 +379,27 @@ local defaultPitch, defaultRoll, defaultHeading, defaultZoom = -5.61, 0.00, -89.
 
 function StartSelectCam()
     cam = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", defaultX, defaultY, defaultZ, defaultPitch, defaultRoll, defaultHeading, defaultZoom, false, 0)
-	cameraMale   = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", -560.47,   -3775.64, 239.09, -7.62,    0.00, -89.67,     defaultZoom,    false, 0)
-	cameraFemale = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", -560.47,   -3776.94,  239.09, -7.62,    0.00, -89.67,    defaultZoom,    false, 0)
+    cameraMale   = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", -560.47,   -3775.64, 239.09, -7.62,    0.00, -89.67,     defaultZoom,    false, 0)
+    cameraFemale = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", -560.47,   -3776.94,  239.09, -7.62,    0.00, -89.67,    defaultZoom,    false, 0)
     local HasZ, z = GetGroundZAndNormalFor_3dCoord(camloc.x, camloc.y, camloc.z + 0.5)
     CharacterCreatorCamera = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", camloc.x, camloc.y, z + 1.5, 0.0, 0.0, camloc.w, 65.00, false, 0)
 end
 
 CreatePedAtCoords = function(model, coords, isNetworked)
-	if type(model) ~= "number" then model = joaat(model) end
+    if type(model) ~= "number" then model = joaat(model) end
 
-	if IsModelInCdimage(model) then
-		isNetworked = isNetworked or false
+    if IsModelInCdimage(model) then
+        isNetworked = isNetworked or false
 
-		RequestModel(model)
-		while not HasModelLoaded(model) do Citizen.Wait(10) end
+        RequestModel(model)
+        while not HasModelLoaded(model) do Citizen.Wait(10) end
 
-		local handle = CreatePed(model, coords, isNetworked, isNetworked, false, false)
-		Citizen.InvokeNative(0x283978A15512B2FE, handle, true)
-		SetModelAsNoLongerNeeded(model)
+        local handle = CreatePed(model, coords, isNetworked, isNetworked, false, false)
+        Citizen.InvokeNative(0x283978A15512B2FE, handle, true)
+        SetModelAsNoLongerNeeded(model)
 
-		return handle
-	end
+        return handle
+    end
 end
 
 function StartPrompts()
@@ -451,34 +451,34 @@ function StartCharacterCreatorCamera(selected, camera)
     Selectedsex = selected
 
     Wait(1000)
-	DoScreenFadeOut(3000)
-	Wait(3000)
+    DoScreenFadeOut(3000)
+    Wait(3000)
 
-	Citizen.InvokeNative(0x203BEFFDBE12E96A, PlayerPedId(), pedloc, false, false, false)
+    Citizen.InvokeNative(0x203BEFFDBE12E96A, PlayerPedId(), pedloc, false, false, false)
     local Sexmodel = GetPedModel(selected)
     LoadModel(PlayerPedId(), Sexmodel)
     FixIssues(PlayerPedId())
     SetEntityVisible(PlayerPedId(), true)
     RenderScriptCams(false, true, 3000, true, true, 0)
     SetCamActive(cam, false)
-	SetCamActive(camera, false)
-	SetCamActive(CharacterCreatorCamera, true)
+    SetCamActive(camera, false)
+    SetCamActive(CharacterCreatorCamera, true)
 
     RenderScriptCams(true, true, 1000, true, true, 0)
     Citizen.InvokeNative(0x4D51E59243281D80, PlayerId(), true, 0, false)  --ENABLE PLAYER CONTROLS 
     CreateThread(function()
-		if DoesEntityExist(FemalePed) then
-			DeletePed(FemalePed)
-		end
-		if DoesEntityExist(MalePed) then
-			DeletePed(MalePed)
-		end
-	end)
+        if DoesEntityExist(FemalePed) then
+            DeletePed(FemalePed)
+        end
+        if DoesEntityExist(MalePed) then
+            DeletePed(MalePed)
+        end
+    end)
 
     SetTimecycleModifier('Online_Character_Editor')
     Wait(1000)
     DoScreenFadeIn(1000)
-	repeat Wait(0) until IsScreenFadedIn()
+    repeat Wait(0) until IsScreenFadedIn()
     PrepareCreatorMusic()
 
     IsInCharCreation = true
@@ -506,7 +506,7 @@ function EndCharacterCreatorCam(anim, anim1)
     DeleteEntity(Deputy)
     Citizen.InvokeNative(0x4D51E59243281D80, PlayerId(), true, 0, false) -- ENABLE PLAYER CONTROLS
     Citizen.InvokeNative(0x9748FA4DE50CCE3E, "AZL_RDRO_Character_Creation_Area", false, false)
-	Citizen.InvokeNative(0x9748FA4DE50CCE3E, "AZL_RDRO_Character_Creation_Area_Other_Zones_Disable", false, false)
+    Citizen.InvokeNative(0x9748FA4DE50CCE3E, "AZL_RDRO_Character_Creation_Area_Other_Zones_Disable", false, false)
     Citizen.InvokeNative(0x706D57B0F50DA710, "MC_MUSIC_STOP")
     Citizen.InvokeNative(0x84EEDB2C6E650000, animscene) -- _DELETE_ANIM_SCENE
     Citizen.InvokeNative(0x5A8B01199C3E79C3)
