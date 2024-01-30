@@ -4,7 +4,7 @@ game 'rdr3'
 lua54 'yes'
 
 description 'rsg-appearance'
-version '2.0.0'
+version '2.1.0'
 
 client_scripts {
   'utils/overlays.lua',

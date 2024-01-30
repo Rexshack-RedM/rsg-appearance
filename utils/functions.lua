@@ -446,8 +446,9 @@ end
 
 function StartCharacterCreatorCamera(selected, camera)
     CreatorCache["sex"] = selected
-    TriggerServerEvent('rsg-appearance:updategender', selected)
     InCharacterCreator = false
+
+    Selectedsex = selected
 
     Wait(1000)
 	DoScreenFadeOut(3000)
@@ -480,7 +481,8 @@ function StartCharacterCreatorCamera(selected, camera)
 	repeat Wait(0) until IsScreenFadedIn()
     PrepareCreatorMusic()
 
-    MainMenu()
+    IsInCharCreation = true
+    FirstMenu()
 end
 
 
