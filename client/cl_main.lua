@@ -226,6 +226,28 @@ AddEventHandler('rsg-appearance:ApplySkin', function(SkinData, Target, ClothesDa
     end)
 end)
 
+local function ApplySkinMultiChar(SkinData, Target, ClothesData)
+    FixIssues(Target)
+    LoadHeight(Target, SkinData)
+    LoadBoody(Target, SkinData)
+    LoadHead(Target, SkinData)
+    LoadHair(Target, SkinData)
+    LoadBeard(Target, SkinData)
+    LoadEyes(Target, SkinData)
+    LoadFeatures(Target, SkinData)
+    LoadBodySize(Target, SkinData)
+    LoadBodyWaist(Target, SkinData)
+    LoadBodyChest(Target, SkinData)
+    LoadOverlays(Target, SkinData)
+    TriggerEvent("rsg-clothes:ApplyClothes", ClothesData, Target)
+    for i, m in pairs(overlay_all_layers) do
+        overlay_all_layers[i] =
+        { name = m.name, visibility = 0, tx_id = 1, tx_normal = 0, tx_material = 0, tx_color_type = 0, tx_opacity = 1.0, tx_unk = 0, palette = 0, palette_color_primary = 0, palette_color_secondary = 0, palette_color_tertiary = 0, var = 0, opacity = 0.0 }
+    end
+end
+
+exports('ApplySkinMultiChar', ApplySkinMultiChar)
+
 RegisterNetEvent('rsg-appearance:OpenCreator')
 AddEventHandler('rsg-appearance:OpenCreator', function()
     StartCreator()
