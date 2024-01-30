@@ -482,9 +482,9 @@ function FirstMenu()
                         label = 'Birth Date',
                         format = 'YYYY-MM-DD',
                         returnString = true,
-                        min = '1889-01-01', -- Has to be in the same in the same format as the format argument
-                        max = '1990-12-31', -- Has to be in the same in the same format as the format argument
-                        default = '1990-12-31'
+                        min = '1400-01-01', -- Has to be in the same in the same format as the format argument
+                        max = '1900-01-01', -- Has to be in the same in the same format as the format argument
+                        default = '1889-01-01'
                     }
                 })
                 if not dialog then return false end
