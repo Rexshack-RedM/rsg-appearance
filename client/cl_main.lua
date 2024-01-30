@@ -251,10 +251,10 @@ exports('ApplySkinMultiChar', ApplySkinMultiChar)
 RegisterNetEvent('rsg-appearance:OpenCreator', function(data, empty)
     if data then
         Cid = data.cid
-        print('Cid')
+        -- print('Cid')
     elseif empty then
         Skinkosong = true
-        print('Skinkosong')
+        -- print('Skinkosong')
     end
 
     StartCreator()
