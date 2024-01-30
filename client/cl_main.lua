@@ -1,4 +1,4 @@
-local RSGCore = exports['rsg-core']:GetCoreObject()
+RSGCore = exports['rsg-core']:GetCoreObject()
 local isLoggedIn = false
 local PlayerData = {}
 BucketId = GetRandomIntInRange(0, 0xffffff)
@@ -38,11 +38,9 @@ local MainMenus = {
         OpenMakeupMenu()
     end,
     ["save"] = function()
-        TriggerServerEvent("rsg-appearance:SetPlayerBucket" , 0)
-        EndCharacterCreatorCam()
         MenuData.CloseAll()
         LoadedComponents = CreatorCache
-        TriggerServerEvent("rsg-appearance:SaveSkin", CreatorCache)
+        FotoMugshots()
     end
 }
 
@@ -294,19 +292,10 @@ function StartCreator()
     end
     MenuData.CloseAll()
     SpawnPeds()
-    local selectedSex = StartSelectCam()
-    CreatorCache["sex"] = selectedSex
-    TriggerServerEvent('rsg-appearance:updategender', selectedSex)
-    local model = GetPedModel(selectedSex)
-    LoadModel(PlayerPedId(), model)
-    FixIssues(PlayerPedId())
-    SetEntityVisible(PlayerPedId(), true)
-    MainMenu()
 end
 
-function MainMenu(Target)
+function MainMenu()
     MenuData.CloseAll()
-    local _Target = Target or PlayerPedId()
     local elements = {
         {label = RSG.Texts.Body,       value = 'body',   desc = ""},
         {label = RSG.Texts.Face,       value = 'face',   desc = ""},

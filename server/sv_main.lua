@@ -103,6 +103,7 @@ RegisterServerEvent('rsg-appearance:updategender', function(gender)
     local Charinfo = json.decode(result[1].charinfo)
     Charinfo.gender = gender
     MySQL.Async.execute("UPDATE players SET `charinfo` = ? WHERE `citizenid`= ? AND `license`= ?", {json.encode(Charinfo), citizenid, license})
+    Player.Functions.Save()
 end)
 
 --------------------------------------------------------------------------------------------------

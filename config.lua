@@ -2,12 +2,22 @@ RSG = {}
 
 RSG.WelcomeText = "WELCOME TO RSG FRAMEWORK"
 
-RSG.CameraWS = { 0x8FD015D8, 0xD27782E3 }
-RSG.Rotate = { 0x7065027D, 0xB4E465B4 }
-RSG.Zoom = { 0x62800C92, 0x8BDE7443 }
-RSG.CameraPrompt = 'Up/Down'
-RSG.RotatePrompt = 'Left/Right'
-RSG.ZoomPrompt = 'Zoom'
+RSG.CameraPromptText = 'Up/Down'
+RSG.RotatePromptText = 'Left/Right'
+RSG.ZoomPromptText = 'Zoom'
+RSG.GroupPromptText = 'RSGCore Creator'
+
+RSG.Prompt = {
+    MalePrompt = 0xA65EBAB4,
+    FemalePrompt = 0xDEB34313,
+    ConfirmPrompt = 0x2CD5343E,
+    CameraUp = 0x8FD015D8,
+    CameraDown = 0xD27782E3,
+    RotateLeft = 0x7065027D,
+    RotateRight = 0xB4E465B4,
+    Zoom1 = 0x62800C92,
+    Zoom2 = 0x8BDE7443,
+}
 
 RSG.Texts = {
     Body = "Body",

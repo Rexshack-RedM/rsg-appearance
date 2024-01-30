@@ -4,22 +4,23 @@ game 'rdr3'
 lua54 'yes'
 
 description 'rsg-appearance'
-version '1.0.4'
+version '2.0.0'
 
 client_scripts {
-    'utils/overlays.lua',
-    'utils/features.lua',
-    'utils/functions.lua',
-    'utils/cloth_hash_names.lua',
-    'utils/hairs_list.lua',
-    'config.lua',
-    'client/cl_main.lua',
+  'utils/overlays.lua',
+  'utils/features.lua',
+  'utils/functions.lua',
+  'utils/cloth_hash_names.lua',
+  'utils/hairs_list.lua',
+  'config.lua',
+  'client/cl_main.lua',
 }
 
-server_scripts {    
-    'server/sv_main.lua',
-    '@oxmysql/lib/MySQL.lua',
+server_scripts {
+  '@oxmysql/lib/MySQL.lua',
+  'server/sv_main.lua',
 }
+
 files {
-  'img/*.png
+  'img/*.png'
 }
