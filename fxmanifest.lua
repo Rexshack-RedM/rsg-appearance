@@ -6,7 +6,9 @@ lua54 'yes'
 description 'rsg-appearance'
 version '2.1.0'
 
-shared_scripts '@ox_lib/init.lua'
+shared_scripts {
+  '@ox_lib/init.lua'
+}
 
 client_scripts {
   'utils/overlays.lua',
@@ -27,6 +29,7 @@ files {
   'img/*.png'
 }
 
-dependency {
+dependencies {
+  'rsg-core',
   'ox_lib'
 }
