@@ -440,7 +440,6 @@ function FirstMenu()
                 if not dialog then return false end
                 local lastname = dialog[1]
                 if not checkStrings(lastname) then
-                    RSGCore.Functions.Notify('Anything other than letters aren\'t allowed, trailing whitespaces aren\'t allowed either and words must start with a capital letter in input fields. You can however add words with spaces inbetween.', 'error', 10000)
                     goto noMatch
                 end
                 Lastname = lastname
@@ -465,7 +464,6 @@ function FirstMenu()
                 if not dialog then return false end
                 local national = dialog[1]
                 if not checkStrings(national) then
-                    RSGCore.Functions.Notify('Anything other than letters aren\'t allowed, trailing whitespaces aren\'t allowed either and words must start with a capital letter in input fields. You can however add words with spaces inbetween.', 'error', 10000)
                     goto noMatch
                 end
                 Nationality = national
