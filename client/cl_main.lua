@@ -1,4 +1,4 @@
-local RSGCore = exports['rsg-core']:GetCoreObject()
+RSGCore = exports['rsg-core']:GetCoreObject()
 local isLoggedIn = false
 local PlayerData = {}
 BucketId = GetRandomIntInRange(0, 0xffffff)
@@ -38,11 +38,9 @@ local MainMenus = {
         OpenMakeupMenu()
     end,
     ["save"] = function()
-        TriggerServerEvent("rsg-appearance:SetPlayerBucket" , 0)
-        EndCharacterCreatorCam()
         MenuData.CloseAll()
         LoadedComponents = CreatorCache
-        TriggerServerEvent("rsg-appearance:SaveSkin", CreatorCache)
+        FotoMugshots()
     end
 }
 
@@ -228,6 +226,28 @@ AddEventHandler('rsg-appearance:ApplySkin', function(SkinData, Target, ClothesDa
     end)
 end)
 
+local function ApplySkinMultiChar(SkinData, Target, ClothesData)
+    FixIssues(Target)
+    LoadHeight(Target, SkinData)
+    LoadBoody(Target, SkinData)
+    LoadHead(Target, SkinData)
+    LoadHair(Target, SkinData)
+    LoadBeard(Target, SkinData)
+    LoadEyes(Target, SkinData)
+    LoadFeatures(Target, SkinData)
+    LoadBodySize(Target, SkinData)
+    LoadBodyWaist(Target, SkinData)
+    LoadBodyChest(Target, SkinData)
+    LoadOverlays(Target, SkinData)
+    TriggerEvent("rsg-clothes:ApplyClothes", ClothesData, Target)
+    for i, m in pairs(overlay_all_layers) do
+        overlay_all_layers[i] =
+        { name = m.name, visibility = 0, tx_id = 1, tx_normal = 0, tx_material = 0, tx_color_type = 0, tx_opacity = 1.0, tx_unk = 0, palette = 0, palette_color_primary = 0, palette_color_secondary = 0, palette_color_tertiary = 0, var = 0, opacity = 0.0 }
+    end
+end
+
+exports('ApplySkinMultiChar', ApplySkinMultiChar)
+
 RegisterNetEvent('rsg-appearance:OpenCreator')
 AddEventHandler('rsg-appearance:OpenCreator', function()
     StartCreator()
@@ -283,7 +303,7 @@ RegisterCommand('loadskin', function(source, args, raw)
         SetEntityHealth(PlayerPedId(), currentHealth )
         Citizen.InvokeNative(0xC3D4B754C0E86B9E, PlayerPedId(), currentStamina)
     end
-end)
+end, false)
 
 function StartCreator()
     TriggerServerEvent("rsg-appearance:SetPlayerBucket" , BucketId)
@@ -293,21 +313,11 @@ function StartCreator()
         {name = m.name, visibility = 0, tx_id = 1, tx_normal = 0, tx_material = 0, tx_color_type = 0, tx_opacity = 1.0, tx_unk = 0, palette = 0, palette_color_primary = 0, palette_color_secondary = 0, palette_color_tertiary = 0, var = 0, opacity = 0.0}
     end
     MenuData.CloseAll()
-    SpawnedPeds = SpawnPeds()
-    local selectedSex = StartSelectCam()
-    CreatorCache["sex"] = selectedSex
-    TriggerServerEvent('rsg-appearance:updategender', selectedSex)
-    local model = GetPedModel(selectedSex)
-    LoadModel(PlayerPedId(), model)
-    FixIssues(PlayerPedId())
-    SetEntityVisible(PlayerPedId(), true)
-    DeletePeds(SpawnedPeds)
-    MainMenu()
+    SpawnPeds()
 end
 
-function MainMenu(Target)
+function MainMenu()
     MenuData.CloseAll()
-    local _Target = Target or PlayerPedId()
     local elements = {
         {label = RSG.Texts.Body,       value = 'body',   desc = ""},
         {label = RSG.Texts.Face,       value = 'face',   desc = ""},
@@ -355,7 +365,6 @@ function OpenBodyMenu()
 end
 
 function OpenFaceMenu()
-    MoveCharacterCreatorCamera(-558.97, -3780.95, 239.18)
     MenuData.CloseAll()
     local elements = {
         {label = RSG.Texts.Eyes,       value = 'eyes',       desc = ""},
@@ -373,13 +382,11 @@ function OpenFaceMenu()
         {title = RSG.Texts.Face, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
         FaceFunctions[data.current.value]()
     end, function(data, menu)
-        MoveCharacterCreatorCamera(-560.133, -3780.92, 238.6)
         MainMenu()
     end)
 end
 
 function OpenHairMenu()
-    MoveCharacterCreatorCamera(-558.97, -3780.95, 239.18)
     MenuData.CloseAll()
     local elements = {}
     if IsPedMale(PlayerPedId()) then
@@ -454,7 +461,6 @@ function OpenHairMenu()
     MenuData.Open('default', GetCurrentResourceName(), 'hair_main_character_creator_menu',
         {title = RSG.Texts.Hair_beard, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
     end, function(data, menu)
-        MoveCharacterCreatorCamera(-560.133, -3780.92, 238.6)
         MainMenu()
     end, function(data, menu)
         if data.current.change_type == "model" then
@@ -721,7 +727,6 @@ function OpenDefectsMenu()
 end
 
 function OpenMakeupMenu()
-    MoveCharacterCreatorCamera(-558.97, -3780.95, 239.18)
     MenuData.CloseAll()
     local elements = {
         {label = RSG.Texts.Shadow,           value = CreatorCache["shadows_t"] or 1,    category = "shadows_t",    desc = "", type = "slider", min = 1, max = 5},
@@ -745,7 +750,6 @@ function OpenMakeupMenu()
     MenuData.Open('default', GetCurrentResourceName(), 'makeup_character_creator_menu',
         {title = RSG.Texts.Make_up, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements}, function(data, menu)
     end, function(data, menu)
-        MoveCharacterCreatorCamera(-560.133, -3780.92, 238.6)
         MainMenu()
     end, function(data, menu)
         if CreatorCache[data.current.category] ~= data.current.value then
