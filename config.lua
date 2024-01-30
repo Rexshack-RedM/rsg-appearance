@@ -115,7 +115,7 @@ RSG.Texts = {
 
     firsmenu = {
         label_firstname = "Choose a Firstname",
-        label_lastname = "Choose a Firstname",
+        label_lastname = "Choose a Lastname",
         desc = "How do you want to be called by people?",
         none = "Empty",
         Start = "Start Your Journey",
