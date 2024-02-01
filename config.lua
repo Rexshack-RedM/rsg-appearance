@@ -154,7 +154,7 @@ RSG.Zones1 = {
         blipcoords = vector3(-327.07, 807.77, 117.89),
         fittingcoords = vector4(-327.765, 807.769, 117.894, 254.593),
         quitcoords = vector4(-326.033, 805.976, 117.882, 241.450),
-        promtcoords = vector3(-326.3864, 774.4106, 117.4579),
+        promtcoords = vector3(-325.9504, 806.58251, 117.8897),
         showblip = true
     },
     {
