@@ -6,12 +6,23 @@ ComponentsFemale = {}
 LoadedComponents = {}
 CreatorCache = {}
 
+MenuData = {}
+
+TriggerEvent("rsg-menubase:getData", function(call)
+    MenuData = call
+end)
+
 Firstname = nil
 Lastname = nil
 Nationality = nil
 Selectedsex = nil
 Birthdate = nil
 Cid = nil
+
+local Data = require 'data.features'
+local Overlays = require 'data.overlays'
+local clotheslist = require 'data.clothes_list'
+local hairs_list = require 'data.hairs_list'
 
 AddEventHandler('RSGCore:Client:OnPlayerLoaded', function()
     isLoggedIn = true
@@ -21,12 +32,6 @@ end)
 RegisterNetEvent('RSGCore:Client:OnPlayerUnload', function()
     isLoggedIn = false
     PlayerData = {}
-end)
-
-MenuData = {}
-
-TriggerEvent("rsg-menubase:getData", function(call)
-    MenuData = call
 end)
 
 local MainMenus = {
@@ -162,7 +167,7 @@ local EyebrowsFunctions = {
 }
 
 CreateThread(function()
-    for i, v in pairs(cloth_hash_names) do
+    for i, v in pairs(clotheslist) do
         if v.category_hashname == "BODIES_LOWER" or v.category_hashname == "BODIES_UPPER" or v.category_hashname ==
             "heads" or v.category_hashname == "hair" or v.category_hashname == "teeth" or v.category_hashname == "eyes" then
             if v.ped_type == "female" and v.is_multiplayer and v.hashname ~= "" then
@@ -189,11 +194,15 @@ CreateThread(function()
     end
 end)
 
-RegisterNetEvent('rsg-appearance:ApplySkin')
-AddEventHandler('rsg-appearance:ApplySkin', function(SkinData, Target, ClothesData)
-    CreateThread(function()
-        local _Target = Target or PlayerPedId()
-        local _SkinData = SkinData
+function ApplySkin()
+    local _Target = PlayerPedId()
+    local citizenid = RSGCore.Functions.GetPlayerData().citizenid
+    local currentHealth = GetEntityHealth(PlayerPedId())
+    local maxStamina = Citizen.InvokeNative(0xCB42AFE2B613EE55, PlayerPedId(), Citizen.ResultAsFloat())
+    local currentStamina = Citizen.InvokeNative(0x775A1CA7893AA8B5, PlayerPedId(), Citizen.ResultAsFloat()) / maxStamina * 100
+    RSGCore.Functions.TriggerCallback('rsg-multicharacter:server:getAppearance', function(data)
+        local _SkinData = data.skin
+        local _Clothes = data.clothes
         if _Target == PlayerPedId() then
             local model = GetPedModel(tonumber(_SkinData.sex))
             LoadModel(PlayerPedId(), model)
@@ -201,7 +210,7 @@ AddEventHandler('rsg-appearance:ApplySkin', function(SkinData, Target, ClothesDa
             SetEntityAlpha(_Target, 0)
             LoadedComponents = _SkinData
         end
-        FixIssues(_Target, _SkinData)
+        FixIssues(_Target)
         LoadHeight(_Target, _SkinData)
         LoadBoody(_Target, _SkinData)
         LoadHead(_Target, _SkinData)
@@ -214,17 +223,18 @@ AddEventHandler('rsg-appearance:ApplySkin', function(SkinData, Target, ClothesDa
         LoadBodyChest(_Target, _SkinData)
         LoadOverlays(_Target, _SkinData)
         SetEntityAlpha(_Target, 255)
+        SetEntityHealth(_Target, currentHealth)
+        Citizen.InvokeNative(0xC3D4B754C0E86B9E, _Target, currentStamina)
         if _Target == PlayerPedId() then
-            TriggerServerEvent("rsg-clothes:LoadClothes", 1)
+            TriggerEvent("rsg-clothes:ApplyClothes", _Clothes, _Target)
         else
-            TriggerEvent("rsg-clothes:ApplyClothes", ClothesData, _Target)
-            for i, m in pairs(overlay_all_layers) do
-                overlay_all_layers[i] =
-                {name = m.name, visibility = 0, tx_id = 1, tx_normal = 0, tx_material = 0, tx_color_type = 0, tx_opacity = 1.0, tx_unk = 0, palette = 0, palette_color_primary = 0, palette_color_secondary = 0, palette_color_tertiary = 0, var = 0, opacity = 0.0}
+            for i, m in pairs(Overlays.overlay_all_layers) do
+                Overlays.overlay_all_layers[i] =
+                { name = m.name, visibility = 0, tx_id = 1, tx_normal = 0, tx_material = 0, tx_color_type = 0, tx_opacity = 1.0, tx_unk = 0, palette = 0, palette_color_primary = 0, palette_color_secondary = 0, palette_color_tertiary = 0, var = 0, opacity = 0.0 }
             end
         end
-    end)
-end)
+    end, citizenid)
+end
 
 local function ApplySkinMultiChar(SkinData, Target, ClothesData)
     FixIssues(Target)
@@ -240,8 +250,8 @@ local function ApplySkinMultiChar(SkinData, Target, ClothesData)
     LoadBodyChest(Target, SkinData)
     LoadOverlays(Target, SkinData)
     TriggerEvent("rsg-clothes:ApplyClothes", ClothesData, Target)
-    for i, m in pairs(overlay_all_layers) do
-        overlay_all_layers[i] =
+    for i, m in pairs(Overlays.overlay_all_layers) do
+        Overlays.overlay_all_layers[i] =
         { name = m.name, visibility = 0, tx_id = 1, tx_normal = 0, tx_material = 0, tx_color_type = 0, tx_opacity = 1.0, tx_unk = 0, palette = 0, palette_color_primary = 0, palette_color_secondary = 0, palette_color_tertiary = 0, var = 0, opacity = 0.0 }
     end
 end
@@ -251,39 +261,16 @@ exports('ApplySkinMultiChar', ApplySkinMultiChar)
 RegisterNetEvent('rsg-appearance:OpenCreator', function(data, empty)
     if data then
         Cid = data.cid
-        -- print('Cid')
     elseif empty then
         Skinkosong = true
-        -- print('Skinkosong')
     end
 
     StartCreator()
 
 end)
 
-RegisterNetEvent('rsg-appearance:LoadSkinClient')
-AddEventHandler('rsg-appearance:LoadSkinClient', function()
-    if isLoggedIn then
-        local isJailed = 0
-
-        RSGCore.Functions.GetPlayerData(function(player)
-            isJailed = player.metadata["injail"]
-        end)
-
-        if isJailed > 0 then return end
-
-        local currentHealth = GetEntityHealth(PlayerPedId())
-        local maxStamina = Citizen.InvokeNative(0xCB42AFE2B613EE55, PlayerPedId(), Citizen.ResultAsFloat())
-        local currentStamina = Citizen.InvokeNative(0x775A1CA7893AA8B5, PlayerPedId(), Citizen.ResultAsFloat()) / maxStamina * 100
-        TriggerServerEvent("rsg-appearance:LoadSkin")
-        Wait(1000)
-        SetEntityHealth(PlayerPedId(), currentHealth )
-        Citizen.InvokeNative(0xC3D4B754C0E86B9E, PlayerPedId(), currentStamina)
-    end
-end)
-
 RegisterCommand('loadskin', function(source, args, raw)
-    if isLoggedIn then
+    -- if isLoggedIn then
         local ped = PlayerPedId()
         local isdead = IsEntityDead(ped)
         local cuffed = IsPedCuffed(ped)
@@ -293,9 +280,6 @@ RegisterCommand('loadskin', function(source, args, raw)
         local ragdoll = IsPedRagdoll(ped)
         local falling = IsPedFalling(ped)
         local isJailed = 0
-        local currentHealth = GetEntityHealth(PlayerPedId())
-        local maxStamina = Citizen.InvokeNative(0xCB42AFE2B613EE55, PlayerPedId(), Citizen.ResultAsFloat())
-        local currentStamina = Citizen.InvokeNative(0x775A1CA7893AA8B5, PlayerPedId(), Citizen.ResultAsFloat()) / maxStamina * 100
 
         RSGCore.Functions.GetPlayerData(function(player)
             isJailed = player.metadata["injail"]
@@ -303,14 +287,8 @@ RegisterCommand('loadskin', function(source, args, raw)
 
         if isdead or cuffed or hogtied or lassoed or dragged or ragdoll or falling or isJailed > 0 then return end
 
-        local currentHealth = GetEntityHealth(PlayerPedId())
-        local maxStamina = Citizen.InvokeNative(0xCB42AFE2B613EE55, PlayerPedId(), Citizen.ResultAsFloat())
-        local currentStamina = Citizen.InvokeNative(0x775A1CA7893AA8B5, PlayerPedId(), Citizen.ResultAsFloat()) / maxStamina * 100
-        TriggerServerEvent("rsg-appearance:LoadSkin")
-        Wait(1000)
-        SetEntityHealth(PlayerPedId(), currentHealth )
-        Citizen.InvokeNative(0xC3D4B754C0E86B9E, PlayerPedId(), currentStamina)
-    end
+        ApplySkin()
+    -- end
 end, false)
 
 local function checkStrings(input)
@@ -325,8 +303,8 @@ end
 function StartCreator()
     TriggerServerEvent("rsg-appearance:SetPlayerBucket" , BucketId)
     Wait(1)
-    for i, m in pairs(overlay_all_layers) do
-        overlay_all_layers[i] =
+    for i, m in pairs(Overlays.overlay_all_layers) do
+        Overlays.overlay_all_layers[i] =
         {name = m.name, visibility = 0, tx_id = 1, tx_normal = 0, tx_material = 0, tx_color_type = 0, tx_opacity = 1.0, tx_unk = 0, palette = 0, palette_color_primary = 0, palette_color_secondary = 0, palette_color_tertiary = 0, var = 0, opacity = 0.0}
     end
     MenuData.CloseAll()
@@ -348,6 +326,11 @@ function FirstMenu()
             label = "Appearance",
             value = "appearance",
             desc = "Choose Your Appearance"
+        }
+        elements[#elements + 1] = {
+            label = "Clothing",
+            value = "clothes",
+            desc = "Choose Your Clothes"
         }
     end
 
@@ -386,7 +369,6 @@ function FirstMenu()
         label = Labelsave or ("<span style='color: Grey;'>" .. RSG.Texts.firsmenu.Start .. "<br>" .. RSG.Texts.firsmenu.empty .. "" .. "</span>"),
         value = Valuesave or 'not',
         desc = ""
-
     }
     MenuData.Open('default', GetCurrentResourceName(), 'FirstMenu',
         {
@@ -398,6 +380,10 @@ function FirstMenu()
         }, function(data, menu)
             if (data.current.value == 'appearance') then
                 return MainMenu()
+            end
+
+            if (data.current.value == 'clothes') then
+                return OpenClothingMenu()
             end
 
             if (data.current.value == 'firstname') then
@@ -420,8 +406,8 @@ function FirstMenu()
                 end
 
                 Firstname = firstName
-                menu.setElement(2, "label", Firstname)
-                menu.setElement(2, "itemHeight", "4vh")
+                menu.setElement(3, "label", Firstname)
+                menu.setElement(3, "itemHeight", "4vh")
                 menu.refresh()
             end
             if (data.current.value == 'lastname') then
@@ -443,8 +429,8 @@ function FirstMenu()
                     goto noMatch
                 end
                 Lastname = lastname
-                menu.setElement(3, "label", Lastname)
-                menu.setElement(3, "itemHeight", "4vh")
+                menu.setElement(4, "label", Lastname)
+                menu.setElement(4, "itemHeight", "4vh")
                 menu.refresh()
             end
             
@@ -467,8 +453,8 @@ function FirstMenu()
                     goto noMatch
                 end
                 Nationality = national
-                menu.setElement(4, "label", Nationality)
-                menu.setElement(4, "itemHeight", "4vh")
+                menu.setElement(5, "label", Nationality)
+                menu.setElement(5, "itemHeight", "4vh")
                 menu.refresh()
             end
 
@@ -491,9 +477,9 @@ function FirstMenu()
                 Birthdate = dialog[1]
                 Labelsave = RSG.Texts.firsmenu.Start
                 Valuesave = 'save'
-                menu.setElement(5, "label", Birthdate)
-                menu.setElement(5, "itemHeight", "4vh")
-                menu.removeElementByIndex(6)
+                menu.setElement(6, "label", Birthdate)
+                menu.setElement(6, "itemHeight", "4vh")
+                menu.removeElementByIndex(7)
                 menu.addNewElement({
                     label = RSG.Texts.firsmenu.Start,
                     value = Valuesave,
@@ -549,21 +535,21 @@ function OpenBodyMenu()
     local BodySizeOptions = {RSG.Texts.Slim, RSG.Texts.Sporty, RSG.Texts.Medium, RSG.Texts.Fat,RSG.Texts.Strong}
     local BodyWaistOptions = {}
     local BodyChestOptions = {}
-    for i, v in ipairs(WAIST_TYPES) do
+    for i, v in ipairs(Data.Appearance.waist_types) do
         table.insert(BodyWaistOptions, "+ " .. (i / 2) .. " kg")
     end
-    for i, v in ipairs(CHEST_TYPE) do
+    for i, v in ipairs(Data.Appearance.chest_type) do
         table.insert(BodyChestOptions, i)
     end
     local SkinToneOptions = {RSG.Texts.Color1,RSG.Texts.Color2,RSG.Texts.Color3,RSG.Texts.Color4,RSG.Texts.Color5,RSG.Texts.Color6}
     local elements = {
-        {label = RSG.Texts.Face,     value = CreatorCache["head"] or 1,       category = "head",       desc = "", type = "slider", min = 1, max = 120,    hop = 6},
-        {label = RSG.Texts.Width,    value = CreatorCache["face_width"] or 0, category = "face_width", desc = "", type = "slider", min = -100, max = 100, hop = 5},
-        {label = RSG.Texts.SkinTone, value = CreatorCache["skin_tone"] or 1,  category = "skin_tone",  desc = "", type = "slider", min = 1, max = 6,      options = SkinToneOptions},
-        {label = RSG.Texts.Size,     value = CreatorCache["body_size"] or 3,  category = "body_size",  desc = "", type = "slider", min = 1, max = 5,      options = BodySizeOptions},
-        {label = RSG.Texts.Waist,    value = CreatorCache["body_waist"] or 7, category = "body_waist", desc = "", type = "slider", min = 1, max = 21,     options = BodyWaistOptions},
-        {label = RSG.Texts.Chest, value = CreatorCache["chest_size"] or 1, category = "chest_size", desc = "", type = "slider", min = 1, max = 11, options = BodyChestOptions},
-        {label = RSG.Texts.Height,   value = CreatorCache["height"] or 100,      category = "height",      desc = "", type = "slider", min = 95, max = 105}
+        { label = RSG.Texts.Face,     value = CreatorCache["head"] or 1,       category = "head",       desc = "", type = "slider", min = 1,    max = 120,                          hop = 6 },
+        { label = RSG.Texts.Width,    value = CreatorCache["face_width"] or 0, category = "face_width", desc = "", type = "slider", min = -100, max = 100,                          hop = 5 },
+        { label = RSG.Texts.SkinTone, value = CreatorCache["skin_tone"] or 1,  category = "skin_tone",  desc = "", type = "slider", min = 1,    max = 6,                            options = SkinToneOptions },
+        { label = RSG.Texts.Size,     value = CreatorCache["body_size"] or 3,  category = "body_size",  desc = "", type = "slider", min = 1,    max = #Data.Appearance.body_size,   options = BodySizeOptions },
+        { label = RSG.Texts.Waist,    value = CreatorCache["body_waist"] or 7, category = "body_waist", desc = "", type = "slider", min = 1,    max = #Data.Appearance.waist_types, options = BodyWaistOptions },
+        { label = RSG.Texts.Chest,    value = CreatorCache["chest_size"] or 1, category = "chest_size", desc = "", type = "slider", min = 1,    max = #Data.Appearance.chest_type,  options = BodyChestOptions },
+        { label = RSG.Texts.Height,   value = CreatorCache["height"] or 100,   category = "height",     desc = "", type = "slider", min = 95,   max = 105}
     }
     MenuData.Open('default', GetCurrentResourceName(), 'body_character_creator_menu',
         {title = RSG.Texts.Appearance, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements, itemHeight = "4vh"}, function(data, menu)

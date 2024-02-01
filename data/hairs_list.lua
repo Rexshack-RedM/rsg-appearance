@@ -1,4 +1,4 @@
-hairs_list = {
+local hairs_list = {
     ['female'] = {
         ['hair'] = {
             [1] = {
@@ -14311,3 +14311,5 @@ hairs_list = {
         }
     }
 }
+
+return hairs_list
