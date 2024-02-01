@@ -270,7 +270,7 @@ RegisterNetEvent('rsg-appearance:OpenCreator', function(data, empty)
 end)
 
 RegisterCommand('loadskin', function(source, args, raw)
-    -- if isLoggedIn then
+    if isLoggedIn then
         local ped = PlayerPedId()
         local isdead = IsEntityDead(ped)
         local cuffed = IsPedCuffed(ped)
@@ -288,7 +288,7 @@ RegisterCommand('loadskin', function(source, args, raw)
         if isdead or cuffed or hogtied or lassoed or dragged or ragdoll or falling or isJailed > 0 then return end
 
         ApplySkin()
-    -- end
+    end
 end, false)
 
 local function checkStrings(input)
