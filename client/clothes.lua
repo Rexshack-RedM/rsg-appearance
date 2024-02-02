@@ -60,7 +60,17 @@ function OpenClothingMenu()
                     local input = lib.inputDialog('Save Outfit', {
                         { type = 'input', label = 'Outfit Name', required = true },
                     })
-                    if not input then return menu.close() end
+                    if not input then
+                        menu.close()
+                        destory()
+                        if next(CurentCoords) == nil then
+                            CurentCoords = RSG.Zones1[1]
+                        end
+                        TeleportAndFade(CurentCoords.quitcoords, true)
+                        Wait(1000)
+                        ExecuteCommand('loadskin')
+                        return
+                    end
                     local outfitname = input[1]
                     if outfitname then
                         TriggerServerEvent("rsg-appearance:server:saveOutfit", ClothesCache, CurrentPrice, outfitname )
