@@ -61,15 +61,7 @@ function OpenClothingMenu()
                         { type = 'input', label = 'Outfit Name', required = true },
                     })
                     if not input then
-                        menu.close()
-                        destory()
-                        if next(CurentCoords) == nil then
-                            CurentCoords = RSG.Zones1[1]
-                        end
-                        TeleportAndFade(CurentCoords.quitcoords, true)
-                        Wait(1000)
-                        ExecuteCommand('loadskin')
-                        return
+                        return menu.close()
                     end
                     local outfitname = input[1]
                     if outfitname then
