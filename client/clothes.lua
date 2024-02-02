@@ -98,7 +98,7 @@ function OpenCateogry(menu_catagory)
         for v, k in pairsByKeys(RSG.MenuElements[menu_catagory].category) do
             if clothing["male"][k] ~= nil then
                 local category = clothing["male"][k]
-                if ClothesCache[k] == nil then
+                if ClothesCache[k] == nil or type(ClothesCache[k]) ~= "table" then
                     ClothesCache[k] = {}
                     ClothesCache[k].model = 0
                     ClothesCache[k].texture = 1
@@ -114,6 +114,7 @@ function OpenCateogry(menu_catagory)
                     change_type = "model",
                     id = a
                 }
+                a = a + 1
                 elements[#elements + 1] = {
                     label = RSG.Label.color .. RSG.Label[k] or v,
                     value = ClothesCache[k].texture or 1,
@@ -121,10 +122,11 @@ function OpenCateogry(menu_catagory)
                     desc = "",
                     type = "slider",
                     min = 1,
-                    max = GetMaxTexturesForModelClothes(k, ClothesCache[k].model or 1),
+                    max = GetMaxTexturesForModel(k, ClothesCache[k].model or 1, true),
                     change_type = "texture",
                     id = a
                 }
+                a = a + 1
             end
         end
     else
@@ -132,7 +134,7 @@ function OpenCateogry(menu_catagory)
         for v, k in pairsByKeys(RSG.MenuElements[menu_catagory].category) do
             if clothing["female"][k] ~= nil then
                 local category = clothing["female"][k]
-                if ClothesCache[k] == nil then
+                if ClothesCache[k] == nil or type(ClothesCache[k]) ~= "table" then
                     ClothesCache[k] = {}
                     ClothesCache[k].model = 0
                     ClothesCache[k].texture = 0
@@ -148,6 +150,7 @@ function OpenCateogry(menu_catagory)
                     change_type = "model",
                     id = a
                 }
+                a = a + 1
                 elements[#elements + 1] = {
                     label = RSG.Label.color .. RSG.Label[k] or v,
                     value = ClothesCache[k].texture or 1,
@@ -155,10 +158,11 @@ function OpenCateogry(menu_catagory)
                     desc = "",
                     type = "slider",
                     min = 1,
-                    max = GetMaxTexturesForModelClothes(k, ClothesCache[k].model or 1),
+                    max = GetMaxTexturesForModel(k, ClothesCache[k].model or 1, true),
                     change_type = "texture",
                     id = a
                 }
+                a = a + 1
             end
         end
     end
@@ -178,13 +182,12 @@ function MenuUpdateClothes(data, menu)
             ClothesCache[data.current.category].texture = 1
             ClothesCache[data.current.category].model = data.current.value
             if data.current.value > 0 then
-                menu.setElement(data.current.id + 1, "max", GetMaxTexturesForModelClothes(data.current.category, data.current.value))
+                menu.setElement(data.current.id + 1, "max", GetMaxTexturesForModel(data.current.category, data.current.value, true))
                 menu.setElement(data.current.id + 1, "min", 1)
                 menu.setElement(data.current.id + 1, "value", 1)
                 menu.refresh()
                 Change(data.current.value, data.current.category, data.current.change_type)
             else
-                ClothesCache[data.current.category].model = 0
                 if data.current.category == 'cloaks' then
                     data.current.category = 'ponchos'
                 end
@@ -260,24 +263,23 @@ end
 function Change(id, category, change_type)
     if IsPedMale(PlayerPedId()) then
         if change_type == "model" then
-            NativeSetPedComponentEnabled(PlayerPedId(), clothing["male"][category][id][1].hash, false, true, true)
+            NativeSetPedComponentEnabledClothes(PlayerPedId(), clothing["male"][category][id][1].hash, false, true, true)
         else
             local hash = clothing["male"][category][ClothesCache[category].model]
 
             if not hash then return end
 
-            NativeSetPedComponentEnabled(PlayerPedId(), clothing["male"][category][ClothesCache[category].model][id]
-            .hash, false, true, true)
+            NativeSetPedComponentEnabledClothes(PlayerPedId(), clothing["male"][category][ClothesCache[category].model][id].hash, false, true, true)
         end
     else
         if change_type == "model" then
-            NativeSetPedComponentEnabled(PlayerPedId(), clothing["female"][category][id][1].hash, false, true, true)
+            NativeSetPedComponentEnabledClothes(PlayerPedId(), clothing["female"][category][id][1].hash, false, true, true)
         else
             local hash = clothing["female"][category][ClothesCache[category].model]
 
             if not hash then return end
 
-            NativeSetPedComponentEnabled(PlayerPedId(), clothing["female"][category][ClothesCache[category].model][id].hash, false, true, true)
+            NativeSetPedComponentEnabledClothes(PlayerPedId(), clothing["female"][category][ClothesCache[category].model][id].hash, false, true, true)
         end
     end
 end
@@ -302,7 +304,7 @@ AddEventHandler('rsg-clothes:ApplyClothes', function(ClothesComponents, Target)
                         if clothing["male"][k] ~= nil then
                             if clothing["male"][k][tonumber(v.model)] ~= nil then
                                 if clothing["male"][k][tonumber(v.model)][tonumber(v.texture)] ~= nil then
-                                    NativeSetPedComponentEnabled(_Target, tonumber(clothing["male"][k][tonumber(v.model)][tonumber(v.texture)].hash), false, true, true)
+                                    NativeSetPedComponentEnabledClothes(_Target, tonumber(clothing["male"][k][tonumber(v.model)][tonumber(v.texture)].hash), false, true, true)
                                 end
                             end
                         end
@@ -310,7 +312,7 @@ AddEventHandler('rsg-clothes:ApplyClothes', function(ClothesComponents, Target)
                         if clothing["female"][k] ~= nil then
                             if clothing["female"][k][tonumber(v.model)] ~= nil then
                                 if clothing["female"][k][tonumber(v.model)][tonumber(v.texture)] ~= nil then
-                                    NativeSetPedComponentEnabled(_Target, tonumber(clothing["female"][k][tonumber(v.model)][tonumber(v.texture)].hash), false, true, true)
+                                    NativeSetPedComponentEnabledClothes(_Target, tonumber(clothing["female"][k][tonumber(v.model)][tonumber(v.texture)].hash), false, true, true)
                                 end
                             end
                         end

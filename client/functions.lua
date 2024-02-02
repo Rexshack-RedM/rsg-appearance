@@ -1031,27 +1031,19 @@ function HasBodyComponentsLoaded(target, hair, beard)
     return output
 end
 
-function GetMaxTexturesForModel(category, model)
+function GetMaxTexturesForModel(category, model, isClothing)
     if model == 0 then
         model = 1
     end
-    if IsPedMale(PlayerPedId()) then
-        return #hairs_list["male"][category][model]
+    local gender = IsPedMale(PlayerPedId()) and "male" or "female"
+    
+    if isClothing then
+        return #clothing[gender][category][model]
     else
-        return #hairs_list["female"][category][model]
+        return #hairs_list[gender][category][model]
     end
 end
 
-function GetMaxTexturesForModelClothes(category, model)
-    if model == 0 then
-        model = 1
-    end
-    if IsPedMale(PlayerPedId()) then
-        return #clothing["male"][category][model]
-    else
-        return #clothing["female"][category][model]
-    end
-end
 
 function NativeSetPedFaceFeature(ped, index, value)
     Citizen.InvokeNative(0x5653AB26C82938CF, ped, index, value)
