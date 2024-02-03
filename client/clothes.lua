@@ -60,9 +60,7 @@ function OpenClothingMenu()
                     local input = lib.inputDialog('Save Outfit', {
                         { type = 'input', label = 'Outfit Name', required = true },
                     })
-                    if not input then
-                        return menu.close()
-                    end
+                    if not input then return menu.close() end
                     local outfitname = input[1]
                     if outfitname then
                         TriggerServerEvent("rsg-appearance:server:saveOutfit", ClothesCache, CurrentPrice, outfitname )

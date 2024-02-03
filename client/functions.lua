@@ -12,6 +12,8 @@ local Deputy
 local cameraMale
 local cameraFemale
 local isSelectSexActive
+local torso = 0
+local legs = 0
 
 ComponentsClothesMale = {}
 ComponentsClothesFemale = {}
@@ -140,16 +142,16 @@ end
 
 function ApplyOverlays(overlayTarget)
     if IsPedMale(overlayTarget) then
-        current_texture_settings = Overlays.texture_types["male"]
+        Overlays.current_texture_settings = Overlays.texture_types["male"]
     else
-        current_texture_settings = Overlays.texture_types["female"]
+        Overlays.current_texture_settings = Overlays.texture_types["female"]
     end
     if textureId ~= -1 then
         Citizen.InvokeNative(0xB63B9178D0F58D82, textureId) -- reset texture
         Citizen.InvokeNative(0x6BEFAA907B076859, textureId) -- remove texture
     end
-    textureId = Citizen.InvokeNative(0xC5E7204F322E49EB, current_texture_settings.albedo,
-        current_texture_settings.normal, current_texture_settings.material); -- create texture
+    textureId = Citizen.InvokeNative(0xC5E7204F322E49EB, Overlays.current_texture_settings.albedo,
+    Overlays.current_texture_settings.normal, Overlays.current_texture_settings.material); -- create texture
     for k, v in pairs(Overlays.overlay_all_layers) do
         if v.visibility ~= 0 then
             local overlay_id = Citizen.InvokeNative(0x86BB5FF45F193A02, textureId, v.tx_id, v.tx_normal, v.tx_material,
@@ -653,12 +655,7 @@ function LoadBoody(target, data)
             torso = ComponentsMale["BODIES_UPPER"][output]
             legs = ComponentsMale["BODIES_LOWER"][output]
             Overlays.texture_types["male"].albedo = GetHashKey("MP_head_mr1_sc05_c0_000_ab")
-        else
-            torso = ComponentsMale["BODIES_UPPER"][output]
-            legs = ComponentsMale["BODIES_LOWER"][output]
-            Overlays.texture_types["male"].albedo = GetHashKey("mp_head_mr1_sc02_c0_000_ab")
         end
-
     else
         if tonumber(data.skin_tone) == 1 then
             torso = ComponentsFemale["BODIES_UPPER"][output]
@@ -684,13 +681,7 @@ function LoadBoody(target, data)
             torso = ComponentsFemale["BODIES_UPPER"][output]
             legs = ComponentsFemale["BODIES_LOWER"][output]
             Overlays.texture_types["female"].albedo = GetHashKey("mp_head_fr1_sc05_c0_000_ab")
-        else
-            torso = ComponentsFemale["BODIES_UPPER"][output]
-            legs = ComponentsFemale["BODIES_LOWER"][output]
-            Overlays.texture_types["female"].albedo = GetHashKey("mp_head_fr1_sc02_c0_000_ab")
-
         end
-
     end
     NativeSetPedComponentEnabled(target, tonumber(torso), false, true, true)
     NativeSetPedComponentEnabled(target, tonumber(legs), false, true, true)
@@ -767,22 +758,21 @@ function GetSkinColorFromBodySize(body, color)
         elseif color == 6 then
             return 30
         end
-    else
+    elseif body == 6 then
         if color == 1 then
-            return 13
+            return 31
         elseif color == 2 then
-            return 16
+            return 34
         elseif color == 3 then
-            return 15
+            return 33
         elseif color == 4 then
-            return 17
+            return 35
         elseif color == 5 then
-            return 14
+            return 32
         elseif color == 6 then
-            return 18
+            return 36
         end
     end
-
 end
 
 function LoadHair(target, data)
@@ -878,16 +868,8 @@ function LoadEyes(target, data)
     end
 end
 
-function LoadBodySize(target, data)
-    Citizen.InvokeNative(0x1902C4CFCC5BE57C, target, Data.Appearance.body_size[tonumber(data.body_size)])
-end
-
-function LoadBodyWaist(target, data)
-    Citizen.InvokeNative(0x1902C4CFCC5BE57C, target, Data.Appearance.waist_types[tonumber(data.body_waist)])
-end
-
-function LoadBodyChest(target, data)
-    Citizen.InvokeNative(0x1902C4CFCC5BE57C, target, Data.Appearance.chest_type[tonumber(data.chest_size)])
+function LoadBodyFeature(target, data, bodyFeatureTable)
+    Citizen.InvokeNative(0x1902C4CFCC5BE57C, target, bodyFeatureTable[tonumber(data)])
     Citizen.InvokeNative(0xCC8CA3E88256E58F, target, false, true, true, true, false)
 end
 

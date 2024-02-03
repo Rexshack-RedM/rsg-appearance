@@ -62,14 +62,14 @@ local BodyFunctions = {
         LoadOverlays(target, data)
     end,
     ["body_size"] = function(target, data)
-        LoadBodySize(target, data)
+        LoadBodyFeature(target, data.body_size, Data.Appearance.body_size)
         LoadBoody(target, data)
     end,
     ["body_waist"] = function(target, data)
-        LoadBodyWaist(target, data)
+        LoadBodyFeature(target, data.body_waist, Data.Appearance.body_waist)
     end,
     ["chest_size"] = function(target, data)
-        LoadBodyChest(target, data)
+        LoadBodyFeature(target, data.chest_size, Data.Appearance.chest_size)
     end,
     ["height"] = function(target, data)
         LoadHeight(target, data)
@@ -266,7 +266,7 @@ RegisterNetEvent('rsg-appearance:OpenCreator', function(data, empty)
 end)
 
 RegisterCommand('loadskin', function(source, args, raw)
-    if isLoggedIn then
+    -- if isLoggedIn then
         local ped = PlayerPedId()
         local isdead = IsEntityDead(ped)
         local cuffed = IsPedCuffed(ped)
@@ -284,7 +284,7 @@ RegisterCommand('loadskin', function(source, args, raw)
         if isdead or cuffed or hogtied or lassoed or dragged or ragdoll or falling or isJailed > 0 then return end
 
         ApplySkin()
-    end
+    -- end
 end, false)
 
 local function checkStrings(input)
@@ -528,24 +528,14 @@ end
 
 function OpenBodyMenu()
     MenuData.CloseAll()
-    local BodySizeOptions = {RSG.Texts.Slim, RSG.Texts.Sporty, RSG.Texts.Medium, RSG.Texts.Fat,RSG.Texts.Strong}
-    local BodyWaistOptions = {}
-    local BodyChestOptions = {}
-    for i, v in ipairs(Data.Appearance.waist_types) do
-        table.insert(BodyWaistOptions, "+ " .. (i / 2) .. " kg")
-    end
-    for i, v in ipairs(Data.Appearance.chest_type) do
-        table.insert(BodyChestOptions, i)
-    end
-    local SkinToneOptions = {RSG.Texts.Color1,RSG.Texts.Color2,RSG.Texts.Color3,RSG.Texts.Color4,RSG.Texts.Color5,RSG.Texts.Color6}
     local elements = {
-        { label = RSG.Texts.Face,     value = CreatorCache["head"] or 1,       category = "head",       desc = "", type = "slider", min = 1,    max = 120,                          hop = 6 },
-        { label = RSG.Texts.Width,    value = CreatorCache["face_width"] or 0, category = "face_width", desc = "", type = "slider", min = -100, max = 100,                          hop = 5 },
-        { label = RSG.Texts.SkinTone, value = CreatorCache["skin_tone"] or 1,  category = "skin_tone",  desc = "", type = "slider", min = 1,    max = 6,                            options = SkinToneOptions },
-        { label = RSG.Texts.Size,     value = CreatorCache["body_size"] or 3,  category = "body_size",  desc = "", type = "slider", min = 1,    max = #Data.Appearance.body_size,   options = BodySizeOptions },
-        { label = RSG.Texts.Waist,    value = CreatorCache["body_waist"] or 7, category = "body_waist", desc = "", type = "slider", min = 1,    max = #Data.Appearance.waist_types, options = BodyWaistOptions },
-        { label = RSG.Texts.Chest,    value = CreatorCache["chest_size"] or 1, category = "chest_size", desc = "", type = "slider", min = 1,    max = #Data.Appearance.chest_type,  options = BodyChestOptions },
-        { label = RSG.Texts.Height,   value = CreatorCache["height"] or 100,   category = "height",     desc = "", type = "slider", min = 95,   max = 105}
+        { label = RSG.Texts.Face,     value = CreatorCache["head"] or 1,       category = "head",       desc = "", type = "slider", min = 1,    max = 120,                         hop = 6 },
+        { label = RSG.Texts.Width,    value = CreatorCache["face_width"] or 0, category = "face_width", desc = "", type = "slider", min = -100, max = 100,                         hop = 5 },
+        { label = RSG.Texts.SkinTone, value = CreatorCache["skin_tone"] or 1,  category = "skin_tone",  desc = "", type = "slider", min = 1,    max = 6 },
+        { label = RSG.Texts.Size,     value = CreatorCache["body_size"] or 1,  category = "body_size",  desc = "", type = "slider", min = 1,    max = #Data.Appearance.body_size },
+        { label = RSG.Texts.Waist,    value = CreatorCache["body_waist"] or 1, category = "body_waist", desc = "", type = "slider", min = 1,    max = #Data.Appearance.body_waist },
+        { label = RSG.Texts.Chest,    value = CreatorCache["chest_size"] or 1, category = "chest_size", desc = "", type = "slider", min = 1,    max = #Data.Appearance.chest_size },
+        { label = RSG.Texts.Height,   value = CreatorCache["height"] or 100,   category = "height",     desc = "", type = "slider", min = 95,   max = 105 }
     }
     MenuData.Open('default', GetCurrentResourceName(), 'body_character_creator_menu',
         {title = RSG.Texts.Appearance, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements, itemHeight = "4vh"}, function(data, menu)

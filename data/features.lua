@@ -71,7 +71,7 @@ Data.Appearance = {
         -20262001,
         32611963,
     },
-    waist_types = {
+    body_waist = {
         -2045421226,    -- smallest
         -1745814259,
         -325933489,
@@ -94,7 +94,7 @@ Data.Appearance = {
         -867801909,
         1960266524,        -- biggest
     },
-    chest_type = {
+    chest_size = {
         1676751061,	-- upperbody size -- smallest
         1437242440,	-- upperbody size
         3025752508,	-- upperbody size
@@ -106,7 +106,7 @@ Data.Appearance = {
         290229161,	-- upperbody size
         870174923,	-- upperbody size
         465805723,	-- upperbody size -- biggest
-    },
+    }
 }
 
 return Data
