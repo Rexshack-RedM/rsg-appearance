@@ -1,98 +1,7 @@
--- Here i will post all names for cloth joaat hashes. It helps a lot to sort this shit out.
-
---  All categories are joaat hashes from these names:
---  
---  
---  KNOWN HASHNAMES FOR CATEGORIES:
---      PEDS:
---  
---          "boot_accessories"       hex unsigned: 0x18729F39       dec unsigned: 410165049       dec signed: 410165049
---          "pants"                  hex unsigned: 0x1D4C528A       dec unsigned: 491541130       dec signed: 491541130
---          "cloaks"                 hex unsigned: 0x3C1A74CD       dec unsigned: 1008366797      dec signed: 1008366797
---          "hats"                   hex unsigned: 0x9925C067       dec unsigned: 2569388135      dec signed: -1725579161
---          "vests"                  hex unsigned: 0x485EE834       dec unsigned: 1214179380      dec signed: 1214179380
---          "chaps"                  hex unsigned: 0x3107499B       dec unsigned: 822561179       dec signed: 822561179
---          "shirts_full"            hex unsigned: 0x2026C46D       dec unsigned: 539411565       dec signed: 539411565
---          "badges"                 hex unsigned: 0x3F7F3587       dec unsigned: 1065301383      dec signed: 1065301383
---          "masks"                  hex unsigned: 0x7505EF42       dec unsigned: 1963323202      dec signed: 1963323202
---          "spats"                  hex unsigned: 0x514ADCEA       dec unsigned: 1363860714      dec signed: 1363860714
---          "neckwear"               hex unsigned: 0x5FC29285       dec unsigned: 1606587013      dec signed: 1606587013
---          "boots"                  hex unsigned: 0x777EC6EF       dec unsigned: 2004797167      dec signed: 2004797167
---          "accessories"            hex unsigned: 0x79D7DF96       dec unsigned: 2044190614      dec signed: 2044190614
---          "jewelry_rings_right"    hex unsigned: 0x7A6BBD0B       dec unsigned: 2053881099      dec signed: 2053881099
---          "jewelry_rings_left"     hex unsigned: 0xF16A1D23       dec unsigned: 4050263331      dec signed: -244703965
---          "jewelry_bracelets"      hex unsigned: 0x7BC10759       dec unsigned: 2076247897      dec signed: 2076247897
---          "gauntlets"              hex unsigned: 0x91CE9B20       dec unsigned: 2446236448      dec signed: -1848730848
---          "neckties"               hex unsigned: 0x7A96FACA       dec unsigned: 2056714954      dec signed: 2056714954
---          "holsters_knife"         hex unsigned: 0x7BE77792       dec unsigned: 2078766994      dec signed: 2078766994
---          "talisman_holster"       hex unsigned: 0x7C00A8F0       dec unsigned: 2080418032      dec signed: 2080418032
---          "loadouts"               hex unsigned: 0x83887E88       dec unsigned: 2206760584      dec signed: -2088206712
---          "suspenders"             hex unsigned: 0x877A2CF7       dec unsigned: 2272931063      dec signed: -2022036233
---          "talisman_satchel"       hex unsigned: 0x8EFB276A       dec unsigned: 2398824298      dec signed: -1896142998
---          "satchels"               hex unsigned: 0x94504D26       dec unsigned: 2488290598      dec signed: -1806676698
---          "gunbelts"               hex unsigned: 0x9B2C8B89       dec unsigned: 2603387785      dec signed: -1691579511
---          "belts"                  hex unsigned: 0xA6D134C6       dec unsigned: 2798728390      dec signed: -1496238906
---          "belt_buckles"           hex unsigned: 0xFAE9107F       dec unsigned: 4209578111      dec signed: -85389185
---          "holsters_left"          hex unsigned: 0xB6B6122D       dec unsigned: 3065385517      dec signed: -1229581779
---          "holsters_right"         hex unsigned: 0xB9E2FA01       dec unsigned: 3118660097      dec signed: -1176307199
---          "ammo_rifles"            hex unsigned: 0xDA0E2C55       dec unsigned: 3658361941      dec signed: -636605355
---          "talisman_wrist"         hex unsigned: 0xDB64A390       dec unsigned: 3680805776      dec signed: -614161520
---          "coats"                  hex unsigned: 0xE06D30CE       dec unsigned: 3765252302      dec signed: -529714994
---          "coats_closed"           hex unsigned: 0x662AC34        dec unsigned: 107129908       dec signed: 107129908
---          "ponchos"                hex unsigned: 0xAF14310B       dec unsigned: 2937336075      dec signed: -1357631221
---          "armor"                  hex unsigned: 0x72E6EF74       dec unsigned: 1927737204      dec signed: 1927737204
---          "eyewear"                hex unsigned: 0x5E47CA6        dec unsigned: 98860198      dec signed: 98860198
---          "gloves"                 hex unsigned: 0xEABE0032       dec unsigned: 3938320434      dec signed: -356646862
---          "talisman_belt"          hex unsigned: 0x1AECF7DC       dec unsigned: 451737564       dec signed: 451737564
---          "ammo_pistols"           hex unsigned: 0x3F1F01E5       dec unsigned: 1058996709      dec signed: 1058996709
---          "holsters_crossdraw"     hex unsigned: 0x49C89D9B       dec unsigned: 1237884315      dec signed: 1237884315
---          "aprons"                hex unsigned: 0x76F0E272       dec unsigned: 1995498098      dec signed: 1995498098    
---          "skirts"                 hex unsigned: 0xA0E3AB7F       dec unsigned: 2699275135      dec signed: -1595692161
---            "MASKS_LARGE"            hex unsigned: 0x4A73515C     dec unsigned: 1249071452     dec signed: 1249071452
---            "heads"                    hex unsigned: 0x378AD10C      dec unsigned: 931844364      dec signed: 931844364
---            "hair"                  hex unsigned: 0x864B03AE      dec unsigned: 2253063086      dec signed: -2041904210
---            "BODIES_LOWER"             hex unsigned: 0x823687F5      dec unsigned: 2184611829      dec signed: -2110355467
---            "teeth"                 hex unsigned: 0x96EDAE5C      dec unsigned: 2532159068      dec signed: -1762808228
---            "BODIES_UPPER"             hex unsigned: 0xB3966C9      dec unsigned: 188311241      dec signed: 188311241
---            "eyes"                     hex unsigned: 0xEA24B45E      dec unsigned: 3928274014      dec signed: -366693282
---            "beards_chin"             hex unsigned: 0x15D3C7F2      dec unsigned: 366200818      dec signed: 366200818
---            "beards_chops"             hex unsigned: 0xB6B63737      dec unsigned: 3065394999      dec signed: -1229572297
---            "beards_mustache"         hex unsigned: 0xECC8B25A      dec unsigned: 3972575834      dec signed: -322391462
---  
---      HORSES:
---  
---          "horse_saddles"           hex unsigned: 0xBAA7E618     dec unsigned: 3131565592    dec signed: -1163401704
---          "horse_bedrolls"          hex unsigned: 0xEFB31921     dec unsigned: 4021492001    dec signed: -273475295 
---          "horse_blankets"          hex unsigned: 0x17CEB41A     dec unsigned: 399422490     dec signed: 399422490  
---          "saddle_stirrups"         hex unsigned: 0xDA6DADCA     dec unsigned: 3664621002    dec signed: -630346294 
---          "saddle_horns"            hex unsigned: 0x5447332      dec unsigned: 88372018      dec signed: 88372018   
---          "horse_manes"            hex unsigned: 0xAA0217AB     dec unsigned: 2852263851     dec signed: -1442703445
---          "HORSE_SADDLEBAGS"        hex unsigned: 0x80451C25     dec unsigned: 2152012837     dec signed: -2142954459
---          "HORSE_TAILS"            hex unsigned: 0xA63CAE10     dec unsigned: 2788994576     dec signed: -1505972720
---
---  
---
---  UNKNOWN YET HASHNAMES FOR CATEGORIES:
---  
---      PEDS:
---  
---                                  hex unsigned: 0xF1542D11     dec unsigned: 4048825617     dec signed: -246141679
---                                  hex unsigned: 0xF8016BCA     dec unsigned: 4160842698     dec signed: -134124598
---                                  
---  
---      HORSES:
---  
---                                  hex unsigned: 0xAC106B30     dec unsigned: 2886757168     dec signed: -1408210128
---                                  hex unsigned: 0x94B2E3AF     dec unsigned: 2494751663     dec signed: -1800215633
---                                  hex unsigned: 0x1530BE1C     dec unsigned: 355515932      dec signed: 355515932  
---                                  hex unsigned: 0xD3500E5D     dec unsigned: 3545239133     dec signed: -749728163 
---                                  hex unsigned: 0xFACFC3C0     dec unsigned: 4207920064     dec signed: -87047232  
---                                  hex unsigned: 0x635E387C     dec unsigned: 1667119228     dec signed: 1667119228 
 
 
 
-
- cloth_hash_names = {
+local clotheslist = {
 
     {hashname="HORSE_EQUIPMENT_HORN_NEW_000",category_hashname="saddle_horns",ped_type="horse",is_multiplayer=false,category_hash=0x05447332,hash=0xC6C381F5,hash_dec_signed=-960265739,category_hash_dec_signed=88372018},
     {hashname="HORSE_EQUIPMENT_HORN_NEW_001",category_hashname="saddle_horns",ped_type="horse",is_multiplayer=false,category_hash=0x05447332,hash=0xDBE6AC3B,hash_dec_signed=-605639621,category_hash_dec_signed=88372018},
@@ -16130,3 +16039,5 @@
     {hashname="TEST",category_hashname="beard",ped_type="male",is_multiplayer=true,category_hash=0xF8016BCA,hash=0xFB3B14FB,hash_dec_signed=-80014085,category_hash_dec_signed=-134124598},
     
 }
+
+return clotheslist

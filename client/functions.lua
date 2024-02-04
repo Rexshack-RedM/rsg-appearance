@@ -1,6 +1,4 @@
 local textureId = -1
-local overlay_opacity = 1.0
-local is_overlay_change_active = false
 local pedloc = vector4(-558.0, -3781.0, 239.0, 91.0)
 local camloc = vector4(-560.0, -3781.0, 239.0, 268.0)
 local animscene
@@ -14,6 +12,15 @@ local Deputy
 local cameraMale
 local cameraFemale
 local isSelectSexActive
+local torso = 0
+local legs = 0
+
+ComponentsClothesMale = {}
+ComponentsClothesFemale = {}
+ComponentsBodyMale = {}
+ComponentsBodyFemale = {}
+ClothesCache = {}
+OldClothesCache = {}
 
 InCharacterCreator = false
 IsInCharCreation   = false
@@ -23,6 +30,11 @@ MalePed            = nil
 local PromptGroup1 = GetRandomIntInRange(0, 0xffffff)
 local CameraPrompt, RotatePrompt, ZoomPrompt
 local RoomPrompts = GetRandomIntInRange(0, 0xffffff)
+
+local Data = require 'data.features'
+local Overlays = require 'data.overlays'
+local hairs_list = require 'data.hairs_list'
+local clothing = require 'data.clothing'
 
 Citizen.CreateThread(function()
     local str = "Male"
@@ -100,7 +112,7 @@ end)
 
 function ChangeOverlays(name, visibility, tx_id, tx_normal, tx_material, tx_color_type, tx_opacity, tx_unk, palette_id,
     palette_color_primary, palette_color_secondary, palette_color_tertiary, var, opacity)
-    for k, v in pairs(overlay_all_layers) do
+    for k, v in pairs(Overlays.overlay_all_layers) do
         if v.name == name then
             v.visibility = visibility
             if visibility ~= 0 then
@@ -110,17 +122,17 @@ function ChangeOverlays(name, visibility, tx_id, tx_normal, tx_material, tx_colo
                 v.tx_opacity = tx_opacity
                 v.tx_unk = tx_unk
                 if tx_color_type == 0 then
-                    v.palette = color_palettes[palette_id][1]
+                    v.palette = Overlays.color_palettes[palette_id][1]
                     v.palette_color_primary = palette_color_primary
                     v.palette_color_secondary = palette_color_secondary
                     v.palette_color_tertiary = palette_color_tertiary
                 end
                 if name == "shadows" or name == "eyeliners" or name == "lipsticks" then
                     v.var = var
-                    v.tx_id = overlays_info[name][1].id
+                    v.tx_id = Overlays.overlays_info[name][1].id
                 else
                     v.var = 0
-                    v.tx_id = overlays_info[name][tx_id].id
+                    v.tx_id = Overlays.overlays_info[name][tx_id].id
                 end
                 v.opacity = opacity
             end
@@ -130,17 +142,17 @@ end
 
 function ApplyOverlays(overlayTarget)
     if IsPedMale(overlayTarget) then
-        current_texture_settings = texture_types["male"]
+        Overlays.current_texture_settings = Overlays.texture_types["male"]
     else
-        current_texture_settings = texture_types["female"]
+        Overlays.current_texture_settings = Overlays.texture_types["female"]
     end
     if textureId ~= -1 then
         Citizen.InvokeNative(0xB63B9178D0F58D82, textureId) -- reset texture
         Citizen.InvokeNative(0x6BEFAA907B076859, textureId) -- remove texture
     end
-    textureId = Citizen.InvokeNative(0xC5E7204F322E49EB, current_texture_settings.albedo,
-        current_texture_settings.normal, current_texture_settings.material); -- create texture
-    for k, v in pairs(overlay_all_layers) do
+    textureId = Citizen.InvokeNative(0xC5E7204F322E49EB, Overlays.current_texture_settings.albedo,
+    Overlays.current_texture_settings.normal, Overlays.current_texture_settings.material); -- create texture
+    for k, v in pairs(Overlays.overlay_all_layers) do
         if v.visibility ~= 0 then
             local overlay_id = Citizen.InvokeNative(0x86BB5FF45F193A02, textureId, v.tx_id, v.tx_normal, v.tx_material,
                 v.tx_color_type, v.tx_opacity, v.tx_unk); -- create overlay
@@ -160,10 +172,6 @@ function ApplyOverlays(overlayTarget)
     Citizen.InvokeNative(0x8472A1789478F82F, textureId) -- reset texture
     Citizen.InvokeNative(0x0B46E25761519058, overlayTarget, GetHashKey("heads"), textureId) -- apply texture to current component in category "heads"
     Citizen.InvokeNative(0xCC8CA3E88256E58F, overlayTarget, 0, 1, 1, 1, false); -- refresh ped components
-    -- --print(PlayerPedId() , overlayTarget)
-    -- Citizen.InvokeNative(0x0B46E25761519058, overlayTarget, GetHashKey("heads"), textureId) -- apply texture to current component in category "heads"
-    -- Citizen.InvokeNative(0x92DAABA2C1C10B0E, textureId) -- update texture
-    -- Citizen.InvokeNative(0xCC8CA3E88256E58F, overlayTarget, 0, 1, 1, 1, false); -- refresh ped components
 end
 
 function RemoveImaps()
@@ -520,7 +528,7 @@ function EndCharacterCreatorCam(anim, anim1)
         Citizen.InvokeNative(0x84EEDB2C6E650000, anim1)
     end
     TriggerServerEvent("rsg-appearance:SetPlayerBucket" , 0)
-    TriggerServerEvent("rsg-appearance:SaveSkin", CreatorCache)
+    TriggerServerEvent("rsg-appearance:SaveSkin", CreatorCache, ClothesCache)
 end
 
 function GetGender()
@@ -626,65 +634,54 @@ function LoadBoody(target, data)
         if tonumber(data.skin_tone) == 1 then
             torso = ComponentsMale["BODIES_UPPER"][output]
             legs = ComponentsMale["BODIES_LOWER"][output]
-            texture_types["male"].albedo = GetHashKey("mp_head_mr1_sc08_c0_000_ab")
+            Overlays.texture_types["male"].albedo = GetHashKey("mp_head_mr1_sc08_c0_000_ab")
         elseif tonumber(data.skin_tone) == 2 then
             torso = ComponentsMale["BODIES_UPPER"][output]
             legs = ComponentsMale["BODIES_LOWER"][output]
-            texture_types["male"].albedo = GetHashKey("mp_head_mr1_sc03_c0_000_ab")
+            Overlays.texture_types["male"].albedo = GetHashKey("mp_head_mr1_sc03_c0_000_ab")
         elseif tonumber(data.skin_tone) == 3 then
             torso = ComponentsMale["BODIES_UPPER"][output]
             legs = ComponentsMale["BODIES_LOWER"][output]
-            texture_types["male"].albedo = GetHashKey("mp_head_mr1_sc02_c0_000_ab")
+            Overlays.texture_types["male"].albedo = GetHashKey("mp_head_mr1_sc02_c0_000_ab")
         elseif tonumber(data.skin_tone) == 4 then
             torso = ComponentsMale["BODIES_UPPER"][output]
             legs = ComponentsMale["BODIES_LOWER"][output]
-            texture_types["male"].albedo = GetHashKey("mp_head_mr1_sc04_c0_000_ab")
+            Overlays.texture_types["male"].albedo = GetHashKey("mp_head_mr1_sc04_c0_000_ab")
         elseif tonumber(data.skin_tone) == 5 then
             torso = ComponentsMale["BODIES_UPPER"][output]
             legs = ComponentsMale["BODIES_LOWER"][output]
-            texture_types["male"].albedo = GetHashKey("MP_head_mr1_sc01_c0_000_ab")
+            Overlays.texture_types["male"].albedo = GetHashKey("MP_head_mr1_sc01_c0_000_ab")
         elseif tonumber(data.skin_tone) == 6 then
             torso = ComponentsMale["BODIES_UPPER"][output]
             legs = ComponentsMale["BODIES_LOWER"][output]
-            texture_types["male"].albedo = GetHashKey("MP_head_mr1_sc05_c0_000_ab")
-        else
-            torso = ComponentsMale["BODIES_UPPER"][output]
-            legs = ComponentsMale["BODIES_LOWER"][output]
-            texture_types["male"].albedo = GetHashKey("mp_head_mr1_sc02_c0_000_ab")
+            Overlays.texture_types["male"].albedo = GetHashKey("MP_head_mr1_sc05_c0_000_ab")
         end
-
     else
         if tonumber(data.skin_tone) == 1 then
             torso = ComponentsFemale["BODIES_UPPER"][output]
             legs = ComponentsFemale["BODIES_LOWER"][output]
-            texture_types["female"].albedo = GetHashKey("mp_head_fr1_sc08_c0_000_ab")
+            Overlays.texture_types["female"].albedo = GetHashKey("mp_head_fr1_sc08_c0_000_ab")
         elseif tonumber(data.skin_tone) == 2 then
             torso = ComponentsFemale["BODIES_UPPER"][output]
             legs = ComponentsFemale["BODIES_LOWER"][output]
-            texture_types["female"].albedo = GetHashKey("mp_head_fr1_sc03_c0_000_ab")
+            Overlays.texture_types["female"].albedo = GetHashKey("mp_head_fr1_sc03_c0_000_ab")
         elseif tonumber(data.skin_tone) == 3 then
             torso = ComponentsFemale["BODIES_UPPER"][output]
             legs = ComponentsFemale["BODIES_LOWER"][output]
-            texture_types["female"].albedo = GetHashKey("mp_head_fr1_sc02_c0_000_ab")
+            Overlays.texture_types["female"].albedo = GetHashKey("mp_head_fr1_sc02_c0_000_ab")
         elseif tonumber(data.skin_tone) == 4 then
             torso = ComponentsFemale["BODIES_UPPER"][output]
             legs = ComponentsFemale["BODIES_LOWER"][output]
-            texture_types["female"].albedo = GetHashKey("mp_head_fr1_sc04_c0_000_ab")
+            Overlays.texture_types["female"].albedo = GetHashKey("mp_head_fr1_sc04_c0_000_ab")
         elseif tonumber(data.skin_tone) == 5 then
             torso = ComponentsFemale["BODIES_UPPER"][output]
             legs = ComponentsFemale["BODIES_LOWER"][output]
-            texture_types["female"].albedo = GetHashKey("MP_head_fr1_sc01_c0_000_ab")
+            Overlays.texture_types["female"].albedo = GetHashKey("MP_head_fr1_sc01_c0_000_ab")
         elseif tonumber(data.skin_tone) == 6 then
             torso = ComponentsFemale["BODIES_UPPER"][output]
             legs = ComponentsFemale["BODIES_LOWER"][output]
-            texture_types["female"].albedo = GetHashKey("mp_head_fr1_sc05_c0_000_ab")
-        else
-            torso = ComponentsFemale["BODIES_UPPER"][output]
-            legs = ComponentsFemale["BODIES_LOWER"][output]
-            texture_types["female"].albedo = GetHashKey("mp_head_fr1_sc02_c0_000_ab")
-
+            Overlays.texture_types["female"].albedo = GetHashKey("mp_head_fr1_sc05_c0_000_ab")
         end
-
     end
     NativeSetPedComponentEnabled(target, tonumber(torso), false, true, true)
     NativeSetPedComponentEnabled(target, tonumber(legs), false, true, true)
@@ -761,22 +758,21 @@ function GetSkinColorFromBodySize(body, color)
         elseif color == 6 then
             return 30
         end
-    else
+    elseif body == 6 then
         if color == 1 then
-            return 13
+            return 31
         elseif color == 2 then
-            return 16
+            return 34
         elseif color == 3 then
-            return 15
+            return 33
         elseif color == 4 then
-            return 17
+            return 35
         elseif color == 5 then
-            return 14
+            return 32
         elseif color == 6 then
-            return 18
+            return 36
         end
     end
-
 end
 
 function LoadHair(target, data)
@@ -872,26 +868,16 @@ function LoadEyes(target, data)
     end
 end
 
-function LoadBodySize(target, data)
-    Citizen.InvokeNative(0x1902C4CFCC5BE57C, target, BODY_TYPES[tonumber(data.body_size)])
-end
-
-function LoadBodyWaist(target, data)
-    Citizen.InvokeNative(0x1902C4CFCC5BE57C, target, WAIST_TYPES[tonumber(data.body_waist)])
-end
-
-function LoadBodyChest(target, data)
-    Citizen.InvokeNative(0x1902C4CFCC5BE57C, target, CHEST_TYPE[tonumber(data.chest_size)])
+function LoadBodyFeature(target, data, bodyFeatureTable)
+    Citizen.InvokeNative(0x1902C4CFCC5BE57C, target, bodyFeatureTable[tonumber(data)])
     Citizen.InvokeNative(0xCC8CA3E88256E58F, target, false, true, true, true, false)
 end
 
 function LoadFeatures(target, data)
-    local feature
-    for k, v in pairs(features_name) do
-        feature = features[k]
-        if data[v] ~= nil then
-            local value = data[v] / 100
-            NativeSetPedFaceFeature(target, feature, value)
+    for k, v in pairs(Data.features) do
+        if data[k] ~= nil then
+            local value = data[k] / 100
+            NativeSetPedFaceFeature(target, v, value)
 
             if v == 'teeth' then
                 if IsPedMale(PlayerPedId()) then
@@ -925,7 +911,7 @@ function FixIssues(target)
         NativeSetPedComponentEnabled(target, tonumber(ComponentsMale["heads"][1]), false, true, true)
         NativeSetPedComponentEnabled(target, tonumber(ComponentsMale["eyes"][1]), false, true, true)
         NativeSetPedComponentEnabled(target, tonumber(ComponentsMale["teeth"][1]), false, true, true)
-        texture_types["male"].albedo = GetHashKey("mp_head_mr1_sc08_c0_000_ab")
+        Overlays.texture_types["male"].albedo = GetHashKey("mp_head_mr1_sc08_c0_000_ab")
         Citizen.InvokeNative(0xD710A5007C2AC539, target, 0x1D4C528A, 0)
     else
         NativeSetPedComponentEnabled(target, tonumber(ComponentsFemale["BODIES_UPPER"][1]), false, true, true)
@@ -934,7 +920,7 @@ function FixIssues(target)
         NativeSetPedComponentEnabled(target, tonumber(ComponentsFemale["eyes"][1]), false, true, true)
         NativeSetPedComponentEnabled(target, tonumber(ComponentsFemale["teeth"][1]), false, true, true)
         -- NativeSetPedComponentEnabled( target, 0x1EECD215, false, true, true)
-        texture_types["female"].albedo = GetHashKey("mp_head_fr1_sc08_c0_000_ab")
+        Overlays.texture_types["female"].albedo = GetHashKey("mp_head_fr1_sc08_c0_000_ab")
     end
     Citizen.InvokeNative(0xD710A5007C2AC539, target, 0x3F1F01E5, 0)
     Citizen.InvokeNative(0xD710A5007C2AC539, target, 0xDA0E2C55, 0)
@@ -1027,18 +1013,19 @@ function HasBodyComponentsLoaded(target, hair, beard)
     return output
 end
 
-function GetMaxTexturesForModel(category, model)
-    -- print(model)
-    -- print(category)
+function GetMaxTexturesForModel(category, model, isClothing)
     if model == 0 then
         model = 1
     end
-    if IsPedMale(PlayerPedId()) then
-        return #hairs_list["male"][category][model]
+    local gender = IsPedMale(PlayerPedId()) and "male" or "female"
+    
+    if isClothing then
+        return #clothing[gender][category][model]
     else
-        return #hairs_list["female"][category][model]
+        return #hairs_list[gender][category][model]
     end
 end
+
 
 function NativeSetPedFaceFeature(ped, index, value)
     Citizen.InvokeNative(0x5653AB26C82938CF, ped, index, value)
@@ -1052,14 +1039,6 @@ end
 
 function NativeHasPedComponentLoaded(ped)
     return Citizen.InvokeNative(0xA0BC8FAED8CFEB3C, ped)
-end
-
-function NativeUpdatePedVariation(ped)
-    Citizen.InvokeNative(0x704C908E9C405136, ped)
-    Citizen.InvokeNative(0xCC8CA3E88256E58F, ped, false, true, true, true, false)
-    while not NativeHasPedComponentLoaded(ped) do
-        Wait(1)
-    end
 end
 
 function modelrequest(model)
@@ -1076,4 +1055,96 @@ function GetPedModel(sex)
         model = "mp_female"
     end
     return model
+end
+
+function reversedipairsiter(t, i)
+    i = i - 1
+    if i ~= 0 then
+        return i, t[i]
+    end
+end
+
+function reversedipairs(t)
+    return reversedipairsiter, t, #t + 1
+end
+
+function pairsByKeys (t, f)
+    local a = {}
+    for n in pairs(t) do
+        table.insert(a, n)
+    end
+    table.sort(a, f)
+    local i = 0      -- iterator variable
+    local iter = function ()   -- iterator function
+        i = i + 1
+        if a[i] == nil then
+            return nil
+        else
+            return a[i], t[a[i]]
+        end
+    end
+    return iter
+end
+
+function deepcopy(orig)
+    local orig_type = type(orig)
+    local copy
+    if orig_type == 'table' then
+        copy = {}
+        for orig_key, orig_value in next, orig, nil do
+            copy[deepcopy(orig_key)] = deepcopy(orig_value)
+        end
+        setmetatable(copy, deepcopy(getmetatable(orig)))
+    else
+        copy = orig
+    end
+    return copy
+end
+
+function CalculatePrice()
+    local price = 0
+    if IsPedMale(PlayerPedId()) then
+        for k, v in pairs(clothing["male"]) do
+            if OldClothesCache[k].model ~= ClothesCache[k].model or OldClothesCache[k].texture ~= ClothesCache[k].texture then
+                if ClothesCache[k].model > 0 then
+                    price = price + RSG.Price[k]
+                end
+            end
+        end
+    else
+        for k, v in pairs(clothing["female"]) do
+            if OldClothesCache[k].model ~= ClothesCache[k].model or OldClothesCache[k].texture ~= ClothesCache[k].texture then
+                if ClothesCache[k].model > 0 then
+                    price = price + RSG.Price[k]
+                end
+            end
+        end
+    end
+    return price
+end
+
+function NativeSetPedComponentEnabledClothes(ped, componentHash, immediately, isMp)
+    local categoryHash = NativeGetPedComponentCategory(not IsPedMale(ped), componentHash)
+
+    NativeFixMeshIssues(ped, categoryHash)
+
+    Citizen.InvokeNative(0xD3A7B003ED343FD9, ped, componentHash, immediately, isMp, true)
+    NativeUpdatePedVariation(ped)
+end
+
+function NativeGetPedComponentCategory(isFemale, componentHash)
+    return Citizen.InvokeNative(0x5FF9A878C3D115B8, componentHash, isFemale, true)
+end
+
+function NativeFixMeshIssues(ped, categoryHash)
+    Citizen.InvokeNative(0x59BD177A1A48600A, ped, categoryHash)
+end
+
+function NativeUpdatePedVariation(ped)
+    Citizen.InvokeNative(0x704C908E9C405136, ped)
+    Citizen.InvokeNative(0xCC8CA3E88256E58F, ped, false, true, true, true, false)
+    Citizen.InvokeNative(0xAAB86462966168CE, ped or PlayerPedId(), true)
+    while not NativeHasPedComponentLoaded(ped) do
+        Wait(0)
+    end
 end
