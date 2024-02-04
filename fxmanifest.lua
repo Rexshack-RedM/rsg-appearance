@@ -5,7 +5,7 @@ lua54 'yes'
 use_experimental_fxv2_oal 'yes'
 
 description 'rsg-appearance'
-version '2.1.2'
+version '2.1.3'
 
 shared_scripts {
     '@ox_lib/init.lua',
