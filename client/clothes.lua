@@ -298,21 +298,28 @@ AddEventHandler('rsg-clothes:ApplyClothes', function(ClothesComponents, Target)
         ClothesCache = ClothesComponents
         for k, v in pairs(ClothesComponents) do
             if v ~= nil then
-                local id = tonumber(v.model)
-                if id >= 1 then
-                    if IsPedMale(_Target) then
-                        if clothing["male"][k] ~= nil then
-                            if clothing["male"][k][tonumber(v.model)] ~= nil then
-                                if clothing["male"][k][tonumber(v.model)][tonumber(v.texture)] ~= nil then
-                                    NativeSetPedComponentEnabledClothes(_Target, tonumber(clothing["male"][k][tonumber(v.model)][tonumber(v.texture)].hash), false, true, true)
+                if v.hash and v.hash ~= 0 then
+                    NativeSetPedComponentEnabledClothes(_Target, v.hash, false, true, true)
+                    if v.palette then
+                        NativeSetTextureOutfitTints(_Target,joaat(k),v.palette,v.tint0,v.tint1,v.tint2)
+                    end
+                else
+                    local id = tonumber(v.model)
+                    if id >= 1 then
+                        if IsPedMale(_Target) then
+                            if clothing["male"][k] ~= nil then
+                                if clothing["male"][k][tonumber(v.model)] ~= nil then
+                                    if clothing["male"][k][tonumber(v.model)][tonumber(v.texture)] ~= nil then
+                                        NativeSetPedComponentEnabledClothes(_Target, tonumber(clothing["male"][k][tonumber(v.model)][tonumber(v.texture)].hash), false, true, true)
+                                    end
                                 end
                             end
-                        end
-                    else
-                        if clothing["female"][k] ~= nil then
-                            if clothing["female"][k][tonumber(v.model)] ~= nil then
-                                if clothing["female"][k][tonumber(v.model)][tonumber(v.texture)] ~= nil then
-                                    NativeSetPedComponentEnabledClothes(_Target, tonumber(clothing["female"][k][tonumber(v.model)][tonumber(v.texture)].hash), false, true, true)
+                        else
+                            if clothing["female"][k] ~= nil then
+                                if clothing["female"][k][tonumber(v.model)] ~= nil then
+                                    if clothing["female"][k][tonumber(v.model)][tonumber(v.texture)] ~= nil then
+                                        NativeSetPedComponentEnabledClothes(_Target, tonumber(clothing["female"][k][tonumber(v.model)][tonumber(v.texture)].hash), false, true, true)
+                                    end
                                 end
                             end
                         end
