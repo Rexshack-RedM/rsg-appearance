@@ -1148,3 +1148,7 @@ function NativeUpdatePedVariation(ped)
         Wait(0)
     end
 end
+
+function NativeSetTextureOutfitTints(ped,category,palette,tint0,tint1,tint2)
+    return Citizen.InvokeNative(0x4EFC1F8FF1AD94DE,ped,category,palette,tint0,tint1,tint2)
+end
