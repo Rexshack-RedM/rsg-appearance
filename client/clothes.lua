@@ -298,7 +298,7 @@ AddEventHandler('rsg-clothes:ApplyClothes', function(ClothesComponents, Target)
         ClothesCache = ClothesComponents
         for k, v in pairs(ClothesComponents) do
             if v ~= nil then
-                if v.hash then
+                if v.hash and v.hash ~= 0 then
                     NativeSetPedComponentEnabledClothes(_Target, v.hash, false, true, true)
                     if v.palette then
                         NativeSetTextureOutfitTints(_Target,joaat(k),v.palette,v.tint0,v.tint1,v.tint2)
