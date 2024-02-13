@@ -331,21 +331,21 @@ function FirstMenu()
         elements[#elements + 1] = {
             label = Firstname or RSG.Texts.firsmenu.label_firstname .. "<br><span style='opacity:0.6;'>" .. RSG.Texts.firsmenu.none .. "</span>",
             value = "firstname",
-            desc = "",
+            desc = "Choose Your First Name",
         }
         elements[#elements + 1] = {
             label = Lastname or
                 RSG.Texts.firsmenu.label_lastname ..
                 "<br><span style='opacity:0.6;'>" .. "" .. RSG.Texts.firsmenu.none .. "" .. "</span>",
             value = "lastname",
-            desc = ""
+            desc = "Choose Your Last Name"
         }
         elements[#elements + 1] = {
             label = Nationality or
                 RSG.Texts.firsmenu.Nationality ..
                 "<br><span style='opacity:0.6;'>" .. "" .. RSG.Texts.firsmenu.none .. "" .. "</span>",
             value = "nationality",
-            desc = ""
+            desc = "Choose Your Nationality"
 
         }
 
@@ -354,7 +354,7 @@ function FirstMenu()
                 RSG.Texts.firsmenu.Birthdate ..
                 "<br><span style='opacity:0.6;'>" .. "" .. RSG.Texts.firsmenu.none .. "" .. "</span>",
             value = "birthdate",
-            desc = ""
+            desc = "Choose Your Birth Date"
         }
     end
 
@@ -437,7 +437,7 @@ function FirstMenu()
                         required = true,
                         icon = 'user-shield',
                         label = 'Nationality',
-                        placeholder = 'Mexico'
+                        placeholder = 'Mexican'
                     },
                 })
                 if not dialog then return false end
@@ -461,9 +461,9 @@ function FirstMenu()
                         label = 'Birth Date',
                         format = 'YYYY-MM-DD',
                         returnString = true,
-                        min = '1400-01-01', -- Has to be in the same in the same format as the format argument
+                        min = '1750-01-01', -- Has to be in the same in the same format as the format argument
                         max = '1900-01-01', -- Has to be in the same in the same format as the format argument
-                        default = '1889-01-01'
+                        default = '1870-01-01'
                     }
                 })
                 if not dialog then return false end
