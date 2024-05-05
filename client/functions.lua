@@ -408,9 +408,10 @@ CreatePedAtCoords = function(model, coords, isNetworked)
 end
 
 function StartPrompts()
-
+	lightsOn = false
     while IsInCharCreation do
         Wait(0)
+        DrawLightWithRange(camloc.x, camloc.y, camloc.z, 255, 255, 255, 10.0, 100.0)
 
         local label = CreateVarString(10, 'LITERAL_STRING', RSG.GroupPromptText)
         PromptSetActiveGroupThisFrame(RoomPrompts, label)
@@ -451,7 +452,6 @@ end
 function StartCharacterCreatorCamera(selected, camera)
     CreatorCache["sex"] = selected
     InCharacterCreator = false
-    lightsOn = false
     Selectedsex = selected
 
     Wait(1000)
