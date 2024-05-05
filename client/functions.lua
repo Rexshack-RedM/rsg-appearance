@@ -14,6 +14,7 @@ local cameraFemale
 local isSelectSexActive
 local torso = 0
 local legs = 0
+local lightsOn = false
 
 ComponentsClothesMale = {}
 ComponentsClothesFemale = {}
@@ -214,10 +215,10 @@ end
 local function Setup()
     DoScreenFadeOut(500)
     Wait(2000)
-    exports.weathersync:setMyTime(10, 0, 0, 0, true)
-    exports.weathersync:setMyWeather("sunny", 10, false)                                                       -- Disable weather and time sync and set a weather for this client.
-    Citizen.InvokeNative(0x513F8AA5BF2F17CF, -561.4, -3782.6, 237.6, 50.0, 20)                                 -- loadshpere
-    Citizen.InvokeNative(0x9748FA4DE50CCE3E, "AZL_RDRO_Character_Creation_Area", true, true)                   -- load sound
+    exports.weathersync:setMyTime(0, 0, 0, 0, true)
+    lightsOn = true
+    Citizen.InvokeNative(0x513F8AA5BF2F17CF, -561.4, -3782.6, 237.6, 50.0, 20) -- loadshpere
+    Citizen.InvokeNative(0x9748FA4DE50CCE3E, "AZL_RDRO_Character_Creation_Area", true, true) -- load sound
     Citizen.InvokeNative(0x9748FA4DE50CCE3E, "AZL_RDRO_Character_Creation_Area_Other_Zones_Disable", false, true) -- load sound
     SetTimecycleModifier('Online_Character_Editor')
     SetEntityCoords(PlayerPedId(), -549.4303588867188, -3778.28271484375, 238.597412109375, false, false, false, false) -- coords of where it spawns
@@ -283,9 +284,6 @@ function SpawnPeds()
     SetCamActive(cam, true)
     RenderScriptCams(true, true, 1000, true, false)
     isSelectSexActive = true
-    Wait(1000)
-    Wait(1000)
-    AnimpostfxPlay("RespawnPulse01")
 
     local str = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING", 'Select Gender', Citizen.ResultAsLong())
     Citizen.InvokeNative(0xFA233F8FE190514C, str)
@@ -352,7 +350,6 @@ function SpawnPeds()
                 if Citizen.InvokeNative(0xC92AC953F0A982AE, selectEnter) then
                     Citizen.InvokeNative(0x706D57B0F50DA710, "MC_MUSIC_STOP")
                     PlaySoundFrontend("SELECT", "RDRO_Character_Creator_Sounds", true, 0)
-                    AnimpostfxPlay("RespawnPulse01")
 
                     if IsCamActive(cameraMale) then
                         Citizen.InvokeNative(0xAB5E7CAB074D6B84, animscene, ("Pl_Start_to_Edit_Male"))
@@ -414,7 +411,6 @@ function StartPrompts()
 
     while IsInCharCreation do
         Wait(0)
-        DrawLightWithRange(camloc.x, camloc.y, camloc.z, 255, 255, 255, 10.0, 100.0)
 
         local label = CreateVarString(10, 'LITERAL_STRING', RSG.GroupPromptText)
         PromptSetActiveGroupThisFrame(RoomPrompts, label)
@@ -455,7 +451,7 @@ end
 function StartCharacterCreatorCamera(selected, camera)
     CreatorCache["sex"] = selected
     InCharacterCreator = false
-
+    lightsOn = false
     Selectedsex = selected
 
     Wait(1000)
@@ -1152,3 +1148,15 @@ end
 function NativeSetTextureOutfitTints(ped,category,palette,tint0,tint1,tint2)
     return Citizen.InvokeNative(0x4EFC1F8FF1AD94DE,ped,category,palette,tint0,tint1,tint2)
 end
+
+-- light loop for select character
+CreateThread(function()
+    while true do
+        local sleep = 1000
+        if lightsOn then
+            sleep = 1
+            DrawLightWithRange(-560.1646, -3782.066, 238.5975, 255, 255, 255, 10.0, 100.0)
+        end
+        Wait(sleep)
+    end
+end)
