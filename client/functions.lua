@@ -899,7 +899,7 @@ function LoadHeight(target, data)
 end
 
 function FixIssues(target)
-    Citizen.InvokeNative(0x77FF8D35EEC6BBC4, target, 0, 0)
+    Citizen.InvokeNative(0x77FF8D35EEC6BBC4, target, 7, 0)
     NativeUpdatePedVariation(target)
     if IsPedMale(target) then
         NativeSetPedComponentEnabled(target, tonumber(ComponentsMale["BODIES_UPPER"][1]), false, true, true)
