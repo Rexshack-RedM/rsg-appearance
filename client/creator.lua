@@ -265,6 +265,10 @@ RegisterNetEvent('rsg-appearance:OpenCreator', function(data, empty)
 
 end)
 
+RegisterNetEvent('rsg-appearance:client:loadskin', function()
+	ApplySkin()
+end)
+
 RegisterCommand('loadskin', function(source, args, raw)
         local ped = PlayerPedId()
         local isdead = IsEntityDead(ped)
