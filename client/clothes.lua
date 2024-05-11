@@ -297,7 +297,8 @@ AddEventHandler('rsg-clothes:ApplyClothes', function(ClothesComponents, Target)
         SetEntityAlpha(_Target, 0)
         ClothesCache = ClothesComponents
         for k, v in pairs(ClothesComponents) do
-            if v ~= nil then
+            if v ~= nil and v ~= 0 then
+                if type(v) ~= "table" then v = { hash = v} end
                 if v.hash and v.hash ~= 0 then
                     NativeSetPedComponentEnabledClothes(_Target, v.hash, false, true, true)
                     if v.palette then
