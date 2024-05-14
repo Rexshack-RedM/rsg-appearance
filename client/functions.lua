@@ -541,7 +541,7 @@ function EndCharacterCreatorCam(anim, anim1)
                 if clothing["female"][k] ~= nil then
                     if clothing["female"][k][id] ~= nil then
                         if clothing["female"][k][id][tonumber(v.texture)] ~= nil then
-                            clothesHashes[k] = {hash = tonumber(clothing["male"][k][id][tonumber(v.texture)].hash)}
+                            clothesHashes[k] = {hash = tonumber(clothing["female"][k][id][tonumber(v.texture)].hash)}
                         end
                     end
                 end
