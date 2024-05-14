@@ -524,7 +524,32 @@ function EndCharacterCreatorCam(anim, anim1)
         Citizen.InvokeNative(0x84EEDB2C6E650000, anim1)
     end
     TriggerServerEvent("rsg-appearance:SetPlayerBucket" , 0)
-    TriggerServerEvent("rsg-appearance:SaveSkin", CreatorCache, ClothesCache)
+
+    local clothesHashes = {}
+    for k, v in pairs(ClothesCache) do
+        local id = tonumber(v.model)
+        if id >= 1 then
+            if IsPedMale(PlayerPedId()) then
+                if clothing["male"][k] ~= nil then
+                    if clothing["male"][k][id] ~= nil then
+                        if clothing["male"][k][id][tonumber(v.texture)] ~= nil then
+                            clothesHashes[k] = {hash = tonumber(clothing["male"][k][id][tonumber(v.texture)].hash)}
+                        end
+                    end
+                end
+            else
+                if clothing["female"][k] ~= nil then
+                    if clothing["female"][k][id] ~= nil then
+                        if clothing["female"][k][id][tonumber(v.texture)] ~= nil then
+                            clothesHashes[k] = {hash = tonumber(clothing["female"][k][id][tonumber(v.texture)].hash)}
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    TriggerServerEvent("rsg-appearance:SaveSkin", CreatorCache, clothesHashes)
 end
 
 function GetGender()
