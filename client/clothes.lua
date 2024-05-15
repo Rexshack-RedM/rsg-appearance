@@ -56,6 +56,7 @@ function OpenClothingMenu()
                     centered = true,
                     cancel = true
                 })
+                local ClothesHash = ConvertCacheToHash(ClothesCache)
                 if alert == 'confirm' then
                     local input = lib.inputDialog('Save Outfit', {
                         { type = 'input', label = 'Outfit Name', required = true },
@@ -63,10 +64,10 @@ function OpenClothingMenu()
                     if not input then return menu.close() end
                     local outfitname = input[1]
                     if outfitname then
-                        TriggerServerEvent("rsg-appearance:server:saveOutfit", ClothesCache, CurrentPrice, outfitname )
+                        TriggerServerEvent("rsg-appearance:server:saveOutfit", ClothesHash, CurrentPrice, outfitname )
                     end
                 else
-                    TriggerServerEvent("rsg-appearance:server:saveOutfit", ClothesCache, CurrentPrice)
+                    TriggerServerEvent("rsg-appearance:server:saveOutfit", ClothesHash, CurrentPrice)
                 end
                 if next(CurentCoords) == nil then
                     CurentCoords = RSG.Zones1[1]
@@ -437,7 +438,8 @@ function OutfitsManage(outfit, id)
             menu.close()
         if data.current.value == 'SetOutfits' then
             TriggerEvent('rsg-clothes:ApplyClothes', outfit, PlayerPedId())
-            TriggerServerEvent('rsg-clothes:server:saveUseOutfit', outfit)
+            local ClothesHash = ConvertCacheToHash(outfit)
+            TriggerServerEvent('rsg-clothes:server:saveUseOutfit', ClothesHash)
         end
         if data.current.value == 'DeleteOutfit' then
             return TriggerServerEvent('rsg-clothes:DeleteOutfit', id)

@@ -525,31 +525,40 @@ function EndCharacterCreatorCam(anim, anim1)
     end
     TriggerServerEvent("rsg-appearance:SetPlayerBucket" , 0)
 
+    local clothesHashes = ConvertCacheToHash(ClothesCache)
+
+    TriggerServerEvent("rsg-appearance:SaveSkin", CreatorCache, clothesHashes)
+end
+
+function ConvertCacheToHash(ClothesCache)
     local clothesHashes = {}
     for k, v in pairs(ClothesCache) do
-        local id = tonumber(v.model)
-        if id >= 1 then
-            if IsPedMale(PlayerPedId()) then
-                if clothing["male"][k] ~= nil then
-                    if clothing["male"][k][id] ~= nil then
-                        if clothing["male"][k][id][tonumber(v.texture)] ~= nil then
-                            clothesHashes[k] = {hash = tonumber(clothing["male"][k][id][tonumber(v.texture)].hash)}
+        if v.model then
+            local id = tonumber(v.model)
+            if id >= 1 then
+                if IsPedMale(PlayerPedId()) then
+                    if clothing["male"][k] ~= nil then
+                        if clothing["male"][k][id] ~= nil then
+                            if clothing["male"][k][id][tonumber(v.texture)] ~= nil then
+                                clothesHashes[k] = {hash = tonumber(clothing["male"][k][id][tonumber(v.texture)].hash)}
+                            end
                         end
                     end
-                end
-            else
-                if clothing["female"][k] ~= nil then
-                    if clothing["female"][k][id] ~= nil then
-                        if clothing["female"][k][id][tonumber(v.texture)] ~= nil then
-                            clothesHashes[k] = {hash = tonumber(clothing["female"][k][id][tonumber(v.texture)].hash)}
+                else
+                    if clothing["female"][k] ~= nil then
+                        if clothing["female"][k][id] ~= nil then
+                            if clothing["female"][k][id][tonumber(v.texture)] ~= nil then
+                                clothesHashes[k] = {hash = tonumber(clothing["female"][k][id][tonumber(v.texture)].hash)}
+                            end
                         end
                     end
                 end
             end
+        elseif v.hash then
+            clothesHashes[k] = v
         end
     end
-
-    TriggerServerEvent("rsg-appearance:SaveSkin", CreatorCache, clothesHashes)
+    return clothesHashes
 end
 
 function GetGender()
