@@ -465,19 +465,14 @@ exports('GetClothesCurrentComponentHash', function(name)
     if ClothesCache[name] == nil then
         return 0
     end
-    local texture = ClothesCache[name].texture
-    local model = ClothesCache[name].model
-    if model == 0 or texture == 0 then
-        return 0
-    end
     local hash
     if IsPedMale(PlayerPedId()) then
         if clothing["male"][name] ~= nil then
-            hash = clothing["male"][name][model][texture].hash
+            hash = clothing["male"][name][hash]
         end
     else
         if clothing["female"][name] ~= nil then
-            hash = clothing["female"][name][model][texture].hash
+            hash = clothing["female"][name][hash]
         end
     end
     return hash
