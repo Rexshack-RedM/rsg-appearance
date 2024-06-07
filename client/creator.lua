@@ -275,6 +275,7 @@ RegisterCommand('loadskin', function(source, args, raw)
         local dragged = Citizen.InvokeNative(0xEF3A8772F085B4AA, ped)
         local ragdoll = IsPedRagdoll(ped)
         local falling = IsPedFalling(ped)
+        local isJailed = 0
 
         RSGCore.Functions.GetPlayerData(function(player)
             isJailed = player.metadata["injail"]
