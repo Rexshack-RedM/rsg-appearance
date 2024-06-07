@@ -197,9 +197,10 @@ end)
 function ApplySkin()
     local _Target = PlayerPedId()
     local citizenid = RSGCore.Functions.GetPlayerData().citizenid
-    local currentHealth = GetEntityHealth(PlayerPedId())
-    local maxStamina = Citizen.InvokeNative(0xCB42AFE2B613EE55, PlayerPedId(), Citizen.ResultAsFloat())
-    local currentStamina = Citizen.InvokeNative(0x775A1CA7893AA8B5, PlayerPedId(), Citizen.ResultAsFloat()) / maxStamina * 100
+    local PlayerData = RSGCore.Functions.GetPlayerData()
+    local currentHealth = PlayerData.metadata["health"]
+    SetEntityHealth(PlayerPedId(), currentHealth)
+
     RSGCore.Functions.TriggerCallback('rsg-multicharacter:server:getAppearance', function(data)
         local _SkinData = data.skin
         local _Clothes = data.clothes
@@ -265,10 +266,6 @@ RegisterNetEvent('rsg-appearance:OpenCreator', function(data, empty)
 
 end)
 
-RegisterNetEvent('rsg-appearance:client:loadskin', function()
-	ApplySkin()
-end)
-
 RegisterCommand('loadskin', function(source, args, raw)
         local ped = PlayerPedId()
         local isdead = IsEntityDead(ped)
@@ -278,16 +275,18 @@ RegisterCommand('loadskin', function(source, args, raw)
         local dragged = Citizen.InvokeNative(0xEF3A8772F085B4AA, ped)
         local ragdoll = IsPedRagdoll(ped)
         local falling = IsPedFalling(ped)
-        local isJailed = 0
 
         RSGCore.Functions.GetPlayerData(function(player)
             isJailed = player.metadata["injail"]
         end)
 
-        if isdead or cuffed or hogtied or lassoed or dragged or ragdoll or falling or isJailed > 0 then return end
-        ApplySkin()
-end, false)
+        if isdead or cuffed or hogtied or lassoed or dragged or ragdoll or falling or isJailed > 0 then 
+            return
+        end
 
+        ApplySkin()
+
+end, false)
 local function checkStrings(input)
     if RSG.ProfanityWords[input:lower()] then return false end
     if not string.match(input, '%u%l*') then
