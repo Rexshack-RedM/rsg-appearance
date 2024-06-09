@@ -199,7 +199,6 @@ function ApplySkin()
     local citizenid = RSGCore.Functions.GetPlayerData().citizenid
     local PlayerData = RSGCore.Functions.GetPlayerData()
     local currentHealth = PlayerData.metadata["health"]
-    SetEntityHealth(PlayerPedId(), currentHealth)
 
     RSGCore.Functions.TriggerCallback('rsg-multicharacter:server:getAppearance', function(data)
         local _SkinData = data.skin
@@ -224,8 +223,10 @@ function ApplySkin()
         LoadBodyFeature(_Target, _SkinData.chest_size, Data.Appearance.chest_size)
         LoadOverlays(_Target, _SkinData)
         SetEntityAlpha(_Target, 255)
-        SetEntityHealth(_Target, currentHealth)
-        Citizen.InvokeNative(0xC3D4B754C0E86B9E, _Target, currentStamina)
+        SetAttributeCoreValue(_Target, 0, 100)
+        SetAttributeCoreValue(_Target, 1, 100)
+        SetEntityHealth(_Target, currentHealth, 0)
+
         if _Target == PlayerPedId() then
             TriggerEvent("rsg-clothes:ApplyClothes", _Clothes, _Target)
         else
