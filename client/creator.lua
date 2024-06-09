@@ -223,10 +223,10 @@ function ApplySkin()
         LoadBodyFeature(_Target, _SkinData.chest_size, Data.Appearance.chest_size)
         LoadOverlays(_Target, _SkinData)
         SetEntityAlpha(_Target, 255)
-        SetAttributeCoreValue(_Target, 0, 100)
-        SetAttributeCoreValue(_Target, 1, 100)
-        SetEntityHealth(_Target, currentHealth, 0)
-
+        SetEntityHealth(_Target, currentHealth)
+        Citizen.InvokeNative(0x8899C244EBCF70DE, PlayerPedId(), 0.0) -- SetPlayerHealthRechargeMultiplier
+        Citizen.InvokeNative(0xDE1B1907A83A1550, PlayerPedId(), 0.0) -- SetHealthRechargeMultiplier
+        Citizen.InvokeNative(0xC3D4B754C0E86B9E, _Target, currentStamina)
         if _Target == PlayerPedId() then
             TriggerEvent("rsg-clothes:ApplyClothes", _Clothes, _Target)
         else
