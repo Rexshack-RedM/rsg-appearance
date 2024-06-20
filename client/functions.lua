@@ -685,6 +685,20 @@ function GetHashHead(aMale,num,color)
     elseif color == 5 then color = 2
     elseif color == 6 then color = 6
     end
+    if aMale then
+        if num == 16 then num = 18
+            elseif num == 17 then num = 21
+            elseif num == 18 then num = 22
+            elseif num == 19 then num = 25
+            elseif num == 20 then num = 28
+            end
+        else
+            if num == 17 then num = 20
+            elseif num == 18 then num = 22
+            elseif num == 19 then num = 27
+            elseif num == 20 then num = 28
+        end
+    end
     local suffix = ("%03d"):format(num or 1)..'_V_'..("%03d"):format(color or 1)
     local sex = (aMale == true) and "M" or "F"
     return GetHashKey(('CLOTHING_ITEM_%s_HEAD_%s'):format(sex,suffix))
