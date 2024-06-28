@@ -821,7 +821,6 @@ function LoadHair(target, data)
                                 local hair = hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].hash
                                 NativeSetPedComponentEnabled(target, tonumber(hair), false, true, true)
                             end
-
                         end
 
                     else
@@ -845,7 +844,14 @@ function LoadHair(target, data)
                     NativeUpdatePedVariation(target)
                 end
             end
-        end
+        else
+            if data.hair ~= 0 then
+                    NativeSetPedComponentEnabled(target, tonumber(data.hair), false, true, true)
+            else
+                    Citizen.InvokeNative(0xD710A5007C2AC539, target, 0x864B03AE, 0)
+                    NativeUpdatePedVariation(target)
+            end
+	end
     end
 end
 
