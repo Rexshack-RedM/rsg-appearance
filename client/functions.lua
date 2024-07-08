@@ -72,7 +72,6 @@ Citizen.CreateThread(function()
     PromptRegisterEnd(selectEnter)
 end)
 
-
 Citizen.CreateThread(function()
     local str = RSG.CameraPromptText
     CameraPrompt = PromptRegisterBegin()
@@ -150,7 +149,7 @@ function GetHeadIndex(ped)
                 return i
             end
         end
-	return false
+    return false
 end
 
 function GetMetaPedAssetGuids(ped, index)
@@ -425,7 +424,7 @@ CreatePedAtCoords = function(model, coords, isNetworked)
 end
 
 function StartPrompts()
-	lightsOn = false
+    lightsOn = false
     while IsInCharCreation do
         Wait(0)
         DrawLightWithRange(camloc.x, camloc.y, camloc.z, 255, 255, 255, 10.0, 100.0)
@@ -506,7 +505,6 @@ function StartCharacterCreatorCamera(selected, camera)
     FirstMenu()
 end
 
-
 function PrepareCreatorMusic()
     Citizen.InvokeNative(0x120C48C614909FA4, "AZL_RDRO_Character_Creation_Area", true)                     -- CLEAR_AMBIENT_ZONE_LIST_STATE
     Citizen.InvokeNative(0x9D5A25BADB742ACD, "AZL_RDRO_Character_Creation_Area_Other_Zones_Disable", true) -- CLEAR_AMBIENT_ZONE_LIST_STATE
@@ -540,11 +538,11 @@ function EndCharacterCreatorCam(anim, anim1)
         Citizen.InvokeNative(0x84EEDB2C6E650000, anim)
         Citizen.InvokeNative(0x84EEDB2C6E650000, anim1)
     end
-    TriggerServerEvent("rsg-appearance:SetPlayerBucket" , 0)
+    TriggerServerEvent('rsg-appearance:server:SetPlayerBucket' , 0)
 
     local clothesHashes = ConvertCacheToHash(ClothesCache)
 
-    TriggerServerEvent("rsg-appearance:SaveSkin", CreatorCache, clothesHashes)
+    TriggerServerEvent('rsg-appearance:server:SaveSkin', CreatorCache, clothesHashes)
 end
 
 function ConvertCacheToHash(ClothesCache)
@@ -1054,7 +1052,6 @@ function GetMaxTexturesForModel(category, model, isClothing)
         return #hairs_list[gender][category][model]
     end
 end
-
 
 function NativeSetPedFaceFeature(ped, index, value)
     Citizen.InvokeNative(0x5653AB26C82938CF, ped, index, value)

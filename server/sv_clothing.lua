@@ -1,15 +1,15 @@
-RegisterServerEvent("rsg-appearance:server:saveOutfit", function(clothes, price, outfitName)
+RegisterServerEvent('rsg-appearance:server:saveOutfit', function(clothes, price, outfitName)
     local src = source
     local Player = RSGCore.Functions.GetPlayer(src)
     if not Player then return end
     if clothes ~= nil then
-        local cashBalance = Player.PlayerData.money["cash"]
+        local cashBalance = Player.PlayerData.money['cash']
         if cashBalance < price then
             TriggerClientEvent('ox_lib:notify', src, { title = 'Insufficient Funds', description = 'you don\'t have enough cash', type = 'error', duration = 5000 })
             return
         end
 
-        Player.Functions.RemoveMoney("cash", price, "buy-clothes")
+        Player.Functions.RemoveMoney('cash', price, 'buy-clothes')
 
         MySQL.execute('UPDATE playerskins SET clothes = @clothes WHERE citizenid = @citizenid', {
             ['@citizenid'] = Player.PlayerData.citizenid,
@@ -25,7 +25,7 @@ RegisterServerEvent("rsg-appearance:server:saveOutfit", function(clothes, price,
     end
 end)
 
-RegisterNetEvent('rsg-clothes:server:saveUseOutfit', function(clothes)
+RegisterNetEvent('rsg-appearance:server:saveUseOutfit', function(clothes)
     local src = source
     local Player = RSGCore.Functions.GetPlayer(src)
     if not Player then return end
@@ -37,8 +37,8 @@ RegisterNetEvent('rsg-clothes:server:saveUseOutfit', function(clothes)
     end
 end)
 
-RegisterServerEvent('rsg-clothes:DeleteOutfit')
-AddEventHandler('rsg-clothes:DeleteOutfit', function(name)
+RegisterServerEvent('rsg-appearance:server:DeleteOutfit')
+AddEventHandler('rsg-appearance:server:DeleteOutfit', function(name)
     local src = source
     local _name = name
     local Player = RSGCore.Functions.GetPlayer(src)
@@ -46,8 +46,7 @@ AddEventHandler('rsg-clothes:DeleteOutfit', function(name)
     MySQL.Async.fetchAll('DELETE FROM playeroutfit WHERE citizenid = ? AND name =  ?', {citizenid, _name})
 end)
 
-
-lib.callback.register('rsg-clothes:LoadClothes', function(source)
+lib.callback.register('rsg-appearance:server:LoadClothes', function(source)
     local Player = RSGCore.Functions.GetPlayer(source)
     local citizenid = Player.PlayerData.citizenid
     local clothes = {}
@@ -60,7 +59,7 @@ lib.callback.register('rsg-clothes:LoadClothes', function(source)
     return clothes
 end)
 
-lib.callback.register('rsg-clothes:server:getOutfits', function(source)
+lib.callback.register('rsg-appearance:server:getOutfits', function(source)
     local Player = RSGCore.Functions.GetPlayer(source)
     local outfit = {}
     local Result = MySQL.query.await('SELECT * FROM playeroutfit WHERE citizenid=@citizenid', {['@citizenid'] = Player.PlayerData.citizenid})

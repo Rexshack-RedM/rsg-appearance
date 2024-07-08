@@ -229,7 +229,7 @@ function ApplySkin()
         Citizen.InvokeNative(0x8899C244EBCF70DE, _Target, 0.0)
         Citizen.InvokeNative(0xDE1B1907A83A1550, _Target, 0.0)
         if _Target == PlayerPedId() then
-            TriggerEvent("rsg-clothes:ApplyClothes", _Clothes, _Target)
+            TriggerEvent('rsg-appearance:client:ApplyClothes', _Clothes, _Target)
         else
             for i, m in pairs(Overlays.overlay_all_layers) do
                 Overlays.overlay_all_layers[i] =
@@ -252,12 +252,12 @@ local function ApplySkinMultiChar(SkinData, Target, ClothesData)
     LoadBodyFeature(Target, SkinData.body_waist, Data.Appearance.body_waist)
     LoadBodyFeature(Target, SkinData.chest_size, Data.Appearance.chest_size)
     LoadOverlays(Target, SkinData)
-    TriggerEvent("rsg-clothes:ApplyClothes", ClothesData, Target)
+    TriggerEvent('rsg-appearance:client:ApplyClothes', ClothesData, Target)
 end
 
 exports('ApplySkinMultiChar', ApplySkinMultiChar)
 
-RegisterNetEvent('rsg-appearance:OpenCreator', function(data, empty)
+RegisterNetEvent('rsg-appearance:client:OpenCreator', function(data, empty)
     if data then
         Cid = data.cid
     elseif empty then
@@ -300,7 +300,7 @@ local function checkStrings(input)
 end
 
 function StartCreator()
-    TriggerServerEvent("rsg-appearance:SetPlayerBucket" , BucketId)
+    TriggerServerEvent('rsg-appearance:server:SetPlayerBucket' , BucketId)
     Wait(1)
     for i, m in pairs(Overlays.overlay_all_layers) do
         Overlays.overlay_all_layers[i] =

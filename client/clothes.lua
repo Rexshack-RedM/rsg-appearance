@@ -285,8 +285,8 @@ function Change(id, category, change_type)
     end
 end
 
-RegisterNetEvent('rsg-clothes:ApplyClothes')
-AddEventHandler('rsg-clothes:ApplyClothes', function(ClothesComponents, Target)
+RegisterNetEvent('rsg-appearance:client:ApplyClothes')
+AddEventHandler('rsg-appearance:client:ApplyClothes', function(ClothesComponents, Target)
     Citizen.CreateThread(function()
         local _Target = Target or PlayerPedId()
         if type(ClothesComponents) ~= "table" then
@@ -357,7 +357,7 @@ function TeleportAndFade(coords4, resetCoords)
         CurentCoords = {}
         TogglePrompts({ "TURN_LR", "CAM_UD", "ZOOM_IO" }, false)
         inClothingStore = false
-        TriggerServerEvent('rsg-appearance:SetPlayerBucket', 0)
+        TriggerServerEvent('rsg-appearance:server:SetPlayerBucket', 0)
     end
 end
 
@@ -407,7 +407,7 @@ end
 
 function Outfits()
     MenuData.CloseAll()
-    local Result = lib.callback.await('rsg-clothes:server:getOutfits', false)
+    local Result = lib.callback.await('rsg-appearance:server:getOutfits', false)
     local elements_outfits = {}
     local name
     for k, v in pairs(Result) do
@@ -437,12 +437,12 @@ function OutfitsManage(outfit, id)
         {title = RSG.Label.clothes, subtext = RSG.Label.options, align = 'top-left', elements = elements_outfits_manage, itemHeight = "4vh"}, function(data, menu)
             menu.close()
         if data.current.value == 'SetOutfits' then
-            TriggerEvent('rsg-clothes:ApplyClothes', outfit, PlayerPedId())
+            TriggerEvent('rsg-appearance:client:ApplyClothes', outfit, PlayerPedId())
             local ClothesHash = ConvertCacheToHash(outfit)
-            TriggerServerEvent('rsg-clothes:server:saveUseOutfit', ClothesHash)
+            TriggerServerEvent('rsg-appearance:server:saveUseOutfit', ClothesHash)
         end
         if data.current.value == 'DeleteOutfit' then
-            return TriggerServerEvent('rsg-clothes:DeleteOutfit', id)
+            return TriggerServerEvent('rsg-appearance:server:DeleteOutfit', id)
         end
     end, function(data, menu)
         Outfits()
@@ -522,7 +522,7 @@ function GenerateMenu()
     TriggerEvent('rsg-horses:client:FleeHorse')
     Wait(0)
     TeleportAndFade(CurentCoords.fittingcoords, false)
-    local ClothesComponents = lib.callback.await('rsg-clothes:LoadClothes', false)
+    local ClothesComponents = lib.callback.await('rsg-appearance:client:LoadClothes', false)
     ClothesCache = ClothesComponents
     if IsPedMale(PlayerPedId()) then
         for k,v in pairs(clothing["male"]) do
@@ -585,68 +585,6 @@ GetClosestConsumer = function()
     end
     return false
 end
-
--- function CreateModelBook(dcoords)
---     local model = "mp001_s_mp_catalogue01x_store"
---     RequestModel(model)
-
---     while not HasModelLoaded(model) do
---         Wait(1)
---     end
-
---     local catalog = CreateObjectNoOffset(joaat(model), dcoords, false, false, false)
---     SetModelAsNoLongerNeeded(model)
---     SetEntityHeading(catalog, dcoords.w)
---     FreezeEntityPosition(catalog, true)
--- end
-
--- function SetupScene(dcoords)
---     RequestModel("mp001_s_mp_catalogue01x_store")
-
---     while not HasModelLoaded("mp001_s_mp_catalogue01x_store") do
---         Wait(1)
---     end
-
---     local catalog = CreateObjectNoOffset(joaat("mp001_s_mp_catalogue01x_store"), dcoords, false, false, false)
---     SetModelAsNoLongerNeeded("mp001_s_mp_catalogue01x_store")
---     SetEntityHeading(catalog, dcoords.w)
---     FreezeEntityPosition(catalog, true)
-
---     ClearPedTasksImmediately(PlayerPedId())
-
---     local animscene = Citizen.InvokeNative(0x1FCA98E33C1437B3, "script@ambient@shop@CATALOG_PLAYER", 0, "PBL_ENTER",
---         false, true)
---     SetAnimSceneEntity(animscene, "player", PlayerPedId(), 0)
---     SetAnimSceneEntity(animscene, "CATALOG", catalog, 0)
-
---     LoadAnimScene(animscene)
-
---     while not Citizen.InvokeNative(0x477122B8D05E7968, animscene, 1, 0) do Citizen.Wait(10) end                                                                          --// _IS_ANIM_SCENE_LOADED
-
---     Citizen.InvokeNative(0x020894BF17A02EF2, animscene, GetEntityCoords(catalog).x, GetEntityCoords(catalog).y, GetEntityCoords(catalog).z - 1, GetEntityRotation(catalog), 2)                                                                                                   -- SET ANIM SCENE ORIGIN
-
---     StartAnimScene(animscene)
-
---     Wait(10000)
-
---     Citizen.InvokeNative(0x84EEDB2C6E650000, animscene)
-
---     animscene = Citizen.InvokeNative(0x1FCA98E33C1437B3, "script@ambient@shop@CATALOG_PLAYER", 0, "PBL_EXIT_INDEX", false, true)
---     SetAnimSceneEntity(animscene, "player", PlayerPedId(), 0)
---     SetAnimSceneEntity(animscene, "CATALOG", catalog, 0)
-
---     LoadAnimScene(animscene)
-
---     while not Citizen.InvokeNative(0x477122B8D05E7968, animscene, 1, 0) do Citizen.Wait(10) end                                                                          --// _IS_ANIM_SCENE_LOADED
-
---     Citizen.InvokeNative(0x020894BF17A02EF2, animscene, GetEntityCoords(catalog).x, GetEntityCoords(catalog).y, GetEntityCoords(catalog).z - 1, GetEntityRotation(catalog), 2)                                                                                                   -- SET ANIM SCENE ORIGIN
-
---     StartAnimScene(animscene)
-
---     Wait(10000)
-
---     GenerateMenu()
--- end
 
 RegisterPrompts = function()
     local newTable = {}

@@ -1,9 +1,7 @@
 RSGCore = exports['rsg-core']:GetCoreObject()
 
------------------------------------------------------------------------
-
-RegisterServerEvent('rsg-appearance:SaveSkin')
-AddEventHandler('rsg-appearance:SaveSkin', function(skin, clothes, oldplayer)
+RegisterServerEvent('rsg-appearance:server:SaveSkin')
+AddEventHandler('rsg-appearance:server:SaveSkin', function(skin, clothes, oldplayer)
     local encode = json.encode(skin)
     local encode2 = json.encode(clothes)
     local Player = RSGCore.Functions.GetPlayer(source)
@@ -40,8 +38,8 @@ AddEventHandler('rsg-appearance:SaveSkin', function(skin, clothes, oldplayer)
     end
 end)
 
-RegisterServerEvent('rsg-appearance:SetPlayerBucket')
-AddEventHandler('rsg-appearance:SetPlayerBucket', function(b, random)
+RegisterServerEvent('rsg-appearance:server:SetPlayerBucket')
+AddEventHandler('rsg-appearance:server:SetPlayerBucket', function(b, random)
     if random then
         local BucketID = RSGCore.Shared.RandomInt(1000, 9999)
         SetRoutingBucketPopulationEnabled(BucketID, false)
@@ -51,8 +49,8 @@ AddEventHandler('rsg-appearance:SetPlayerBucket', function(b, random)
     end
 end)
 
-RegisterServerEvent('rsg-appearance:LoadSkin')
-AddEventHandler('rsg-appearance:LoadSkin', function()
+RegisterServerEvent('rsg-appearance:server:LoadSkin')
+AddEventHandler('rsg-appearance:server:LoadSkin', function()
     local _source = source
     local User = RSGCore.Functions.GetPlayer(source)
     local citizenid = User.PlayerData.citizenid
@@ -62,19 +60,19 @@ AddEventHandler('rsg-appearance:LoadSkin', function()
         local clothes = skins[1].clothes  -- Assuming you have a 'clothes' column in your table
         local decodedSkin = json.decode(skin)
         local decodedClothes = json.decode(clothes)
-        TriggerClientEvent("rsg-appearance:ApplySkin", _source, decodedSkin, decodedClothes)
+        TriggerClientEvent('rsg-appearance:client:ApplySkin', _source, decodedSkin, decodedClothes)
     else
-        TriggerClientEvent("rsg-appearance:OpenCreator", _source)
+        TriggerClientEvent('rsg-appearance:client:OpenCreator', _source)
     end
 end)
 
 
-RegisterServerEvent("rsg-appearance:deleteSkin")
-AddEventHandler("rsg-appearance:deleteSkin", function(license, Callback)
+RegisterServerEvent('rsg-appearance:server:deleteSkin')
+AddEventHandler('rsg-appearance:server:deleteSkin', function(license, Callback)
     local _source = source
     local id
     for k, v in ipairs(GetPlayerIdentifiers(_source)) do
-        if string.sub(v, 1, string.len("steam:")) == "steam:" then
+        if string.sub(v, 1, string.len('steam:')) == 'steam:' then
             id = v
             break
         end
@@ -83,7 +81,7 @@ AddEventHandler("rsg-appearance:deleteSkin", function(license, Callback)
     MySQL.Async.fetchAll('DELETE FROM playerskins WHERE `citizenid`= ? AND`license`= ?;', {id, license})
 end)
 
-RegisterServerEvent('rsg-appearance:updategender', function(gender)
+RegisterServerEvent('rsg-appearance:server:updategender', function(gender)
     local Player = RSGCore.Functions.GetPlayer(source)
     local citizenid = Player.PlayerData.citizenid
     local license = RSGCore.Functions.GetIdentifier(source, 'license')
@@ -91,6 +89,6 @@ RegisterServerEvent('rsg-appearance:updategender', function(gender)
     local result = MySQL.Sync.fetchAll('SELECT * FROM players WHERE citizenid = ? AND license = ?', {citizenid, license})
     local Charinfo = json.decode(result[1].charinfo)
     Charinfo.gender = gender
-    MySQL.Async.execute("UPDATE players SET `charinfo` = ? WHERE `citizenid`= ? AND `license`= ?", {json.encode(Charinfo), citizenid, license})
+    MySQL.Async.execute('UPDATE players SET `charinfo` = ? WHERE `citizenid`= ? AND `license`= ?', {json.encode(Charinfo), citizenid, license})
     Player.Functions.Save()
 end)
