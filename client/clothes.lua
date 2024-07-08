@@ -522,7 +522,7 @@ function GenerateMenu()
     TriggerEvent('rsg-horses:client:FleeHorse')
     Wait(0)
     TeleportAndFade(CurentCoords.fittingcoords, false)
-    local ClothesComponents = lib.callback.await('rsg-appearance:client:LoadClothes', false)
+    local ClothesComponents = lib.callback.await('rsg-appearance:server:LoadClothes', false)
     ClothesCache = ClothesComponents
     if IsPedMale(PlayerPedId()) then
         for k,v in pairs(clothing["male"]) do
