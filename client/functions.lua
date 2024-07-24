@@ -37,7 +37,7 @@ local Overlays = require 'data.overlays'
 local hairs_list = require 'data.hairs_list'
 local clothing = require 'data.clothing'
 
-Citizen.CreateThread(function()
+CreateThread(function()
     local str = "Male"
     selectLeft = PromptRegisterBegin()
     PromptSetControlAction(selectLeft, RSG.Prompt.MalePrompt)
@@ -72,7 +72,7 @@ Citizen.CreateThread(function()
     PromptRegisterEnd(selectEnter)
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
     local str = RSG.CameraPromptText
     CameraPrompt = PromptRegisterBegin()
     PromptSetControlAction(CameraPrompt, RSG.Prompt.CameraUp)
@@ -183,7 +183,7 @@ function ApplyOverlays(overlayTarget)
         end
     end
     while not Citizen.InvokeNative(0x31DC8D3F216D8509, textureId) do -- wait till texture fully loaded
-        Citizen.Wait(0)
+        Wait(0)
     end
     Citizen.InvokeNative(0x92DAABA2C1C10B0E, textureId) -- update texture
     Citizen.InvokeNative(0x8472A1789478F82F, textureId) -- reset texture
@@ -289,7 +289,7 @@ function SpawnPeds()
 
     LoadAnimScene(animscene)
     while not Citizen.InvokeNative(0x477122B8D05E7968, animscene) do
-        Citizen.Wait(0)
+        Wait(0)
     end
     StartAnimScene(animscene)
 
@@ -306,7 +306,7 @@ function SpawnPeds()
     Citizen.InvokeNative(0xE9990552DEC71600)
 
     local Label
-    Citizen.CreateThread(function()
+    CreateThread(function()
         while InCharacterCreator do
             Wait(0)
             if not IsInCharCreation then
@@ -413,7 +413,7 @@ CreatePedAtCoords = function(model, coords, isNetworked)
         isNetworked = isNetworked or false
 
         RequestModel(model)
-        while not HasModelLoaded(model) do Citizen.Wait(10) end
+        while not HasModelLoaded(model) do Wait(10) end
 
         local handle = CreatePed(model, coords, isNetworked, isNetworked, false, false)
         Citizen.InvokeNative(0x283978A15512B2FE, handle, true)
@@ -664,7 +664,7 @@ function SetupScenes(string)
     SetAnimSceneEntity(animzcene, GetGender() .. "_MP", PlayerPedId(), 0)
     LoadAnimScene(animzcene)
     while not Citizen.InvokeNative(0x477122B8D05E7968, animzcene) do
-        Citizen.Wait(0)
+        Wait(0)
     end
     return animzcene
 end
@@ -1068,7 +1068,7 @@ function NativeHasPedComponentLoaded(ped)
 end
 
 function modelrequest(model)
-    Citizen.CreateThread(function()
+    CreateThread(function()
         RequestModel(model)
     end)
 end
