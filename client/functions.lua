@@ -431,34 +431,34 @@ function StartPrompts()
 
         local label = CreateVarString(10, 'LITERAL_STRING', RSG.GroupPromptText)
         PromptSetActiveGroupThisFrame(RoomPrompts, label)
-    
+
         if IsControlPressed(2, RSG.Prompt.CameraUp) then
             local CamCoords = GetCamCoord(CharacterCreatorCamera)
             local z = math.min(CamCoords.z + 0.01, camloc.z + 1)
             SetCamCoord(CharacterCreatorCamera, camloc.x, camloc.y, z)
         end
-    
+
         if IsControlPressed(2, RSG.Prompt.CameraDown) then
             local CamCoords = GetCamCoord(CharacterCreatorCamera)
             local HasZ, PosZ = GetGroundZAndNormalFor_3dCoord(camloc.x, camloc.y, camloc.z + 0.5)
             local z = math.max(CamCoords.z - 0.01, PosZ + 0.2)
             SetCamCoord(CharacterCreatorCamera, camloc.x, camloc.y, z)
         end
-    
+
         if IsControlPressed(2, RSG.Prompt.RotateLeft) then
             local heading = GetEntityHeading(PlayerPedId())
             SetPedDesiredHeading(PlayerPedId(), heading - 40)
         end
-    
+
         if IsControlPressed(2, RSG.Prompt.RotateRight) then
             local heading = GetEntityHeading(PlayerPedId())
             SetPedDesiredHeading(PlayerPedId(), heading + 40)
         end
-    
+
         if IsControlPressed(2, RSG.Prompt.Zoom1) then
             SetCamFov(CharacterCreatorCamera, GetCamFov(CharacterCreatorCamera) - 1.5)
         end
-    
+
         if IsControlPressed(2, RSG.Prompt.Zoom2) then
             SetCamFov(CharacterCreatorCamera, GetCamFov(CharacterCreatorCamera) + 1.5)
         end
@@ -485,7 +485,7 @@ function StartCharacterCreatorCamera(selected, camera)
     SetCamActive(CharacterCreatorCamera, true)
 
     RenderScriptCams(true, true, 1000, true, true, 0)
-    Citizen.InvokeNative(0x4D51E59243281D80, PlayerId(), true, 0, false)  --ENABLE PLAYER CONTROLS 
+    Citizen.InvokeNative(0x4D51E59243281D80, PlayerId(), true, 0, false)  --ENABLE PLAYER CONTROLS
     CreateThread(function()
         if DoesEntityExist(FemalePed) then
             DeletePed(FemalePed)
@@ -815,7 +815,7 @@ function LoadHair(target, data)
                 if tonumber(data.hair.model) > 0 then
                     if IsPedMale(target) then
                         if hairs_list["male"]["hair"][tonumber(data.hair.model)] ~= nil then
-                            if hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)] ~= nil then       
+                            if hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)] ~= nil then
                                 local hair = hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].hash
                                 NativeSetPedComponentEnabled(target, tonumber(hair), false, true, true)
                             end
@@ -1045,7 +1045,7 @@ function GetMaxTexturesForModel(category, model, isClothing)
         model = 1
     end
     local gender = IsPedMale(PlayerPedId()) and "male" or "female"
-    
+
     if isClothing then
         return #clothing[gender][category][model]
     else

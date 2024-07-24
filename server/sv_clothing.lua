@@ -51,11 +51,11 @@ lib.callback.register('rsg-appearance:server:LoadClothes', function(source)
     local citizenid = Player.PlayerData.citizenid
     local clothes = {}
     local Result = MySQL.query.await('SELECT clothes FROM playerskins WHERE citizenid = ?', { citizenid })
-    
+
     if Result[1] ~= nil and Result[1].clothes ~= nil then
         clothes = json.decode(Result[1].clothes)
     end
-    
+
     return clothes
 end)
 
