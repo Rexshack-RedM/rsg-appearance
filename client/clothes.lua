@@ -17,7 +17,7 @@ exports('IsCothingActive', function()
     return inClothingStore
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
     for _,v in pairs(RSG.SetDoorState) do
         Citizen.InvokeNative(0xD99229FE93B46286, v.door, 1, 1, 0, 0, 0, 0)
         DoorSystemSetDoorState(v.door, v.state)
@@ -287,7 +287,7 @@ end
 
 RegisterNetEvent('rsg-appearance:client:ApplyClothes')
 AddEventHandler('rsg-appearance:client:ApplyClothes', function(ClothesComponents, Target)
-    Citizen.CreateThread(function()
+    CreateThread(function()
         local _Target = Target or PlayerPedId()
         if type(ClothesComponents) ~= "table" then
             return
@@ -379,7 +379,7 @@ function camera(zoom, offset)
         y = coords.y + (zoomOffset * math.cos(angle)),
         z = coords.z + offset
     }
-    
+
     if not ClothingCamera then
         DestroyAllCams(true)
         ClothingCamera = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", pos.x, pos.y, pos.z, 300.00, 0.00, 0.00, 50.00, false, 0)
@@ -493,7 +493,7 @@ function OpenCloakroom()
     PromptRegisterEnd(CloakPrompt)
 end
 
-Citizen.CreateThread(function()
+CreateThread(function()
     OpenCloakroom()
     while true do
         Wait(5)
@@ -547,7 +547,7 @@ function GenerateMenu()
     OpenClothingMenu()
 end
 
-Citizen.CreateThread(function()
+CreateThread(function()
     CreateBlips()
     if RegisterPrompts() then
         local room = false
@@ -565,9 +565,9 @@ Citizen.CreateThread(function()
                 end
             else
                 if PromptsEnabled then TogglePrompts({ "OPEN_CLOTHING_MENU" }, false) end
-                Citizen.Wait(250)
+                Wait(250)
             end
-            Citizen.Wait(100)
+            Wait(100)
         end
     end
 end)
@@ -593,7 +593,7 @@ RegisterPrompts = function()
         local prompt = Citizen.InvokeNative(0x04F97DE45A519419, Citizen.ResultAsInteger())
         Citizen.InvokeNative(0x5DD02A8318420DD7, prompt, CreateVarString(10, "LITERAL_STRING", RSG.Prompts[i].label))
         Citizen.InvokeNative(0xB5352B7494A08258, prompt, RSG.Prompts[i].control or RSGCore.Shared.Keybinds[RSG.Keybind])
-        
+
         if RSG.Prompts[i].control2  then
             Citizen.InvokeNative(0xB5352B7494A08258, prompt, RSG.Prompts[i].control2)
         end
@@ -631,7 +631,7 @@ end
 IsPromptCompleted = function(name)
     if RSG.Prompts[name] then
         return Citizen.InvokeNative(0xE0F65F0640EF0617, RSG.Prompts[name])
-    end 
+    end
     return false
 end
 
@@ -643,7 +643,7 @@ CreateBlips = function()
             SetBlipSprite(blip, RSG.BlipSprite, 1)
             SetBlipScale(blip, RSG.BlipScale)
             Citizen.InvokeNative(0x9CB1A1623062F402, blip, RSG.BlipName)
-            
+
             table.insert(RSG.CreatedEntries, { type = "BLIP", handle = blip })
         end
     end

@@ -15173,10 +15173,10 @@ local clotheslist = {
     {hashname="clothing_item_m_season_buckle_003_var_003",category_hashname="belt_buckles",ped_type="male",is_multiplayer=true,category_hash=0xFAE9107F,hash=0x983662D9,hash_dec_signed=-1741266215,category_hash_dec_signed=-85389185},                                -- NENENEWWWW
     {hashname="clothing_item_m_season_buckle_003_var_004",category_hashname="belt_buckles",ped_type="male",is_multiplayer=true,category_hash=0xFAE9107F,hash=0x69A785BC,hash_dec_signed=1772586428,category_hash_dec_signed=-85389185},                                -- NENENEWWWW
     {hashname="clothing_m_r4_buckle_000_tint_001",category_hashname="belt_buckles",ped_type="male",is_multiplayer=true,category_hash=0xFAE9107F,hash=0x617FE342,hash_dec_signed=1635771202,category_hash_dec_signed=-85389185},
-    
-    
-    
-    
+
+
+
+
     -----------------------------------------------------------------------------------------------------------------------
     ----------------------------  Cloth hashnames from game version 1355.18 till 1436.26   --------------------------------
     -----------------------------------------------------------------------------------------------------------------------
@@ -15811,7 +15811,7 @@ local clotheslist = {
     {hashname="test",category_hashname="hair",ped_type="female",is_multiplayer=true,category_hash=0x864B03AE,hash=0xE4C58C48,hash_dec_signed=-456815544,category_hash_dec_signed=-2041904210},
     {hashname="test",category_hashname="hair",ped_type="female",is_multiplayer=true,category_hash=0x864B03AE,hash=0xE8151B79,hash_dec_signed=-401269895,category_hash_dec_signed=-2041904210},
     {hashname="test",category_hashname="hair",ped_type="female",is_multiplayer=true,category_hash=0x864B03AE,hash=0xEA93C897,hash_dec_signed=-359413609,category_hash_dec_signed=-2041904210},
-    
+
 
 
     {hashname="test",category_hashname="hair",ped_type="male",is_multiplayer=true,category_hash=0x864B03AE,hash=0xB0C1428F,hash_dec_signed=-1329511793,category_hash_dec_signed=-2041904210},
@@ -15831,7 +15831,7 @@ local clotheslist = {
     {hashname="test",category_hashname="hair",ped_type="male",is_multiplayer=true,category_hash=0x864B03AE,hash=0xBDED0B4C,hash_dec_signed=-1108538548,category_hash_dec_signed=-2041904210},
     {hashname="test",category_hashname="hair",ped_type="male",is_multiplayer=true,category_hash=0x864B03AE,hash=0xED52FFFC,hash_dec_signed=-313327620,category_hash_dec_signed=-2041904210},
     {hashname="test",category_hashname="hair",ped_type="male",is_multiplayer=true,category_hash=0x864B03AE,hash=0xE9FB176B,hash_dec_signed=-369420437,category_hash_dec_signed=-2041904210},
-    
+
 
     {hashname="test",category_hashname="hair",ped_type="female",is_multiplayer=true,category_hash=0x864B03AE,hash=0xA72B45E0,hash_dec_signed=-1490336288,category_hash_dec_signed=-2041904210},
     {hashname="test",category_hashname="hair",ped_type="female",is_multiplayer=true,category_hash=0x864B03AE,hash=0x17CAC1E4,hash_dec_signed=399163876,category_hash_dec_signed=-2041904210},
@@ -15850,7 +15850,7 @@ local clotheslist = {
     {hashname="test",category_hashname="hair",ped_type="female",is_multiplayer=true,category_hash=0x864B03AE,hash=0xD703604A,hash_dec_signed=-687644598,category_hash_dec_signed=-2041904210},
     {hashname="test",category_hashname="hair",ped_type="female",is_multiplayer=true,category_hash=0x864B03AE,hash=0x22C9B060,hash_dec_signed=583643232,category_hash_dec_signed=-2041904210},
     {hashname="test",category_hashname="hair",ped_type="female",is_multiplayer=true,category_hash=0x864B03AE,hash=0x75AB5B78,hash_dec_signed=1974164344,category_hash_dec_signed=-2041904210},
-    
+
 
 
     {hashname="test",category_hashname="hair",ped_type="male",is_multiplayer=false,category_hash=0x864B03AE,hash=0x10A31955,hash_dec_signed=279124309,category_hash_dec_signed=-2041904210},
@@ -15889,7 +15889,7 @@ local clotheslist = {
     {hashname="test",category_hashname="hair",ped_type="male",is_multiplayer=false,category_hash=0x864B03AE,hash=0xED6494D5,hash_dec_signed=-312175403,category_hash_dec_signed=-2041904210},
     {hashname="test",category_hashname="hair",ped_type="male",is_multiplayer=false,category_hash=0x864B03AE,hash=0xF160F64C,hash_dec_signed=-245303732,category_hash_dec_signed=-2041904210},
     {hashname="test",category_hashname="hair",ped_type="male",is_multiplayer=false,category_hash=0x864B03AE,hash=0xF4712E87,hash_dec_signed=-193909113,category_hash_dec_signed=-2041904210},
-    
+
 
     {hashname="test",category_hashname="hair",ped_type="male",is_multiplayer=true,category_hash=0x864B03AE,hash=0x07F27B38,hash_dec_signed=133331768,category_hash_dec_signed=-2041904210},
     {hashname="test",category_hashname="hair",ped_type="male",is_multiplayer=true,category_hash=0x864B03AE,hash=0x0A626A37,hash_dec_signed=174221879,category_hash_dec_signed=-2041904210},
@@ -15931,7 +15931,7 @@ local clotheslist = {
     {hashname="test",category_hashname="hair",ped_type="male",is_multiplayer=true,category_hash=0x864B03AE,hash=0xF47CC14C,hash_dec_signed=-193150644,category_hash_dec_signed=-2041904210},
     {hashname="test",category_hashname="hair",ped_type="male",is_multiplayer=true,category_hash=0x864B03AE,hash=0xF980CB36,hash_dec_signed=-108999882,category_hash_dec_signed=-2041904210},
     {hashname="test",category_hashname="hair",ped_type="male",is_multiplayer=true,category_hash=0x864B03AE,hash=0xFAC54EE4,hash_dec_signed=-87732508,category_hash_dec_signed=-2041904210},
-    
+
 
     {hashname="TEST",category_hashname="beard",ped_type="male",is_multiplayer=true,category_hash=0xF8016BCA,hash=0x010D6AC7,hash_dec_signed=17656519,category_hash_dec_signed=-134124598},
     {hashname="TEST",category_hashname="beard",ped_type="male",is_multiplayer=true,category_hash=0xF8016BCA,hash=0x01277833,hash_dec_signed=19363891,category_hash_dec_signed=-134124598},
@@ -16037,7 +16037,7 @@ local clotheslist = {
     {hashname="TEST",category_hashname="beard",ped_type="male",is_multiplayer=true,category_hash=0xF8016BCA,hash=0xFA2D6FB8,hash_dec_signed=-97685576,category_hash_dec_signed=-134124598},
     {hashname="TEST",category_hashname="beard",ped_type="male",is_multiplayer=true,category_hash=0xF8016BCA,hash=0xFA8E41E0,hash_dec_signed=-91340320,category_hash_dec_signed=-134124598},
     {hashname="TEST",category_hashname="beard",ped_type="male",is_multiplayer=true,category_hash=0xF8016BCA,hash=0xFB3B14FB,hash_dec_signed=-80014085,category_hash_dec_signed=-134124598},
-    
+
 }
 
 return clotheslist

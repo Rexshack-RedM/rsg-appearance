@@ -37,7 +37,7 @@ local Overlays = require 'data.overlays'
 local hairs_list = require 'data.hairs_list'
 local clothing = require 'data.clothing'
 
-Citizen.CreateThread(function()
+CreateThread(function()
     local str = "Male"
     selectLeft = PromptRegisterBegin()
     PromptSetControlAction(selectLeft, RSG.Prompt.MalePrompt)
@@ -72,7 +72,7 @@ Citizen.CreateThread(function()
     PromptRegisterEnd(selectEnter)
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
     local str = RSG.CameraPromptText
     CameraPrompt = PromptRegisterBegin()
     PromptSetControlAction(CameraPrompt, RSG.Prompt.CameraUp)
@@ -183,7 +183,7 @@ function ApplyOverlays(overlayTarget)
         end
     end
     while not Citizen.InvokeNative(0x31DC8D3F216D8509, textureId) do -- wait till texture fully loaded
-        Citizen.Wait(0)
+        Wait(0)
     end
     Citizen.InvokeNative(0x92DAABA2C1C10B0E, textureId) -- update texture
     Citizen.InvokeNative(0x8472A1789478F82F, textureId) -- reset texture
@@ -289,7 +289,7 @@ function SpawnPeds()
 
     LoadAnimScene(animscene)
     while not Citizen.InvokeNative(0x477122B8D05E7968, animscene) do
-        Citizen.Wait(0)
+        Wait(0)
     end
     StartAnimScene(animscene)
 
@@ -306,7 +306,7 @@ function SpawnPeds()
     Citizen.InvokeNative(0xE9990552DEC71600)
 
     local Label
-    Citizen.CreateThread(function()
+    CreateThread(function()
         while InCharacterCreator do
             Wait(0)
             if not IsInCharCreation then
@@ -413,7 +413,7 @@ CreatePedAtCoords = function(model, coords, isNetworked)
         isNetworked = isNetworked or false
 
         RequestModel(model)
-        while not HasModelLoaded(model) do Citizen.Wait(10) end
+        while not HasModelLoaded(model) do Wait(10) end
 
         local handle = CreatePed(model, coords, isNetworked, isNetworked, false, false)
         Citizen.InvokeNative(0x283978A15512B2FE, handle, true)
@@ -431,34 +431,34 @@ function StartPrompts()
 
         local label = CreateVarString(10, 'LITERAL_STRING', RSG.GroupPromptText)
         PromptSetActiveGroupThisFrame(RoomPrompts, label)
-    
+
         if IsControlPressed(2, RSG.Prompt.CameraUp) then
             local CamCoords = GetCamCoord(CharacterCreatorCamera)
             local z = math.min(CamCoords.z + 0.01, camloc.z + 1)
             SetCamCoord(CharacterCreatorCamera, camloc.x, camloc.y, z)
         end
-    
+
         if IsControlPressed(2, RSG.Prompt.CameraDown) then
             local CamCoords = GetCamCoord(CharacterCreatorCamera)
             local HasZ, PosZ = GetGroundZAndNormalFor_3dCoord(camloc.x, camloc.y, camloc.z + 0.5)
             local z = math.max(CamCoords.z - 0.01, PosZ + 0.2)
             SetCamCoord(CharacterCreatorCamera, camloc.x, camloc.y, z)
         end
-    
+
         if IsControlPressed(2, RSG.Prompt.RotateLeft) then
             local heading = GetEntityHeading(PlayerPedId())
             SetPedDesiredHeading(PlayerPedId(), heading - 40)
         end
-    
+
         if IsControlPressed(2, RSG.Prompt.RotateRight) then
             local heading = GetEntityHeading(PlayerPedId())
             SetPedDesiredHeading(PlayerPedId(), heading + 40)
         end
-    
+
         if IsControlPressed(2, RSG.Prompt.Zoom1) then
             SetCamFov(CharacterCreatorCamera, GetCamFov(CharacterCreatorCamera) - 1.5)
         end
-    
+
         if IsControlPressed(2, RSG.Prompt.Zoom2) then
             SetCamFov(CharacterCreatorCamera, GetCamFov(CharacterCreatorCamera) + 1.5)
         end
@@ -485,7 +485,7 @@ function StartCharacterCreatorCamera(selected, camera)
     SetCamActive(CharacterCreatorCamera, true)
 
     RenderScriptCams(true, true, 1000, true, true, 0)
-    Citizen.InvokeNative(0x4D51E59243281D80, PlayerId(), true, 0, false)  --ENABLE PLAYER CONTROLS 
+    Citizen.InvokeNative(0x4D51E59243281D80, PlayerId(), true, 0, false)  --ENABLE PLAYER CONTROLS
     CreateThread(function()
         if DoesEntityExist(FemalePed) then
             DeletePed(FemalePed)
@@ -664,7 +664,7 @@ function SetupScenes(string)
     SetAnimSceneEntity(animzcene, GetGender() .. "_MP", PlayerPedId(), 0)
     LoadAnimScene(animzcene)
     while not Citizen.InvokeNative(0x477122B8D05E7968, animzcene) do
-        Citizen.Wait(0)
+        Wait(0)
     end
     return animzcene
 end
@@ -815,7 +815,7 @@ function LoadHair(target, data)
                 if tonumber(data.hair.model) > 0 then
                     if IsPedMale(target) then
                         if hairs_list["male"]["hair"][tonumber(data.hair.model)] ~= nil then
-                            if hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)] ~= nil then       
+                            if hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)] ~= nil then
                                 local hair = hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].hash
                                 NativeSetPedComponentEnabled(target, tonumber(hair), false, true, true)
                             end
@@ -1045,7 +1045,7 @@ function GetMaxTexturesForModel(category, model, isClothing)
         model = 1
     end
     local gender = IsPedMale(PlayerPedId()) and "male" or "female"
-    
+
     if isClothing then
         return #clothing[gender][category][model]
     else
@@ -1068,7 +1068,7 @@ function NativeHasPedComponentLoaded(ped)
 end
 
 function modelrequest(model)
-    Citizen.CreateThread(function()
+    CreateThread(function()
         RequestModel(model)
     end)
 end

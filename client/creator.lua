@@ -283,7 +283,7 @@ RegisterCommand('loadskin', function(source, args, raw)
             isJailed = player.metadata["injail"]
         end)
 
-        if isdead or cuffed or hogtied or lassoed or dragged or ragdoll or falling or isJailed > 0 then 
+        if isdead or cuffed or hogtied or lassoed or dragged or ragdoll or falling or isJailed > 0 then
             return
         end
 
@@ -410,7 +410,7 @@ function FirstMenu()
                 menu.refresh()
             end
             if (data.current.value == 'lastname') then
-                
+
                 :: noMatch ::
 
                 local dialog = lib.inputDialog('Registration', {
@@ -432,7 +432,7 @@ function FirstMenu()
                 menu.setElement(4, "itemHeight", "4vh")
                 menu.refresh()
             end
-            
+
             if (data.current.value == 'nationality') then
 
                 :: noMatch ::
@@ -707,14 +707,14 @@ end
 
 function OpenEyesMenu()
     MenuData.CloseAll()
-    local EyesColorOptions = {RSG.Texts.EyesTone1,RSG.Texts.EyesTone2,RSG.Texts.EyesTone3,RSG.Texts.EyesTone4,RSG.Texts.EyesTone5,RSG.Texts.EyesTone5}                      
+    local EyesColorOptions = {RSG.Texts.EyesTone1,RSG.Texts.EyesTone2,RSG.Texts.EyesTone3,RSG.Texts.EyesTone4,RSG.Texts.EyesTone5,RSG.Texts.EyesTone5}
     local elements = {
         {label = RSG.Texts.Color,    value = CreatorCache["eyes_color"] or 1,    category = "eyes_color",    desc = "", type = "slider", min = 1,max = 18},
         {label = RSG.Texts.Depth,    value = CreatorCache["eyes_depth"] or 0,    category = "eyes_depth",    desc = "", type = "slider", min = -100, max = 100, hop = 5},
         {label = RSG.Texts.Angle,    value = CreatorCache["eyes_angle"] or 0,    category = "eyes_angle",    desc = "", type = "slider", min = -100, max = 100, hop = 5},
         {label = RSG.Texts.Distance, value = CreatorCache["eyes_distance"] or 0, category = "eyes_distance", desc = "", type = "slider", min = -100, max = 100, hop = 5}
     }
-    MenuData.Open('default', GetCurrentResourceName(), 'eyes_character_creator_menu', 
+    MenuData.Open('default', GetCurrentResourceName(), 'eyes_character_creator_menu',
     {title = RSG.Texts.Eyes, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements, itemHeight = "4vh"}, function(data, menu)
     end, function(data, menu)
         OpenFaceMenu()
