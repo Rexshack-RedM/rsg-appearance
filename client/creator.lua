@@ -489,13 +489,13 @@ function FirstMenu()
             if data.current.value == 'save' then
                 LoadedComponents = CreatorCache
                 if Skinkosong then
-					MenuData.CloseAll()
+                    MenuData.CloseAll()
                     Skinkosong = false
                     Firstname = RSGCore.Functions.GetPlayerData().charinfo.firstname
                     Lastname = RSGCore.Functions.GetPlayerData().charinfo.lastname
                     FotoMugshots()
                 elseif Firstname and Lastname and Nationality and Selectedsex and Birthdate and Cid then
-					MenuData.CloseAll()
+                    MenuData.CloseAll()
                     local newData = {
                         firstname = Firstname,
                         lastname = Lastname,
@@ -507,8 +507,8 @@ function FirstMenu()
                     TriggerServerEvent('rsg-multicharacter:server:createCharacter', newData)
                     Wait(500)
                     FotoMugshots()
-				else
-					RSGCore.Functions.Notify('Need to fill out all of the informations about yourself first! (Firstname, Lastname, Nationality, Birthdate)', 'error', 10000)
+                else
+                    RSGCore.Functions.Notify('Need to fill out all of the informations about yourself first! (Firstname, Lastname, Nationality, Birthdate)', 'error', 10000)
                 end
             end
         end, function(data, menu)

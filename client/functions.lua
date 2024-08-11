@@ -467,14 +467,14 @@ end
 
 function StartCharacterCreatorCamera(selected, camera)
 
-	ClothesCache = {}
-	CreatorCache = {}
-	Firstname = nil
-	Lastname = nil
-	Nationality = nil
-	Selectedsex = nil
-	Birthdate = nil
-    
+    ClothesCache = {}
+    CreatorCache = {}
+    Firstname = nil
+    Lastname = nil
+    Nationality = nil
+    Selectedsex = nil
+    Birthdate = nil
+
     CreatorCache["sex"] = selected
     InCharacterCreator = false
     Selectedsex = selected
