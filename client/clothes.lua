@@ -307,7 +307,7 @@ AddEventHandler('rsg-appearance:client:ApplyClothes', function(ClothesComponents
                     end
                 else
                     local id = tonumber(v.model)
-                    if id >= 1 then
+                    if id and id >= 1 then
                         if IsPedMale(_Target) then
                             if clothing["male"][k] ~= nil then
                                 if clothing["male"][k][tonumber(v.model)] ~= nil then
