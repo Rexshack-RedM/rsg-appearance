@@ -293,7 +293,7 @@ end, false)
 local function checkStrings(input)
     if RSG.ProfanityWords[input:lower()] then return false end
     if not string.match(input, '%u%l*') then
-        RSGCore.Functions.Notify('Input must start with a capital letter, and only letters are allowed.', 'error', 10000)
+        lib.notify({ title = 'Error', description = 'Input must start with a capital letter, and only letters are allowed.', type = 'error', duration = 7000 })
         return false
     end
     return true
@@ -508,7 +508,7 @@ function FirstMenu()
                     Wait(500)
                     FotoMugshots()
                 else
-                    RSGCore.Functions.Notify('Need to fill out all of the informations about yourself first! (Firstname, Lastname, Nationality, Birthdate)', 'error', 10000)
+                    lib.notify({ title = 'Error', description = 'Need to fill out all of the informations about yourself first! (Firstname, Lastname, Nationality, Birthdate)', type = 'error', duration = 7000 })
                 end
             end
         end, function(data, menu)
