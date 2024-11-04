@@ -550,35 +550,34 @@ function EndCharacterCreatorCam(anim, anim1)
     TriggerServerEvent('rsg-appearance:server:SetPlayerBucket' , 0)
 
     local clothesHashes = ConvertCacheToHash(ClothesCache)
+    local skin = ConvertCacheToHash(CreatorCache)
 
-    TriggerServerEvent('rsg-appearance:server:SaveSkin', CreatorCache, clothesHashes)
+    TriggerServerEvent('rsg-appearance:server:SaveSkin', skin, clothesHashes)
 end
 
 function ConvertCacheToHash(ClothesCache)
     local clothesHashes = {}
     for k, v in pairs(ClothesCache) do
-        if v.model then
-            local id = tonumber(v.model)
-            if id >= 1 then
-                if IsPedMale(PlayerPedId()) then
-                    if clothing["male"][k] ~= nil then
-                        if clothing["male"][k][id] ~= nil then
-                            if clothing["male"][k][id][tonumber(v.texture)] ~= nil then
-                                clothesHashes[k] = {hash = tonumber(clothing["male"][k][id][tonumber(v.texture)].hash)}
-                            end
-                        end
+        if type(v) == 'table' then
+            if v.model then
+                local id = tonumber(v.model)
+                if id >= 1 then
+                    local list
+                    if k == "beard" or k == "hair" then
+                        list = hairs_list[IsPedMale(PlayerPedId()) and "male" or "female"][k]
+                    else
+                        list = clothing[IsPedMale(PlayerPedId()) and "male" or "female"][k]
                     end
-                else
-                    if clothing["female"][k] ~= nil then
-                        if clothing["female"][k][id] ~= nil then
-                            if clothing["female"][k][id][tonumber(v.texture)] ~= nil then
-                                clothesHashes[k] = {hash = tonumber(clothing["female"][k][id][tonumber(v.texture)].hash)}
-                            end
-                        end
+                    if list?[id]?[tonumber(v.texture)] then
+                        clothesHashes[k] = { hash = tonumber(list[id][tonumber(v.texture)].hash) }
                     end
                 end
+            elseif v.hash then
+                clothesHashes[k] = v
+            else
+                clothesHashes[k] = v
             end
-        elseif v.hash then
+        else
             clothesHashes[k] = v
         end
     end
@@ -819,38 +818,35 @@ end
 
 function LoadHair(target, data)
     if data.hair ~= nil then
-        if type(data.hair) == "table" then
-            if data.hair.model ~= nil then
-                if tonumber(data.hair.model) > 0 then
-                    if IsPedMale(target) then
-                        if hairs_list["male"]["hair"][tonumber(data.hair.model)] ~= nil then
-                            if hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)] ~= nil then
-                                local hair = hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].hash
-                                NativeSetPedComponentEnabled(target, tonumber(hair), false, true, true)
-                            end
-
-                        end
-
-                    else
-                        if hairs_list["female"]["hair"][tonumber(data.hair.model)] ~= nil then
-                            if hairs_list["female"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)] ~=
-                                nil then
-                                    local hair = hairs_list["female"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].hash
-                                NativeSetPedComponentEnabled(target, tonumber(hair), false, true, true)
-                            end
+        if type(data.hair) ~= "table" then data.hair = { hash = data.hair } end
+        if data.hair.model ~= nil then
+            if tonumber(data.hair.model) > 0 then
+                if IsPedMale(target) then
+                    if hairs_list["male"]["hair"][tonumber(data.hair.model)] ~= nil then
+                        if hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)] ~= nil then
+                            local hair = hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].hash
+                            NativeSetPedComponentEnabled(target, tonumber(hair), false, true, true)
                         end
                     end
                 else
-                    Citizen.InvokeNative(0xD710A5007C2AC539, target, 0x864B03AE, 0)
-                    NativeUpdatePedVariation(target)
+                    if hairs_list["female"]["hair"][tonumber(data.hair.model)] ~= nil then
+                        if hairs_list["female"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)] ~=
+                            nil then
+                            local hair = hairs_list["female"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].hash
+                            NativeSetPedComponentEnabled(target, tonumber(hair), false, true, true)
+                        end
+                    end
                 end
-            elseif data.hair.hash then
-                if data.hair.hash ~= 0 then
-                    NativeSetPedComponentEnabled(target, tonumber(data.hair.hash), false, true, true)
-                else
-                    Citizen.InvokeNative(0xD710A5007C2AC539, target, 0x864B03AE, 0)
-                    NativeUpdatePedVariation(target)
-                end
+            else
+                Citizen.InvokeNative(0xD710A5007C2AC539, target, 0x864B03AE, 0)
+                NativeUpdatePedVariation(target)
+            end
+        elseif data.hair.hash then
+            if data.hair.hash ~= 0 then
+                NativeSetPedComponentEnabled(target, tonumber(data.hair.hash), false, true, true)
+            else
+                Citizen.InvokeNative(0xD710A5007C2AC539, target, 0x864B03AE, 0)
+                NativeUpdatePedVariation(target)
             end
         end
     end
@@ -858,30 +854,28 @@ end
 
 function LoadBeard(target, data)
     if data.beard ~= nil then
-        if type(data.beard) == "table" then
-            if data.beard.model ~= nil then
-                if tonumber(data.beard.model) > 0 then
-                    if IsPedMale(target) then
-                        if hairs_list["male"]["beard"][tonumber(data.beard.model)] ~= nil then
-                            if hairs_list["male"]["beard"][tonumber(data.beard.model)][tonumber(data.beard.texture)] ~=
-                                nil then
-                                    local beard = hairs_list["male"]["beard"][tonumber(data.beard.model)][tonumber(data.beard.texture)].hash
-                                NativeSetPedComponentEnabled(target, tonumber(beard), false, true, true)
-                            end
-
+        if type(data.beard) ~= "table" then data.beard = { hash = data.beard } end
+        if data.beard.model ~= nil then
+            if tonumber(data.beard.model) > 0 then
+                if IsPedMale(target) then
+                    if hairs_list["male"]["beard"][tonumber(data.beard.model)] ~= nil then
+                        if hairs_list["male"]["beard"][tonumber(data.beard.model)][tonumber(data.beard.texture)] ~=
+                            nil then
+                            local beard = hairs_list["male"]["beard"][tonumber(data.beard.model)][tonumber(data.beard.texture)].hash
+                            NativeSetPedComponentEnabled(target, tonumber(beard), false, true, true)
                         end
                     end
-                else
-                    Citizen.InvokeNative(0xD710A5007C2AC539, target, 0xF8016BCA, 0)
-                    NativeUpdatePedVariation(target)
                 end
-            elseif data.beard.hash then
-                if data.beard.hash ~= 0 then
-                    NativeSetPedComponentEnabled(target, tonumber(data.beard.hash), false, true, true)
-                else
-                    Citizen.InvokeNative(0xD710A5007C2AC539, target, 0xF8016BCA, 0)
-                    NativeUpdatePedVariation(target)
-                end
+            else
+                Citizen.InvokeNative(0xD710A5007C2AC539, target, 0xF8016BCA, 0)
+                NativeUpdatePedVariation(target)
+            end
+        elseif data.beard.hash then
+            if data.beard.hash ~= 0 then
+                NativeSetPedComponentEnabled(target, tonumber(data.beard.hash), false, true, true)
+            else
+                Citizen.InvokeNative(0xD710A5007C2AC539, target, 0xF8016BCA, 0)
+                NativeUpdatePedVariation(target)
             end
         end
     end
