@@ -1,3 +1,5 @@
+local RSGCore = exports['rsg-core']:GetCoreObject()
+
 local textureId = -1
 local pedloc = vector4(-558.0, -3781.0, 239.0, 91.0)
 local camloc = vector4(-560.0, -3781.0, 239.0, 268.0)
