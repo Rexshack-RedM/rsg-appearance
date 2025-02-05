@@ -200,6 +200,7 @@ function ApplySkin()
     local PlayerData = RSGCore.Functions.GetPlayerData()
     local currentHealth = PlayerData.metadata["health"]
 
+    local promise = promise.new()
     RSGCore.Functions.TriggerCallback('rsg-multicharacter:server:getAppearance', function(data)
         local _SkinData = data.skin
         local _Clothes = data.clothes
@@ -236,7 +237,9 @@ function ApplySkin()
                 { name = m.name, visibility = 0, tx_id = 1, tx_normal = 0, tx_material = 0, tx_color_type = 0, tx_opacity = 1.0, tx_unk = 0, palette = 0, palette_color_primary = 0, palette_color_secondary = 0, palette_color_tertiary = 0, var = 0, opacity = 0.0 }
             end
         end
+        promise:resolve()
     end, citizenid)
+    Citizen.Await(promise)
 end
 
 local function ApplySkinMultiChar(SkinData, Target, ClothesData)
@@ -269,27 +272,32 @@ RegisterNetEvent('rsg-appearance:client:OpenCreator', function(data, empty)
 end)
 
 RegisterCommand('loadskin', function(source, args, raw)
-        local ped = PlayerPedId()
-        local isdead = IsEntityDead(ped)
-        local cuffed = IsPedCuffed(ped)
-        local hogtied = Citizen.InvokeNative(0x3AA24CCC0D451379, ped)
-        local lassoed = Citizen.InvokeNative(0x9682F850056C9ADE, ped)
-        local dragged = Citizen.InvokeNative(0xEF3A8772F085B4AA, ped)
-        local ragdoll = IsPedRagdoll(ped)
-        local falling = IsPedFalling(ped)
-        local isJailed = 0
+    if LocalPlayer.state.invincible then return end
+    LocalPlayer.state.invincible = true
 
-        RSGCore.Functions.GetPlayerData(function(player)
-            isJailed = player.metadata["injail"]
-        end)
+    local ped = PlayerPedId()
+    local isdead = IsEntityDead(ped)
+    local cuffed = IsPedCuffed(ped)
+    local hogtied = Citizen.InvokeNative(0x3AA24CCC0D451379, ped)
+    local lassoed = Citizen.InvokeNative(0x9682F850056C9ADE, ped)
+    local dragged = Citizen.InvokeNative(0xEF3A8772F085B4AA, ped)
+    local ragdoll = IsPedRagdoll(ped)
+    local falling = IsPedFalling(ped)
+    local isJailed = 0
 
-        if isdead or cuffed or hogtied or lassoed or dragged or ragdoll or falling or isJailed > 0 then
-            return
-        end
+    RSGCore.Functions.GetPlayerData(function(player)
+        isJailed = player.metadata["injail"]
+    end)
 
-        ApplySkin()
+    if isdead or cuffed or hogtied or lassoed or dragged or ragdoll or falling or isJailed > 0 then
+        return
+    end
 
+    ApplySkin()
+    
+    LocalPlayer.state.invincible = false
 end, false)
+
 local function checkStrings(input)
     if RSG.ProfanityWords[input:lower()] then return false end
     if not string.match(input, '%u%l*') then
