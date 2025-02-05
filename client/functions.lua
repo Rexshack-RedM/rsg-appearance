@@ -1,3 +1,5 @@
+local RSGCore = exports['rsg-core']:GetCoreObject()
+
 local textureId = -1
 local pedloc = vector4(-558.0, -3781.0, 239.0, 91.0)
 local camloc = vector4(-560.0, -3781.0, 239.0, 268.0)
@@ -600,8 +602,8 @@ function FotoMugshots()
     PromptSetVisible(CameraPrompt, 0)
     PromptSetVisible(RotatePrompt, 0)
     PromptSetVisible(ZoomPrompt, 0)
-    local FirstName = RSGCore.Functions.GetPlayerData().charinfo.firstname
-    local LastName = RSGCore.Functions.GetPlayerData().charinfo.lastname
+    local FirstName = RSGCore.Functions.GetPlayerData().firstname
+    local LastName = RSGCore.Functions.GetPlayerData().lastname
     local animscenes = SetupScenes("Pl_Edit_to_Photo_" .. GetGender())
     StartAnimScene(animscenes)
     repeat Wait(0) until Citizen.InvokeNative(0xCBFC7725DE6CE2E0, animscenes)
