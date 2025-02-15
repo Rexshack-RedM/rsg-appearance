@@ -478,6 +478,10 @@ exports('GetClothesCurrentComponentHash', function(name)
     return hash
 end)
 
+RegisterNetEvent('rsg-appearance:client:outfits', function()
+    Outfits()
+end)
+
 local Cloakroom = GetRandomIntInRange(0, 0xffffff)
 
 function OpenCloakroom()
