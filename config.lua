@@ -2,6 +2,8 @@ RSG = {}
 
 RSG.WelcomeText = "WELCOME TO RSG FRAMEWORK"
 
+RSG.DevelopmentMode = false -- set to true for /fix commands.
+
 RSG.ProfanityWords = {
     ['bad word'] = true,
     ['dick'] = true,
