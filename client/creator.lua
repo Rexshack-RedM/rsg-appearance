@@ -34,6 +34,70 @@ RegisterNetEvent('RSGCore:Client:OnPlayerUnload', function()
     PlayerData = {}
 end)
 
+
+-- These three net events are to convert beards, hair & teeth indexes in your database into hashes. Remove them if you do not intend to convert them.
+RegisterNetEvent("fixOldBeards:doConversion")
+AddEventHandler("fixOldBeards:doConversion", function(results)
+    local fixes = {}
+    for _, row in ipairs(results) do
+        local data = json.decode(row.skin)
+        if data and data.beard and type(data.beard) == "table" then
+            local model = tonumber(data.beard.model)
+            local texture = tonumber(data.beard.texture)
+            if model and texture and hairs_list["male"]["beard"][model] and hairs_list["male"]["beard"][model][texture] then
+                local newHash = hairs_list["male"]["beard"][model][texture].hash
+                data.beard.hash = newHash
+                table.insert(fixes, { id = row.id, json = json.encode(data) })
+            end
+        end
+    end
+    TriggerServerEvent("fixOldBeards:saveConverted", fixes)
+end)
+
+RegisterNetEvent("fixOldHair:doConversion")
+AddEventHandler("fixOldHair:doConversion", function(results)
+    local fixes = {}
+    for _, row in ipairs(results) do
+        local data = json.decode(row.skin)
+        if data and data.hair and type(data.hair) == "table" then
+            local model = tonumber(data.hair.model)
+            local texture = tonumber(data.hair.texture)
+            if model and texture and hairs_list["male"]["hair"][model] and hairs_list["male"]["hair"][model][texture] then
+                local newHash = hairs_list["male"]["hair"][model][texture].hash
+                data.hair = { hash = newHash}
+                table.insert(fixes, { id = row.id, json = json.encode(data) })
+            elseif model and texture and hairs_list["female"]["hair"][model] and hairs_list["female"]["hair"][model][texture] then
+                local newHash = hairs_list["female"]["hair"][model][texture].hash
+                data.hair = { hash = newHash}
+                table.insert(fixes, { id = row.id, json = json.encode(data) })
+            end
+        end
+    end
+    TriggerServerEvent("fixOldHair:saveConverted", fixes)
+end)
+
+RegisterNetEvent("fixOldTeeth:doConversion")
+AddEventHandler("fixOldTeeth:doConversion", function(results)
+    local fixes = {}
+    for _, row in ipairs(results) do
+        local data = json.decode(row.skin)
+        local sex = nil
+        if data and data.sex == 1 then
+            sex = "male"
+        elseif data and data.sex == 2 then
+            sex = "female"
+        end
+        if data.teeth ~= nil and tonumber(data.teeth) > 0 then
+            local teeth = GetHashKey(TEETH_TYPES[sex]..(data.teeth or 1))
+            data.teeth = teeth
+            table.insert(fixes, { id = row.id, json = json.encode(data) })
+        end
+    end
+    TriggerServerEvent("fixOldTeeth:saveConverted", fixes)
+end)
+
+-- End conversion events.
+
 local MainMenus = {
     ["body"] = function()
         OpenBodyMenu()
@@ -215,6 +279,7 @@ function ApplySkin()
         LoadHeight(_Target, _SkinData)
         LoadBoody(_Target, _SkinData)
         LoadHead(_Target, _SkinData)
+        LoadTeeth(_Target, _SkinData)
         LoadHair(_Target, _SkinData)
         LoadBeard(_Target, _SkinData)
         LoadEyes(_Target, _SkinData)
@@ -247,6 +312,7 @@ local function ApplySkinMultiChar(SkinData, Target, ClothesData)
     LoadHeight(Target, SkinData)
     LoadBoody(Target, SkinData)
     LoadHead(Target, SkinData)
+    LoadTeeth(_Target, _SkinData)
     LoadHair(Target, SkinData)
     LoadBeard(Target, SkinData)
     LoadEyes(Target, SkinData)
