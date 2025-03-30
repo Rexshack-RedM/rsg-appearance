@@ -290,6 +290,7 @@ RegisterCommand('loadskin', function(source, args, raw)
     end)
 
     if isdead or cuffed or hogtied or lassoed or dragged or ragdoll or falling or isJailed > 0 then
+        LocalPlayer.state.invincible = false
         return
     end
 
