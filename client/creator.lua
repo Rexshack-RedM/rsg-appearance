@@ -199,6 +199,9 @@ function ApplySkin()
     local citizenid = RSGCore.Functions.GetPlayerData().citizenid
     local PlayerData = RSGCore.Functions.GetPlayerData()
     local currentHealth = PlayerData.metadata["health"]
+    local dirtClothes = GetAttributeBaseRank(_Target, 16)
+    local dirtHat = GetAttributeBaseRank(_Target, 17)
+    local dirtSkin = GetAttributeBaseRank(_Target, 22)
 
     local promise = promise.new()
     RSGCore.Functions.TriggerCallback('rsg-multicharacter:server:getAppearance', function(data)
@@ -237,6 +240,9 @@ function ApplySkin()
                 { name = m.name, visibility = 0, tx_id = 1, tx_normal = 0, tx_material = 0, tx_color_type = 0, tx_opacity = 1.0, tx_unk = 0, palette = 0, palette_color_primary = 0, palette_color_secondary = 0, palette_color_tertiary = 0, var = 0, opacity = 0.0 }
             end
         end
+        SetAttributeBaseRank(_Target, 16, dirtClothes)
+        SetAttributeBaseRank(_Target, 17, dirtHat)
+        SetAttributeBaseRank(_Target, 22, dirtSkin)
         promise:resolve()
     end, citizenid)
     Citizen.Await(promise)

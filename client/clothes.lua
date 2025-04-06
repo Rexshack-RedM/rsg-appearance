@@ -6,15 +6,15 @@ local Outfits_tab = {}
 local CurrentPrice = 0
 local CurentCoords = {}
 local playerHeading = nil
-local inClothingStore = false
 local RoomPrompts = GetRandomIntInRange(0, 0xffffff)
 local Divider = "<img style='margin-top: 10px;margin-bottom: 10px; margin-left: -10px;'src='nui://rsg-appearance/img/divider_line.png'>"
 local image = "<img style='max-height:250px;max-width:250px;float: center;'src='nui://rsg-appearance/img/%s.png'>"
 
 local clothing = require 'data.clothing'
 
+---@deprecated use inClothingStore state
 exports('IsCothingActive', function()
-    return inClothingStore
+    return LocalPlayer.state.inClothingStore
 end)
 
 CreateThread(function()
@@ -350,13 +350,13 @@ function TeleportAndFade(coords4, resetCoords)
     Wait(1000)
     Citizen.InvokeNative(0x203BEFFDBE12E96A, PlayerPedId(), coords4)
     SetEntityCoordsNoOffset(PlayerPedId(), coords4, true, true, true)
-    inClothingStore = true
+    LocalPlayer.state.inClothingStore = true
     Wait(1500)
     DoScreenFadeIn(1800)
     if resetCoords then
         CurentCoords = {}
         TogglePrompts({ "TURN_LR", "CAM_UD", "ZOOM_IO" }, false)
-        inClothingStore = false
+        LocalPlayer.state.inClothingStore = false
         TriggerServerEvent('rsg-appearance:server:SetPlayerBucket', 0)
     end
 end
@@ -552,6 +552,7 @@ function GenerateMenu()
 end
 
 CreateThread(function()
+    LocalPlayer.state.inClothingStore = false
     CreateBlips()
     if RegisterPrompts() then
         local room = false
@@ -663,6 +664,7 @@ end
 
 AddEventHandler('onResourceStop', function(resourceName)
     if GetCurrentResourceName() ~= resourceName then return end
+    LocalPlayer.state.inClothingStore = false
     destory()
     for i=1, #RSG.CreatedEntries do
         if RSG.CreatedEntries[i].type == "BLIP" then
