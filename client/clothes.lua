@@ -61,10 +61,10 @@ function OpenClothingMenu()
                     local input = lib.inputDialog('Save Outfit', {
                         { type = 'input', label = 'Outfit Name', required = true },
                     })
-                    if not input then return menu.close() end
-                    local outfitname = input[1]
-                    if outfitname then
-                        TriggerServerEvent("rsg-appearance:server:saveOutfit", ClothesHash, CurrentPrice, outfitname )
+                    if input and input[1] then
+                        TriggerServerEvent("rsg-appearance:server:saveOutfit", ClothesHash, CurrentPrice, input[1] )
+                    else
+                        TriggerServerEvent("rsg-appearance:server:saveOutfit", ClothesHash, CurrentPrice)
                     end
                 else
                     TriggerServerEvent("rsg-appearance:server:saveOutfit", ClothesHash, CurrentPrice)
@@ -73,6 +73,8 @@ function OpenClothingMenu()
                     CurentCoords = RSG.Zones1[1]
                 end
                 TeleportAndFade(CurentCoords.quitcoords, true)
+                Wait(1000)
+                ExecuteCommand('loadskin')
             end
         end, function(data, menu)
             if (IsInCharCreation or Skinkosong) then
