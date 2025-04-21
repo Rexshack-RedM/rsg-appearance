@@ -570,7 +570,7 @@ function ConvertCacheToHash(ClothesCache)
                     else
                         list = clothing[IsPedMale(PlayerPedId()) and "male" or "female"][k]
                     end
-                    if list and list[id] and list[id][tonumber(v.texture)] then -- Not sure why the question marks where in here, it was throwing some weird alerts.
+                    if list?[id]?[tonumber(v.texture)] then
                         clothesHashes[k] = { hash = tonumber(list[id][tonumber(v.texture)].hash) }
                     end
                 end
@@ -582,11 +582,9 @@ function ConvertCacheToHash(ClothesCache)
         else
             clothesHashes[k] = v
         end
-    end --03/23/2025: Missing `end` for the `for` loop
-
-    return clothesHashes -- Properly moved outside the loop
+    end
+    return clothesHashes
 end
-
 
 function GetGender()
     if not IsPedMale(PlayerPedId()) then
@@ -829,7 +827,6 @@ function LoadHair(target, data)
                     if hairs_list["male"]["hair"][tonumber(data.hair.model)] ~= nil then
                         if hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)] ~= nil then
                             local hair = hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].hash
-                            data.hair.hash = hair
                             NativeSetPedComponentEnabled(target, tonumber(hair), false, true, true)
                         end
                     end
@@ -838,7 +835,6 @@ function LoadHair(target, data)
                         if hairs_list["female"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)] ~=
                             nil then
                             local hair = hairs_list["female"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].hash
-                            data.hair.hash = hair
                             NativeSetPedComponentEnabled(target, tonumber(hair), false, true, true)
                         end
                     end
@@ -858,7 +854,6 @@ function LoadHair(target, data)
     end
 end
 
-
 function LoadBeard(target, data)
     if data.beard ~= nil then
         if type(data.beard) ~= "table" then data.beard = { hash = data.beard } end
@@ -869,7 +864,6 @@ function LoadBeard(target, data)
                         if hairs_list["male"]["beard"][tonumber(data.beard.model)][tonumber(data.beard.texture)] ~=
                             nil then
                             local beard = hairs_list["male"]["beard"][tonumber(data.beard.model)][tonumber(data.beard.texture)].hash
-                            data.beard.hash = beard
                             NativeSetPedComponentEnabled(target, tonumber(beard), false, true, true)
                         end
                     end
@@ -909,26 +903,6 @@ end
 function LoadBodyFeature(target, data, bodyFeatureTable)
     Citizen.InvokeNative(0x1902C4CFCC5BE57C, target, bodyFeatureTable[tonumber(data)])
     Citizen.InvokeNative(0xCC8CA3E88256E58F, target, false, true, true, true, false)
-end
-
-function LoadTeeth(target, data) -- There's a chance that this probably will get over-ridden by LoadFeatures, but realistically the entire point of this is to update data.teeth to store the hash anyway.
-    local animf = {"mouth_looted","face_human@gen_male_timid@base"}
-    RequestAnimDict(animf[2])
-    while not HasAnimDictLoaded(animf[2]) do 
-        Wait(1)
-    end
-    local a = "male"
-    if not IsPedMale(target) then 
-        a = "female"
-    end
-    local b = GetHashKey(TEETH_TYPES[a]..(data.teeth or 0))
-    data.teeth = b
-    NativeSetPedComponentEnabled(target, b, true, true, true)
-    NativeUpdatePedVariation(target)
-    SetFacialIdleAnimOverride(target, animf[2], animf[1])
-    SetTimeout(2000, function()
-        ClearFacialIdleAnimOverride(target)
-    end)
 end
 
 function LoadFeatures(target, data)
