@@ -295,8 +295,8 @@ function ApplySkin()
         SetAttributeCoreValue(_Target, 0, 100)
         SetAttributeCoreValue(_Target, 1, 100)
         SetEntityHealth(_Target, currentHealth, 0)
-        Citizen.InvokeNative(0x8899C244EBCF70DE, _Target, 0.0)
-        Citizen.InvokeNative(0xDE1B1907A83A1550, _Target, 0.0)
+        Citizen.InvokeNative(0x8899C244EBCF70DE, PlayerId(), 0.0)
+        Citizen.InvokeNative(0xDE1B1907A83A1550, _Target, 0)
         if _Target == PlayerPedId() then
             TriggerEvent('rsg-appearance:client:ApplyClothes', _Clothes, _Target, _SkinData)
         else
