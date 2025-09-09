@@ -197,8 +197,7 @@ end)
 function ApplySkin()
     local _Target = PlayerPedId()
     local citizenid = RSGCore.Functions.GetPlayerData().citizenid
-    local PlayerData = RSGCore.Functions.GetPlayerData()
-    local currentHealth = PlayerData.metadata["health"]
+    local currentHealth = LocalPlayer.state.health or GetEntityHealth(_Target)
     local dirtClothes = GetAttributeBaseRank(_Target, 16)
     local dirtHat = GetAttributeBaseRank(_Target, 17)
     local dirtSkin = GetAttributeBaseRank(_Target, 22)
