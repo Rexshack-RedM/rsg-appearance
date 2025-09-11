@@ -1132,28 +1132,6 @@ function deepcopy(orig)
     return copy
 end
 
-function CalculatePrice()
-    local price = 0
-    if IsPedMale(PlayerPedId()) then
-        for k, v in pairs(clothing["male"]) do
-            if OldClothesCache[k].model ~= ClothesCache[k].model or OldClothesCache[k].texture ~= ClothesCache[k].texture then
-                if ClothesCache[k].model > 0 then
-                    price = price + RSG.Price[k]
-                end
-            end
-        end
-    else
-        for k, v in pairs(clothing["female"]) do
-            if OldClothesCache[k].model ~= ClothesCache[k].model or OldClothesCache[k].texture ~= ClothesCache[k].texture then
-                if ClothesCache[k].model > 0 then
-                    price = price + RSG.Price[k]
-                end
-            end
-        end
-    end
-    return price
-end
-
 function NativeSetPedComponentEnabledClothes(ped, componentHash, immediately, isMp)
     local categoryHash = NativeGetPedComponentCategory(not IsPedMale(ped), componentHash)
 
