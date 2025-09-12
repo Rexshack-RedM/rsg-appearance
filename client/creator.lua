@@ -307,7 +307,7 @@ end, false)
 local function checkStrings(input)
     if RSG.ProfanityWords[input:lower()] then return false end
     if not string.match(input, '%u%l*') then
-        lib.notify({ title = 'Error', description = 'Input must start with a capital letter, and only letters are allowed.', type = 'error', duration = 7000 })
+        lib.notify({ title = locale('invalid_character_name.title'), description = locale('invalid_character_name.description'), type = 'error', duration = 7000 })
         return false
     end
     return true
@@ -336,14 +336,14 @@ function FirstMenu()
 
     if (IsInCharCreation or Skinkosong) then
         elements[#elements + 1] = {
-            label = "Appearance",
+            label = locale('creator.appearance.label'),
             value = "appearance",
-            desc = "Choose Your Appearance"
+            desc = locale('creator.appearance.desc'),
         }
         elements[#elements + 1] = {
-            label = "Clothing",
+            label = locale('creator.clothing.label'),
             value = "clothes",
-            desc = "Choose Your Clothes"
+            desc = locale('creator.clothing.desc'),
         }
     end
 
@@ -351,21 +351,21 @@ function FirstMenu()
         elements[#elements + 1] = {
             label = Firstname or RSG.Texts.firsmenu.label_firstname .. "<br><span style='opacity:0.6;'>" .. RSG.Texts.firsmenu.none .. "</span>",
             value = "firstname",
-            desc = "Choose Your First Name",
+            desc = locale('creator.firstname.desc'),
         }
         elements[#elements + 1] = {
             label = Lastname or
                 RSG.Texts.firsmenu.label_lastname ..
                 "<br><span style='opacity:0.6;'>" .. "" .. RSG.Texts.firsmenu.none .. "" .. "</span>",
             value = "lastname",
-            desc = "Choose Your Last Name"
+            desc = locale('creator.lastname.desc')
         }
         elements[#elements + 1] = {
             label = Nationality or
                 RSG.Texts.firsmenu.Nationality ..
                 "<br><span style='opacity:0.6;'>" .. "" .. RSG.Texts.firsmenu.none .. "" .. "</span>",
             value = "nationality",
-            desc = "Choose Your Nationality"
+            desc = locale('creator.nationality.desc')
 
         }
 
@@ -374,7 +374,7 @@ function FirstMenu()
                 RSG.Texts.firsmenu.Birthdate ..
                 "<br><span style='opacity:0.6;'>" .. "" .. RSG.Texts.firsmenu.none .. "" .. "</span>",
             value = "birthdate",
-            desc = "Choose Your Birth Date"
+            desc = locale('creator.birthdate.desc')
         }
     end
 
@@ -403,13 +403,13 @@ function FirstMenu()
 
                 :: noMatch ::
 
-                local dialog = lib.inputDialog('Registration', {
+                local dialog = lib.inputDialog(locale('creator.firstname.input.header'), {
                     {
                         type = 'input',
                         required = true,
                         icon = 'user-pen',
-                        label = 'First Name',
-                        placeholder = 'Hank'
+                        label = locale('creator.firstname.input.label'),
+                        placeholder = locale('creator.firstname.input.placeholder')
                     },
                 })
                 if not dialog then return false end
@@ -427,13 +427,13 @@ function FirstMenu()
 
                 :: noMatch ::
 
-                local dialog = lib.inputDialog('Registration', {
+                local dialog = lib.inputDialog(locale('creator.lastname.input.header'), {
                     {
                         type = 'input',
                         required = true,
                         icon = 'user-pen',
-                        label = 'Last name',
-                        placeholder = 'Jordan'
+                        label = locale('creator.lastname.input.label'),
+                        placeholder = locale('creator.lastname.input.placeholder')
                     },
                 })
                 if not dialog then return false end
@@ -451,13 +451,13 @@ function FirstMenu()
 
                 :: noMatch ::
 
-                local dialog = lib.inputDialog('Registration', {
+                local dialog = lib.inputDialog(locale('creator.nationality.input.header'), {
                     {
                         type = 'input',
                         required = true,
                         icon = 'user-shield',
-                        label = 'Nationality',
-                        placeholder = 'Mexican'
+                        label = locale('creator.nationality.input.label'),
+                        placeholder = locale('creator.nationality.input.placeholder')
                     },
                 })
                 if not dialog then return false end
@@ -473,12 +473,12 @@ function FirstMenu()
 
             if (data.current.value == 'birthdate') then
 
-                local dialog = lib.inputDialog('Registration', {
+                local dialog = lib.inputDialog(locale('creator.birthdate.input.header'), {
                     {
                         type = 'date',
                         required = true,
                         icon = 'calendar-days',
-                        label = 'Birth Date',
+                        label = locale('creator.birthdate.input.label'),
                         format = 'YYYY-MM-DD',
                         returnString = true,
                         min = '1750-01-01', -- Has to be in the same in the same format as the format argument
@@ -522,7 +522,7 @@ function FirstMenu()
                     Wait(500)
                     FotoMugshots()
                 else
-                    lib.notify({ title = 'Error', description = 'Need to fill out all of the informations about yourself first! (Firstname, Lastname, Nationality, Birthdate)', type = 'error', duration = 7000 })
+                    lib.notify({ title = locale('missing_character_info.title'), description = locale('missing_character_info.description'), type = 'error', duration = 7000 })
                 end
             end
         end, function(data, menu)
