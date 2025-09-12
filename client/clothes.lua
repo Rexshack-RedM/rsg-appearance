@@ -54,20 +54,25 @@ function OpenClothingMenu()
                 local alert = lib.alertDialog({
                     header = 'Save Outfit',
                     centered = true,
-                    cancel = true
+                    cancel = true,
                 })
                 local ClothesHash = ConvertCacheToHash(ClothesCache)
+                local isMale = IsPedMale(PlayerPedId())
                 if alert == 'confirm' then
                     local input = lib.inputDialog('Save Outfit', {
-                        { type = 'input', label = 'Outfit Name', required = true },
+                        {
+                            type = 'input',
+                            label = 'Outfit Name',
+                            required = true,
+                        },
                     })
                     if input and input[1] then
-                        TriggerServerEvent("rsg-appearance:server:saveOutfit", ClothesHash, CurrentPrice, input[1] )
+                        TriggerServerEvent("rsg-appearance:server:saveOutfit", ClothesHash, isMale, input[1])
                     else
-                        TriggerServerEvent("rsg-appearance:server:saveOutfit", ClothesHash, CurrentPrice)
+                        TriggerServerEvent("rsg-appearance:server:saveOutfit", ClothesHash, isMale)
                     end
                 else
-                    TriggerServerEvent("rsg-appearance:server:saveOutfit", ClothesHash, CurrentPrice)
+                    TriggerServerEvent("rsg-appearance:server:saveOutfit", ClothesHash, isMale)
                 end
                 if next(CurentCoords) == nil then
                     CurentCoords = RSG.Zones1[1]
@@ -208,8 +213,9 @@ function MenuUpdateClothes(data, menu)
                 menu.refresh()
             end
             if not (IsInCharCreation or Skinkosong) then
-                if CurrentPrice ~= CalculatePrice() then
-                    CurrentPrice = CalculatePrice()
+                local newPrice = CalculatePrice(ConvertCacheToHash(ClothesCache), ConvertCacheToHash(OldClothesCache), IsPedMale(PlayerPedId()))
+                if CurrentPrice ~= newPrice then
+                    CurrentPrice = newPrice
                 end
             end
         end

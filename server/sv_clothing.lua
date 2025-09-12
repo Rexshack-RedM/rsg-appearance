@@ -1,27 +1,29 @@
-RegisterServerEvent('rsg-appearance:server:saveOutfit', function(clothes, price, outfitName)
+RegisterServerEvent('rsg-appearance:server:saveOutfit', function(newClothes, isMale, outfitName)
     local src = source
     local Player = RSGCore.Functions.GetPlayer(src)
     if not Player then return end
-    if clothes ~= nil then
-        local cashBalance = Player.PlayerData.money['cash']
-        if cashBalance < price then
-            TriggerClientEvent('ox_lib:notify', src, { title = 'Insufficient Funds', description = 'you don\'t have enough cash', type = 'error', duration = 5000 })
-            return
-        end
+        
+    local citizenid = Player.PlayerData.citizenid
+    local skinData = MySQL.query.await('SELECT clothes FROM playerskins WHERE citizenid = ?', { citizenid })
 
-        Player.Functions.RemoveMoney('cash', price, 'buy-clothes')
+    local newClothes = newClothes or {}
+    local currentClothes = json.decode(skinData[1]?.clothes) or {}
+    local price = CalculatePrice(newClothes, currentClothes, isMale)
 
+    if Player.Functions.RemoveMoney('cash', price, 'buy-clothes') then
         MySQL.execute('UPDATE playerskins SET clothes = @clothes WHERE citizenid = @citizenid', {
-            ['@citizenid'] = Player.PlayerData.citizenid,
-            ['@clothes'] = json.encode(clothes),
+            ['@citizenid'] = citizenid,
+            ['@clothes'] = json.encode(newClothes),
         })
         if outfitName then
             MySQL.query.await('INSERT INTO playeroutfit (citizenid, name, clothes) VALUES (@citizenid, @name, @clothes)', {
-                ['@citizenid'] = Player.PlayerData.citizenid,
+                ['@citizenid'] = citizenid,
                 ['@name'] = outfitName,
-                ['@clothes'] = json.encode(clothes),
+                ['@clothes'] = json.encode(newClothes),
             })
         end
+    else
+        TriggerClientEvent('ox_lib:notify', src, { title = 'Insufficient Funds', description = 'you don\'t have enough cash', type = 'error', duration = 5000 })
     end
 end)
 
