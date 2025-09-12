@@ -23,7 +23,7 @@ RegisterServerEvent('rsg-appearance:server:saveOutfit', function(newClothes, isM
             })
         end
     else
-        TriggerClientEvent('ox_lib:notify', src, { title = 'Insufficient Funds', description = 'you don\'t have enough cash', type = 'error', duration = 5000 })
+        TriggerClientEvent('ox_lib:notify', src, { title = locale('insufficient_funds.title'), description = locale('insufficient_funds.description'), type = 'error', duration = 5000 })
     end
 end)
 

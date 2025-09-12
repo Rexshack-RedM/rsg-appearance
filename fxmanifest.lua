@@ -27,7 +27,12 @@ files {
     'data/overlays.lua',
     'data/clothing.lua',
     'data/hairs_list.lua',
-    'data/clothes_list.lua'
+    'data/clothes_list.lua',
+    'locales/*.json',
+}
+
+ox_libs {
+    'locale',
 }
 
 dependencies {

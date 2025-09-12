@@ -1,0 +1,249 @@
+{
+    "blips": {
+        "clothing_store": "Clothing Store",
+        "wardrobe": "Wardrobe"
+    },
+    "texts": {
+        "body": "Body",
+        "face": "Face",
+        "hair_beard": "Hair & Beard",
+        "hair_style": "Hair Style",
+        "hair_color": "Hair Color",
+        "beard_style": "Beard Style",
+        "beard_color": "Beard Color",
+        "makeup": "Makeup",
+        "appearance": "Appearance",
+        "slim": "Slim",
+        "sporty": "Sporty",
+        "medium": "Medium",
+        "fat": "Fat",
+        "strong": "Strong",
+        "face_width": "Face Width",
+        "skin_tone": "Skin Tone",
+        "eyes": "Eyes",
+        "eyelids": "Eyelids",
+        "eyebrows": "Eyebrows",
+        "nose": "Nose",
+        "mouth": "Mouth",
+        "teeth": "Teeth",
+        "cheekbones": "Cheek Bones",
+        "jaw": "Jaw",
+        "ears": "Ears",
+        "chin": "Chin",
+        "defects": "Defects",
+        "hair": "Hair",
+        "beard": "Beard",
+        "type": "Type",
+        "visibility": "Visibility",
+        "color_palette": "Color Palette ",
+        "color_firstrate": "Color First-rate",
+        "eyebrow": "Eyebrows",
+        "nose_curvature": "Nose Curvature",
+        "up_down": "UP / DOWN",
+        "left_right": "left / right",
+        "upper_lip_height": "Upper Lip Height",
+        "upper_lip_width": "Upper Lip Width",
+        "upper_lip_depth": "Upper Lip Depth",
+        "lower_lip_height": "Lower Lip Height",
+        "lower_lip_width": "Lower Lip Width",
+        "lower_lip_depth": "Lower Lip Depth",
+        "make_up": "Make-up",
+        "older": "Older",
+        "scars": "Type Scars",
+        "freckles": "Type Freckles",
+        "moles": "Moles",
+        "disadvantages": "Disadvantages",
+        "spots": "Spots",
+        "shadow": "Shadow",
+        "color_shadow": "Color Shadow",
+        "color_first_class": "Color First-Class Delusion",
+        "blushing_cheek": "Blushing Cheek",
+        "blush_id": "Cheek Blush Color",
+        "blush_c1": "Color First Degree Cheek Redness",
+        "lipstick": "Type Lipstick",
+        "color_lipstick": "Color Lipstick",
+        "lipsticks_c1": "First-Class Color Lipstick",
+        "lipsticks_c2": "Second Color Lipstick",
+        "eyeliners": "Eyeliners",
+        "eyeliners_id": "Color Eyeliners",
+        "eyeliners_c1": "Color main Eyeliners",
+        "save": "Save",
+        "options": "Options",
+        "align": "top-left",
+        "style": "Style ",
+        "color": "Color ",
+        "size": "Size",
+        "width": "Width ",
+        "height": "Height",
+        "depth": "Depth",
+        "waist": "Waist",
+        "chest": "Chest",
+        "distance": "Distance",
+        "angle": "Angle",
+        "clarity": "Clarity",
+        "creator": "CHARACTER CREATOR",
+        "first_menu": {
+            "label_firstname": "First Name",
+            "label_lastname": "Last Name",
+            "desc": "How do you want to be called by people?",
+            "none": "Empty",
+            "start": "Start Your Journey",
+            "empty": "Fill out everything first",
+            "nationality": "Nationality",
+            "birthdate": "Birth Date"
+        }
+    },
+    "labels": {
+        "boot_accessories": "Boot Accessories",
+        "pants": "Pants",
+        "cloaks": "Cloaks",
+        "hats": "Hats",
+        "vests": "Vests",
+        "chaps": "Chaps",
+        "shirts_full": "Shirts Full",
+        "badges": "Badges",
+        "masks": "Masks",
+        "spats": "Spats",
+        "neckwear": "Neck Wear",
+        "boots": "Boots",
+        "accessories": "Accessories",
+        "jewelry_rings_right": "Jewelry Rings Right",
+        "jewelry_rings_left": "Jewelry Rings Reft",
+        "jewelry_bracelets": "Jewelry Bracelets",
+        "gauntlets": "Gaunt Lets",
+        "neckties": "Neck Ties",
+        "holsters_knife": "Holsters Knife",
+        "talisman_holster": "Talisman Holster",
+        "loadouts": "Load outs",
+        "suspenders": "Suspenders",
+        "talisman_satchel": "Talisman Satchel",
+        "satchels": "Satchels",
+        "gunbelts": "Gun Belts",
+        "belts": "Belts",
+        "belt_buckles": "Belt Buckles",
+        "holsters_left": "Holsters Left",
+        "holsters_right": "Holsters Right",
+        "talisman_wrist": "Talisman Wrist",
+        "coats": "Coats",
+        "coats_closed": "Coats Closed",
+        "ponchos": "Ponchos",
+        "eyewear": "Eyewear",
+        "gloves": "Gloves",
+        "holsters_crossdraw": "Holsters Crossdraw",
+        "aprons": "Aprons",
+        "skirts": "Skirts",
+        "hair_accessories": "Hair Accessories",
+        "armor": "Armor",
+        "dresses": "Dresses",
+        "save": "Save Clothes",
+        "clothes": "Clothes",
+        "options": "options",
+        "color": "Color ",
+        "choose": "choose your clothes",
+        "wear": "Wear Outfit",
+        "wear_desc": "dress up",
+        "delete": "Delete Outfit",
+        "delete_desc": "delete outfit",
+        "shop": "Clothing Store",
+        "total": "Price"
+    },
+    "menu_elements": {
+        "head": {
+            "label": "Head"
+        },
+        "torso": {
+            "label": "Torso"
+        },
+        "legs": {
+            "label": "Legs"
+        },
+        "foot": {
+            "label": "Foot"
+        },
+        "hands": {
+            "label": "Hands"
+        },
+        "accessories": {
+            "label": "Accessories"
+        }
+    },
+    "prompts": {
+        "cloakroom_text": "Open Changing Rooms",
+        "clothing_store_label": "Clothing Store",
+        "zoom_label":"Zoom In/Zoom Out",
+        "camera_up_label": "Camera Up/Down",
+        "camera_turn_label": "Turn Left/Right"
+    },
+
+    "cloack_room_prompt_button": "Cloak Room",
+    "save_outfit_1": "Save Outfit",
+    "save_outfit_2_header": "Save Outfit",
+    "save_outfit_2_input_label": "Outfit Name",
+    "invalid_character_name": {
+        "title": "Error",
+        "description": "Input must start with a capital letter, and only letters are allowed."
+    },
+    "missing_character_info": {
+        "title": "Error",
+        "description": "Need to fill out all of the informations about yourself first! (Firstname, Lastname, Nationality, Birthdate)"
+    },
+    "insufficient_funds": {
+        "title": "Insufficient Funds",
+        "description": "You don't have enough cash"
+    },
+    "creator": {
+        "appearance": {
+            "label": "Appearance",
+            "desc": "Choose Your Appearance"
+        },
+        "clothing": {
+            "label": "Clothing",
+            "desc": "Choose Your Clothes"
+        },
+        "firstname": {
+            "desc": "Choose Your First Name",
+            "input": {
+                "header": "Registration",
+                "label": "First Name",
+                "placeholder": "Hank"
+            }
+        },
+        "lastname": {
+            "desc": "Choose Your Last Name",
+            "input": {
+                "header": "Registration",
+                "label": "Last Name",
+                "placeholder": "Jordan"
+            }
+        },
+        "nationality": {
+            "desc": "Choose Your Nationality",
+            "input": {
+                "header": "Registration",
+                "label": "Nationality",
+                "placeholder": "Mexican"
+            }
+        },
+        "birthdate": {
+            "desc": "Choose Your Birth Date",
+            "input": {
+                "header": "Registration",
+                "label": "Birth Date"
+            }
+        },
+        "male": "Male",
+        "female": "Female",
+        "confirm": "Confirm",
+        "select_gender_1": "Select Gender",
+        "select_gender_2": "Select Gender",
+        "photo_tip": "Take a screenshot now"
+    },
+    "clothing_menu": {
+        "category_desc": "Clothing options for this category",
+        "confirm_purhcase": "Confirm purchase"
+    },
+    "camera_prompt_text": "Up/Down",
+    "rotate_prompt_text": "Left/Right",
+    "zoom_prompt_text": "Zoom",
+    "group_prompt_text": "RSGCore Creator"
+}

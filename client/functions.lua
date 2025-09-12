@@ -40,7 +40,7 @@ local hairs_list = require 'data.hairs_list'
 local clothing = require 'data.clothing'
 
 CreateThread(function()
-    local str = "Male"
+    local str = locale('creator.male')
     selectLeft = PromptRegisterBegin()
     PromptSetControlAction(selectLeft, RSG.Prompt.MalePrompt)
     str = CreateVarString(10, 'LITERAL_STRING', str)
@@ -51,7 +51,7 @@ CreateThread(function()
     PromptSetGroup(selectLeft, PromptGroup1)
     PromptRegisterEnd(selectLeft)
 
-    str = "Female"
+    str = locale('creator.female')
     selectRight = PromptRegisterBegin()
     PromptSetControlAction(selectRight, RSG.Prompt.FemalePrompt)
     str = CreateVarString(10, 'LITERAL_STRING', str)
@@ -62,7 +62,7 @@ CreateThread(function()
     PromptSetGroup(selectRight, PromptGroup1)
     PromptRegisterEnd(selectRight)
 
-    str = "Confirm"
+    str = locale('creator.confirm')
     selectEnter = PromptRegisterBegin()
     PromptSetControlAction(selectEnter, RSG.Prompt.ConfirmPrompt)
     str = CreateVarString(10, 'LITERAL_STRING', str)
@@ -303,7 +303,7 @@ function SpawnPeds()
     RenderScriptCams(true, true, 1000, true, false)
     isSelectSexActive = true
 
-    local str = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING", 'Select Gender', Citizen.ResultAsLong())
+    local str = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING", locale('creator.select_gender_1'), Citizen.ResultAsLong())
     Citizen.InvokeNative(0xFA233F8FE190514C, str)
     Citizen.InvokeNative(0xE9990552DEC71600)
 
@@ -314,15 +314,15 @@ function SpawnPeds()
             if not IsInCharCreation then
 
                 if isSelectSexActive and not IsCamActive(cameraFemale) and not IsCamActive(cameraMale) then
-                    Label = CreateVarString(10, "LITERAL_STRING", 'Select Gender')
+                    Label = CreateVarString(10, "LITERAL_STRING", locale('creator.select_gender_2'))
                 end
 
                 if IsCamActive(cameraFemale) and isSelectSexActive then
-                    Label = CreateVarString(10, "LITERAL_STRING", 'Female')
+                    Label = CreateVarString(10, "LITERAL_STRING", locale('creator.female'))
                 end
 
                 if IsCamActive(cameraMale) and isSelectSexActive then
-                    Label = CreateVarString(10, "LITERAL_STRING", "Male")
+                    Label = CreateVarString(10, "LITERAL_STRING", locale('creator.male'))
                 end
 
                 PromptSetActiveGroupThisFrame(PromptGroup1, Label)
@@ -629,7 +629,7 @@ function FotoMugshots()
             DrawText3D(-558.64, -3782.30, 238.5, FirstName .. " " .. LastName, { 255, 255, 255, 255 })
         end
     end)
-    ShowBusyspinnerWithText("take a screenshot now")
+    ShowBusyspinnerWithText(locale('creator.photo_tip'))
     PlaySoundFrontend("Ready_Up_Flash", "RDRO_In_Game_Menu_Sounds", true, 0)
     TakePhoto()
     Wait(7000)
