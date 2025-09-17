@@ -1065,3 +1065,5 @@ end)
 exports('GetMaxTexturesForModel', function(category , model)
     return GetMaxTexturesForModel(category,model)
 end)
+
+exports('ApplySkin', ApplySkin)
