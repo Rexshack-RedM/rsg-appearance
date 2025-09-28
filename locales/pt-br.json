@@ -1,0 +1,248 @@
+{
+    "blips": {
+        "clothing_store": "Loja de Roupas",
+        "wardrobe": "Guarda-Roupa"
+    },
+    "texts": {
+        "body": "Corpo",
+        "face": "Rosto",
+        "hair_beard": "Cabelo e Barba",
+        "hair_style": "Estilo de Cabelo",
+        "hair_color": "Cor do Cabelo",
+        "beard_style": "Estilo de Barba",
+        "beard_color": "Cor da Barba",
+        "makeup": "Maquiagem",
+        "appearance": "Aparência",
+        "slim": "Magro",
+        "sporty": "Atlético",
+        "medium": "Médio",
+        "fat": "Gordo",
+        "strong": "Forte",
+        "face_width": "Largura do Rosto",
+        "skin_tone": "Tom de Pele",
+        "eyes": "Olhos",
+        "eyelids": "Pálpebras",
+        "eyebrows": "Sobrancelhas",
+        "nose": "Nariz",
+        "mouth": "Boca",
+        "teeth": "Dentes",
+        "cheekbones": "Maçãs do Rosto",
+        "jaw": "Mandíbula",
+        "ears": "Orelhas",
+        "chin": "Queixo",
+        "defects": "Imperfeições",
+        "hair": "Cabelo",
+        "beard": "Barba",
+        "type": "Tipo",
+        "visibility": "Visibilidade",
+        "color_palette": "Paleta de Cores ",
+        "color_firstrate": "Cor Primária",
+        "eyebrow": "Sobrancelhas",
+        "nose_curvature": "Curvatura do Nariz",
+        "up_down": "CIMA / BAIXO",
+        "left_right": "esquerda / direita",
+        "upper_lip_height": "Altura do Lábio Superior",
+        "upper_lip_width": "Largura do Lábio Superior",
+        "upper_lip_depth": "Profundidade do Lábio Superior",
+        "lower_lip_height": "Altura do Lábio Inferior",
+        "lower_lip_width": "Largura do Lábio Inferior",
+        "lower_lip_depth": "Profundidade do Lábio Inferior",
+        "make_up": "Maquiagem",
+        "older": "Idade",
+        "scars": "Tipo de Cicatrizes",
+        "freckles": "Tipo de Sardas",
+        "moles": "Sinais",
+        "disadvantages": "Imperfeições",
+        "spots": "Manchas",
+        "shadow": "Sombra",
+        "color_shadow": "Cor da Sombra",
+        "color_first_class": "Cor Principal",
+        "blushing_cheek": "Bochecha Corada",
+        "blush_id": "Cor do Blush",
+        "blush_c1": "Cor Primária do Blush",
+        "lipstick": "Tipo de Batom",
+        "color_lipstick": "Cor do Batom",
+        "lipsticks_c1": "Cor Primária do Batom",
+        "lipsticks_c2": "Cor Secundária do Batom",
+        "eyeliners": "Delineadores",
+        "eyeliners_id": "Cor dos Delineadores",
+        "eyeliners_c1": "Cor Principal dos Delineadores",
+        "save": "Salvar",
+        "options": "Opções",
+        "align": "superior-esquerdo",
+        "style": "Estilo ",
+        "color": "Cor ",
+        "size": "Tamanho",
+        "width": "Largura ",
+        "height": "Altura",
+        "depth": "Profundidade",
+        "waist": "Cintura",
+        "chest": "Peito",
+        "distance": "Distância",
+        "angle": "Ângulo",
+        "clarity": "Nitidez",
+        "creator": "CRIADOR DE PERSONAGEM",
+        "first_menu": {
+            "label_firstname": "Nome",
+            "label_lastname": "Sobrenome",
+            "desc": "Como você quer ser chamado pelas pessoas?",
+            "none": "Vazio",
+            "start": "Comece Sua Jornada",
+            "empty": "Preencha tudo primeiro",
+            "nationality": "Nacionalidade",
+            "birthdate": "Data de Nascimento"
+        }
+    },
+    "labels": {
+        "boot_accessories": "Acessórios de Bota",
+        "pants": "Calças",
+        "cloaks": "Mantos",
+        "hats": "Chapéus",
+        "vests": "Coletes",
+        "chaps": "Perneiras",
+        "shirts_full": "Camisas",
+        "badges": "Distintivos",
+        "masks": "Máscaras",
+        "spats": "Polainas",
+        "neckwear": "Acessórios de Pescoço",
+        "boots": "Botas",
+        "accessories": "Acessórios",
+        "jewelry_rings_right": "Anéis da Mão Direita",
+        "jewelry_rings_left": "Anéis da Mão Esquerda",
+        "jewelry_bracelets": "Pulseiras",
+        "gauntlets": "Manoplas",
+        "neckties": "Gravatas",
+        "holsters_knife": "Coldres de Faca",
+        "talisman_holster": "Talismã do Coldre",
+        "loadouts": "Equipamentos",
+        "suspenders": "Suspensórios",
+        "talisman_satchel": "Talismã da Bolsa",
+        "satchels": "Bolsas",
+        "gunbelts": "Cintos de Arma",
+        "belts": "Cintos",
+        "belt_buckles": "Fivelas de Cinto",
+        "holsters_left": "Coldres Esquerdos",
+        "holsters_right": "Coldres Direitos",
+        "talisman_wrist": "Talismã de Pulso",
+        "coats": "Casacos",
+        "coats_closed": "Casacos Fechados",
+        "ponchos": "Ponchos",
+        "eyewear": "Óculos",
+        "gloves": "Luvas",
+        "holsters_crossdraw": "Coldres de Saque Cruzado",
+        "aprons": "Aventais",
+        "skirts": "Saias",
+        "hair_accessories": "Acessórios de Cabelo",
+        "armor": "Armadura",
+        "dresses": "Vestidos",
+        "save": "Salvar Roupas",
+        "clothes": "Roupas",
+        "options": "opções",
+        "color": "Cor ",
+        "choose": "escolha suas roupas",
+        "wear": "Vestir Traje",
+        "wear_desc": "vestir-se",
+        "delete": "Excluir Traje",
+        "delete_desc": "excluir traje",
+        "shop": "Loja de Roupas",
+        "total": "Preço"
+    },
+    "menu_elements": {
+        "head": {
+            "label": "Cabeça"
+        },
+        "torso": {
+            "label": "Torso"
+        },
+        "legs": {
+            "label": "Pernas"
+        },
+        "foot": {
+            "label": "Pés"
+        },
+        "hands": {
+            "label": "Mãos"
+        },
+        "accessories": {
+            "label": "Acessórios"
+        }
+    },
+    "prompts": {
+        "cloakroom_text": "Abrir Provadores",
+        "clothing_store_label": "Loja de Roupas",
+        "zoom_label": "Aproximar/Afastar Zoom",
+        "camera_up_label": "Câmera Cima/Baixo",
+        "camera_turn_label": "Girar Esquerda/Direita"
+    },
+    "cloack_room_prompt_button": "Provador",
+    "save_outfit_1": "Salvar Traje",
+    "save_outfit_2_header": "Salvar Traje",
+    "save_outfit_2_input_label": "Nome do Traje",
+    "invalid_character_name": {
+        "title": "Erro",
+        "description": "O nome deve começar com letra maiúscula e conter apenas letras."
+    },
+    "missing_character_info": {
+        "title": "Erro",
+        "description": "É necessário preencher todas as informações sobre você primeiro! (Nome, Sobrenome, Nacionalidade, Data de Nascimento)"
+    },
+    "insufficient_funds": {
+        "title": "Fundos Insuficientes",
+        "description": "Você não tem dinheiro suficiente"
+    },
+    "creator": {
+        "appearance": {
+            "label": "Aparência",
+            "desc": "Escolha Sua Aparência"
+        },
+        "clothing": {
+            "label": "Vestuário",
+            "desc": "Escolha Suas Roupas"
+        },
+        "firstname": {
+            "desc": "Escolha Seu Nome",
+            "input": {
+                "header": "Registro",
+                "label": "Nome",
+                "placeholder": "Hank"
+            }
+        },
+        "lastname": {
+            "desc": "Escolha Seu Sobrenome",
+            "input": {
+                "header": "Registro",
+                "label": "Sobrenome",
+                "placeholder": "Jordan"
+            }
+        },
+        "nationality": {
+            "desc": "Escolha Sua Nacionalidade",
+            "input": {
+                "header": "Registro",
+                "label": "Nacionalidade",
+                "placeholder": "Mexicano"
+            }
+        },
+        "birthdate": {
+            "desc": "Escolha Sua Data de Nascimento",
+            "input": {
+                "header": "Registro",
+                "label": "Data de Nascimento"
+            }
+        },
+        "male": "Masculino",
+        "female": "Feminino",
+        "confirm": "Confirmar",
+        "select_gender_1": "Selecionar Gênero",
+        "select_gender_2": "Selecionar Gênero",
+        "photo_tip": "Tire uma captura de tela agora"
+    },
+    "clothing_menu": {
+        "category_desc": "Opções de roupas para esta categoria",
+        "confirm_purhcase": "Confirmar compra"
+    },
+    "camera_prompt_text": "Cima/Baixo",
+    "rotate_prompt_text": "Esquerda/Direita",
+    "zoom_prompt_text": "Zoom",
+    "group_prompt_text": "Criador RSGCore"
+}
