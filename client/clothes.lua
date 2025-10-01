@@ -417,11 +417,10 @@ function Outfits()
     MenuData.CloseAll()
     local Result = lib.callback.await('rsg-appearance:server:getOutfits', false)
     local elements_outfits = {}
-    local name
     for k, v in pairs(Result) do
-        name = v.name
         elements_outfits[#elements_outfits + 1] = {
-            label = '#' .. k .. '. ' .. name,
+            name = v.name,
+            label = '#' .. k .. '. ' .. v.name,
             value = v.clothes,
             desc = RSG.Label.choose
         }
@@ -429,7 +428,7 @@ function Outfits()
     MenuData.Open('default', GetCurrentResourceName(), 'outfits_menu',
         {title = RSG.Label.clothes, subtext = RSG.Label.choose, align = 'top-left', elements = elements_outfits, itemHeight = "4vh"},
         function(data, menu)
-            OutfitsManage(data.current.value, name)
+            OutfitsManage(data.current.value, data.current.name)
         end, function(data, menu)
             menu.close()
         end)
