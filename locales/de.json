@@ -1,0 +1,248 @@
+{
+    "blips": {
+        "clothing_store": "Kleidungsgeschäft",
+        "wardrobe": "Kleiderschrank"
+    },
+    "texts": {
+        "body": "Körper",
+        "face": "Gesicht",
+        "hair_beard": "Haare & Bart",
+        "hair_style": "Frisur",
+        "hair_color": "Haarfarbe",
+        "beard_style": "Bartstil",
+        "beard_color": "Bartfarbe",
+        "makeup": "Make-up",
+        "appearance": "Aussehen",
+        "slim": "Schlank",
+        "sporty": "Sportlich",
+        "medium": "Mittel",
+        "fat": "Kräftig",
+        "strong": "Stark",
+        "face_width": "Gesichtsbreite",
+        "skin_tone": "Hautfarbe",
+        "eyes": "Augen",
+        "eyelids": "Augenlider",
+        "eyebrows": "Augenbrauen",
+        "nose": "Nase",
+        "mouth": "Mund",
+        "teeth": "Zähne",
+        "cheekbones": "Wangenknochen",
+        "jaw": "Kiefer",
+        "ears": "Ohren",
+        "chin": "Kinn",
+        "defects": "Unreinheiten",
+        "hair": "Haare",
+        "beard": "Bart",
+        "type": "Typ",
+        "visibility": "Sichtbarkeit",
+        "color_palette": "Farbpalette",
+        "color_firstrate": "Erstfarbton",
+        "eyebrow": "Augenbraue",
+        "nose_curvature": "Nasenkrümmung",
+        "up_down": "Hoch / Runter",
+        "left_right": "Links / Rechts",
+        "upper_lip_height": "Oberlippenhöhe",
+        "upper_lip_width": "Oberlippenbreite",
+        "upper_lip_depth": "Oberlippentiefe",
+        "lower_lip_height": "Unterlippenhöhe",
+        "lower_lip_width": "Unterlippenbreite",
+        "lower_lip_depth": "Unterlippentiefe",
+        "make_up": "Make-up",
+        "older": "Älter",
+        "scars": "Narbenart",
+        "freckles": "Sommersprossenart",
+        "moles": "Muttermale",
+        "disadvantages": "Makellosigkeit",
+        "spots": "Flecken",
+        "shadow": "Lidschatten",
+        "color_shadow": "Farbe Lidschatten",
+        "color_first_class": "Erstfarbton Lidschatten",
+        "blushing_cheek": "Wangenröte",
+        "blush_id": "Farbe Rouge",
+        "blush_c1": "Hauptfarbe Wangenröte",
+        "lipstick": "Lippenstiftart",
+        "color_lipstick": "Lippenstiftfarbe",
+        "lipsticks_c1": "Hauptfarbe Lippenstift",
+        "lipsticks_c2": "Zweitfarbe Lippenstift",
+        "eyeliners": "Eyeliner",
+        "eyeliners_id": "Farbe Eyeliner",
+        "eyeliners_c1": "Hauptfarbe Eyeliner",
+        "save": "Speichern",
+        "options": "Optionen",
+        "align": "oben-links",
+        "style": "Stil",
+        "color": "Farbe",
+        "size": "Größe",
+        "width": "Breite",
+        "height": "Höhe",
+        "depth": "Tiefe",
+        "waist": "Taille",
+        "chest": "Brust",
+        "distance": "Abstand",
+        "angle": "Winkel",
+        "clarity": "Klarheit",
+        "creator": "CHARAKTER-EDITOR",
+        "first_menu": {
+            "label_firstname": "Vorname",
+            "label_lastname": "Nachname",
+            "desc": "Wie möchtest du von anderen genannt werden?",
+            "none": "Leer",
+            "start": "Deine Reise beginnen",
+            "empty": "Bitte fülle alle Felder aus",
+            "nationality": "Nationalität",
+            "birthdate": "Geburtsdatum"
+        }
+    },
+    "labels": {
+        "boot_accessories": "Stiefelzubehör",
+        "pants": "Hosen",
+        "cloaks": "Umhänge",
+        "hats": "Hüte",
+        "vests": "Westen",
+        "chaps": "Chaps",
+        "shirts_full": "Hemden",
+        "badges": "Abzeichen",
+        "masks": "Masken",
+        "spats": "Gamaschen",
+        "neckwear": "Halstücher",
+        "boots": "Stiefel",
+        "accessories": "Accessoires",
+        "jewelry_rings_right": "Ringe (rechts)",
+        "jewelry_rings_left": "Ringe (links)",
+        "jewelry_bracelets": "Armbänder",
+        "gauntlets": "Armschienen",
+        "neckties": "Krawatten",
+        "holsters_knife": "Messerholster",
+        "talisman_holster": "Talisman-Holster",
+        "loadouts": "Ausrüstung",
+        "suspenders": "Hosenträger",
+        "talisman_satchel": "Talisman-Tasche",
+        "satchels": "Taschen",
+        "gunbelts": "Waffengürtel",
+        "belts": "Gürtel",
+        "belt_buckles": "Gürtelschnallen",
+        "holsters_left": "Holster (links)",
+        "holsters_right": "Holster (rechts)",
+        "talisman_wrist": "Talisman-Armband",
+        "coats": "Mäntel",
+        "coats_closed": "Geschlossene Mäntel",
+        "ponchos": "Ponchos",
+        "eyewear": "Brillen",
+        "gloves": "Handschuhe",
+        "holsters_crossdraw": "Querholster",
+        "aprons": "Schürzen",
+        "skirts": "Röcke",
+        "hair_accessories": "Haaraccessoires",
+        "armor": "Rüstung",
+        "dresses": "Kleider",
+        "save": "Outfit speichern",
+        "clothes": "Kleidung",
+        "options": "Optionen",
+        "color": "Farbe",
+        "choose": "Wähle deine Kleidung",
+        "wear": "Outfit anziehen",
+        "wear_desc": "Outfit anlegen",
+        "delete": "Outfit löschen",
+        "delete_desc": "Outfit entfernen/ löschen",
+        "shop": "Kleidungsgeschäft",
+        "total": "Preis"
+    },
+    "menu_elements": {
+        "head": {
+            "label": "Kopf"
+        },
+        "torso": {
+            "label": "Oberkörper"
+        },
+        "legs": {
+            "label": "Beine"
+        },
+        "foot": {
+            "label": "Füße"
+        },
+        "hands": {
+            "label": "Hände"
+        },
+        "accessories": {
+            "label": "Accessoires"
+        }
+    },
+    "prompts": {
+        "cloakroom_text": "Umkleide öffnen",
+        "clothing_store_label": "Kleidungsgeschäft",
+        "zoom_label": "Zoom In/Out",
+        "camera_up_label": "Kamera Hoch/Runter",
+        "camera_turn_label": "Drehen Links/Rechts"
+    },
+    "cloack_room_prompt_button": "Umkleide",
+    "save_outfit_1": "Outfit speichern",
+    "save_outfit_2_header": "Outfit speichern",
+    "save_outfit_2_input_label": "Outfitname",
+    "invalid_character_name": {
+        "title": "Fehler",
+        "description": "Der Name muss mit einem Großbuchstaben beginnen und darf nur Buchstaben enthalten."
+    },
+    "missing_character_info": {
+        "title": "Fehler",
+        "description": "Bitte fülle zuerst alle Informationen zu deiner Person aus! (Vorname, Nachname, Nationalität, Geburtsdatum)"
+    },
+    "insufficient_funds": {
+        "title": "Zu wenig Geld",
+        "description": "Du hast nicht genug Bargeld."
+    },
+    "creator": {
+        "appearance": {
+            "label": "Aussehen",
+            "desc": "Wähle dein Aussehen"
+        },
+        "clothing": {
+            "label": "Kleidung",
+            "desc": "Wähle deine Kleidung"
+        },
+        "firstname": {
+            "desc": "Wähle deinen Vornamen",
+            "input": {
+                "header": "Registrierung",
+                "label": "Vorname",
+                "placeholder": "Hank"
+            }
+        },
+        "lastname": {
+            "desc": "Wähle deinen Nachnamen",
+            "input": {
+                "header": "Registrierung",
+                "label": "Nachname",
+                "placeholder": "Jordan"
+            }
+        },
+        "nationality": {
+            "desc": "Wähle deine Nationalität",
+            "input": {
+                "header": "Registrierung",
+                "label": "Nationalität",
+                "placeholder": "Mexikaner"
+            }
+        },
+        "birthdate": {
+            "desc": "Wähle dein Geburtsdatum",
+            "input": {
+                "header": "Registrierung",
+                "label": "Geburtsdatum"
+            }
+        },
+        "male": "Männlich",
+        "female": "Weiblich",
+        "confirm": "Bestätigen",
+        "select_gender_1": "Geschlecht auswählen",
+        "select_gender_2": "Geschlecht auswählen",
+        "photo_tip": "Jetzt Screenshot machen"
+    },
+    "clothing_menu": {
+        "category_desc": "Kleidungsoptionen für diese Kategorie",
+        "confirm_purhcase": "Kauf bestätigen"
+    },
+    "camera_prompt_text": "Hoch/Runter",
+    "rotate_prompt_text": "Links/Rechts",
+    "zoom_prompt_text": "Zoom",
+    "group_prompt_text": "RSGCore Charaktereditor"
+}
