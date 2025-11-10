@@ -1,0 +1,249 @@
+{
+    "blips": {
+        "clothing_store": "Ruhabolt",
+        "wardrobe": "Ruhásszekrény"
+    },
+    "texts": {
+        "body": "Test",
+        "face": "Arc",
+        "hair_beard": "Haj és szakáll",
+        "hair_style": "Frizura",
+        "hair_color": "Hajszín",
+        "beard_style": "Szakáll stílusa",
+        "beard_color": "Szakáll színe",
+        "makeup": "Smink",
+        "appearance": "Megjelenés",
+        "slim": "Vékony",
+        "sporty": "Sportos",
+        "medium": "Közepes",
+        "fat": "Telt",
+        "strong": "Erős",
+        "face_width": "Arc szélessége",
+        "skin_tone": "Bőrtónus",
+        "eyes": "Szemek",
+        "eyelids": "Szemhéjak",
+        "eyebrows": "Szemöldök",
+        "nose": "Orr",
+        "mouth": "Száj",
+        "teeth": "Fogak",
+        "cheekbones": "Arccsontok",
+        "jaw": "Állkapocs",
+        "ears": "Fülek",
+        "chin": "Áll",
+        "defects": "Bőrhibák",
+        "hair": "Haj",
+        "beard": "Szakáll",
+        "type": "Típus",
+        "visibility": "Láthatóság",
+        "color_palette": "Színpaletta ",
+        "color_firstrate": "Elsőrangú szín",
+        "eyebrow": "Szemöldök",
+        "nose_curvature": "Orr görbülete",
+        "up_down": "FEL / LE",
+        "left_right": "bal / jobb",
+        "upper_lip_height": "Felső ajak magassága",
+        "upper_lip_width": "Felső ajak szélessége",
+        "upper_lip_depth": "Felső ajak mélysége",
+        "lower_lip_height": "Alsó ajak magassága",
+        "lower_lip_width": "Alsó ajak szélessége",
+        "lower_lip_depth": "Alsó ajak mélysége",
+        "make_up": "Smink",
+        "older": "Idősebb",
+        "scars": "Sebhelyek típusa",
+        "freckles": "Szeplők típusa",
+        "moles": "Anyajegyek",
+        "disadvantages": "Hibák",
+        "spots": "Foltok",
+        "shadow": "Árnyék",
+        "color_shadow": "Árnyék színe",
+        "color_first_class": "Első osztályú szín",
+        "blushing_cheek": "Orcapirosítás",
+        "blush_id": "Arcpír színe",
+        "blush_c1": "Arcpír elsődleges színe",
+        "lipstick": "Rúzs típusa",
+        "color_lipstick": "Rúzs színe",
+        "lipsticks_c1": "Rúzs elsődleges színe",
+        "lipsticks_c2": "Rúzs másodlagos színe",
+        "eyeliners": "Szemhéjtus",
+        "eyeliners_id": "Szemhéjtus színe",
+        "eyeliners_c1": "Szemhéjtus fő színe",
+        "save": "Mentés",
+        "options": "Opciók",
+        "align": "bal felső",
+        "style": "Stílus ",
+        "color": "Szín ",
+        "size": "Méret",
+        "width": "Szélesség ",
+        "height": "Magasság",
+        "depth": "Mélység",
+        "waist": "Derék",
+        "chest": "Mellkas",
+        "distance": "Távolság",
+        "angle": "Szög",
+        "clarity": "Élesség",
+        "creator": "KARAKTERKÉSZÍTŐ",
+        "first_menu": {
+            "label_firstname": "Keresztnév",
+            "label_lastname": "Vezetéknév",
+            "desc": "Hogyan szólítsanak az emberek?",
+            "none": "Üres",
+            "start": "Kezdd meg az utad",
+            "empty": "Előbb tölts ki mindent",
+            "nationality": "Nemzetiség",
+            "birthdate": "Születési dátum"
+        }
+    },
+    "labels": {
+        "boot_accessories": "Csizma kiegészítők",
+        "pants": "Nadrágok",
+        "cloaks": "Köpenyek",
+        "hats": "Kalapok",
+        "vests": "Mellények",
+        "chaps": "Chaps",
+        "shirts_full": "Ingek",
+        "badges": "Jelvények",
+        "masks": "Maszkok",
+        "spats": "Kamáslik",
+        "neckwear": "Nyakviselet",
+        "boots": "Csizmák",
+        "accessories": "Kiegészítők",
+        "jewelry_rings_right": "Gyűrűk (jobb kéz)",
+        "jewelry_rings_left": "Gyűrűk (bal kéz)",
+        "jewelry_bracelets": "Karkötők",
+        "gauntlets": "Kézvédők",
+        "neckties": "Nyakkendők",
+        "holsters_knife": "Késtokok",
+        "talisman_holster": "Talizmán tok",
+        "loadouts": "Felszerelések",
+        "suspenders": "Hózentrógerek",
+        "talisman_satchel": "Talizmán tarisznya",
+        "satchels": "Tarisznyák",
+        "gunbelts": "Fegyverövek",
+        "belts": "Övek",
+        "belt_buckles": "Övcsatok",
+        "holsters_left": "Tokok (bal oldal)",
+        "holsters_right": "Tokok (jobb oldal)",
+        "talisman_wrist": "Talizmán (csukló)",
+        "coats": "Kabátok",
+        "coats_closed": "Begombolt kabátok",
+        "ponchos": "Poncsók",
+        "eyewear": "Szemüvegek",
+        "gloves": "Kesztyűk",
+        "holsters_crossdraw": "Kereszthúzású tokok",
+        "aprons": "Kötények",
+        "skirts": "Szoknyák",
+        "hair_accessories": "Hajkiegészítők",
+        "armor": "Páncél",
+        "dresses": "Ruhák",
+        "save": "Ruhák mentése",
+        "clothes": "Ruhák",
+        "options": "Opciók",
+        "color": "Szín ",
+        "choose": "Válaszd ki a ruháidat",
+        "wear": "Öltözet felvétele",
+        "wear_desc": "Felöltözés",
+        "delete": "Öltözet törlése",
+        "delete_desc": "Öltözet törlése",
+        "shop": "Ruhabolt",
+        "total": "Ár"
+    },
+    "menu_elements": {
+        "head": {
+            "label": "Fej"
+        },
+        "torso": {
+            "label": "Törzs"
+        },
+        "legs": {
+            "label": "Lábak"
+        },
+        "foot": {
+            "label": "Lábfej"
+        },
+        "hands": {
+            "label": "Kezek"
+        },
+        "accessories": {
+            "label": "Kiegészítők"
+        }
+    },
+    "prompts": {
+        "cloakroom_text": "Öltöző megnyitása",
+        "clothing_store_label": "Ruhabolt",
+        "zoom_label":"Nagyítás/Kicsinyítés",
+        "camera_up_label": "Kamera fel/le",
+        "camera_turn_label": "Forgatás balra/jobbra"
+    },
+
+    "cloack_room_prompt_button": "Öltöző",
+    "save_outfit_1": "Öltözet mentése",
+    "save_outfit_2_header": "Öltözet mentése",
+    "save_outfit_2_input_label": "Öltözet neve",
+    "invalid_character_name": {
+        "title": "Hiba",
+        "description": "A név nagybetűvel kezdődjön, és csak betűket tartalmazhat."
+    },
+    "missing_character_info": {
+        "title": "Hiba",
+        "description": "Előbb tölts ki mindent magadról! (Keresztnév, Vezetéknév, Nemzetiség, Születési dátum)"
+    },
+    "insufficient_funds": {
+        "title": "Elégtelen fedezet",
+        "description": "Nincs elég készpénzed"
+    },
+    "creator": {
+        "appearance": {
+            "label": "Megjelenés",
+            "desc": "Válaszd ki a megjelenésed"
+        },
+        "clothing": {
+            "label": "Ruházat",
+            "desc": "Válaszd ki a ruhád"
+        },
+        "firstname": {
+            "desc": "Válaszd ki a keresztneved",
+            "input": {
+                "header": "Regisztráció",
+                "label": "Keresztnév",
+                "placeholder": "Hank"
+            }
+        },
+        "lastname": {
+            "desc": "Válaszd ki a vezetékneved",
+            "input": {
+                "header": "Regisztráció",
+                "label": "Vezetéknév",
+                "placeholder": "Jordan"
+            }
+        },
+        "nationality": {
+            "desc": "Válaszd ki a nemzetiséged",
+            "input": {
+                "header": "Regisztráció",
+                "label": "Nemzetiség",
+                "placeholder": "Mexikói"
+            }
+        },
+        "birthdate": {
+            "desc": "Válaszd ki a születési dátumod",
+            "input": {
+                "header": "Regisztráció",
+                "label": "Születési dátum"
+            }
+        },
+        "male": "Férfi",
+        "female": "Nő",
+        "confirm": "Megerősítés",
+        "select_gender_1": "Válassz nemet",
+        "select_gender_2": "Válassz nemet",
+        "photo_tip": "Készíts most képernyőfotót"
+    },
+    "clothing_menu": {
+        "category_desc": "Ruházati lehetőségek ebben a kategóriában",
+        "confirm_purhcase": "Vásárlás megerősítése"
+    },
+    "camera_prompt_text": "Fel/Le",
+    "rotate_prompt_text": "Bal/Jobb",
+    "zoom_prompt_text": "Nagyítás",
+    "group_prompt_text": "RSGCore Készítő"
+}
