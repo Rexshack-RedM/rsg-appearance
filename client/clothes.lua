@@ -11,6 +11,7 @@ local Divider = "<img style='margin-top: 10px;margin-bottom: 10px; margin-left: 
 local image = "<img style='max-height:250px;max-width:250px;float: center;'src='nui://rsg-appearance/img/%s.png'>"
 
 local clothing = require 'data.clothing'
+local hashToCache = require 'client.hashtocache'
 
 ---@deprecated use inClothingStore state
 exports('IsCothingActive', function()
@@ -533,25 +534,9 @@ function GenerateMenu()
     TriggerEvent('rsg-horses:client:FleeHorse')
     Wait(0)
     TeleportAndFade(CurentCoords.fittingcoords, false)
+    TriggerServerEvent('rsg-appearance:server:SetPlayerBucket', 0, true)
     local ClothesComponents = lib.callback.await('rsg-appearance:server:LoadClothes', false)
-    ClothesCache = ClothesComponents
-    if IsPedMale(PlayerPedId()) then
-        for k,v in pairs(clothing["male"]) do
-            if ClothesCache[k] == nil then
-                ClothesCache[k] = {}
-                ClothesCache[k].model = 0
-                ClothesCache[k].texture = 0
-            end
-        end
-    else
-        for k,v in pairs(clothing["female"]) do
-            if ClothesCache[k] == nil then
-                ClothesCache[k] = {}
-                ClothesCache[k].model = 0
-                ClothesCache[k].texture = 0
-            end
-        end
-    end
+    ClothesCache = hashToCache.PopulateClothingCache(ClothesComponents, IsPedMale(PlayerPedId()))
     OldClothesCache = deepcopy(ClothesCache)
     camera(2.4, -0.15)
     CreateThread(ClothingLight)
