@@ -130,10 +130,12 @@
     "eyewear": "Okulary",
     "gloves": "Rękawice",
     "holsters_crossdraw": "Kabury Krzyżowe",
-    "aprons": "Fartuchy",
     "skirts": "Spódnice",
     "hair_accessories": "Akcesoria do Włosów",
     "armor": "Zbroja",
+    "ammunition_belts": "Ammunition Belts",
+    "gunbelt_ammunition": "Gunbelt Ammunition",
+    "leg_attachments": "Leg Attachments",
     "dresses": "Sukienki",
     "save": "Zapisz Strój",
     "clothes": "Ubrania",
@@ -146,5 +148,7 @@
     "delete_desc": "Usuń strój",
     "shop": "Sklep Odzieżowy",
     "total": "Cena"
+  },
+  "menu_elements": {
   }
 }

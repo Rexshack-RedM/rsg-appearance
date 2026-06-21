@@ -310,8 +310,8 @@ function SpawnPeds()
     local Label
     CreateThread(function()
         while InCharacterCreator do
-            Wait(0)
             if not IsInCharCreation then
+                Wait(0)
 
                 if isSelectSexActive and not IsCamActive(cameraFemale) and not IsCamActive(cameraMale) then
                     Label = CreateVarString(10, "LITERAL_STRING", locale('creator.select_gender_2'))
@@ -342,7 +342,7 @@ function SpawnPeds()
                         SetCamActive(cameraFemale, false)
                         PromptSetEnabled(selectEnter, 1)
                     end
-                    Wait(2000)
+                    Wait(200)
                     InCharacterCreator = true
                 end
 
@@ -361,7 +361,7 @@ function SpawnPeds()
                         SetCamActive(cameraFemale, false)
                         PromptSetEnabled(selectEnter, 0)
                     end
-                    Wait(2000)
+                    Wait(200)
                     InCharacterCreator = true
                 end
 
@@ -392,6 +392,7 @@ function SpawnPeds()
                 end
             else
                 FreezeEntityPosition(PlayerPedId(), false)
+                Wait(100)
             end
         end
     end)
@@ -425,10 +426,16 @@ CreatePedAtCoords = function(model, coords, isNetworked)
     end
 end
 
+local lastFrameTime = GetGameTimer()
+
 function StartPrompts()
     lightsOn = false
     while IsInCharCreation do
         Wait(0)
+        local now = GetGameTimer()
+        local dt = math.min((now - lastFrameTime) / 16.667, 3.0)
+        lastFrameTime = now
+
         DrawLightWithRange(camloc.x, camloc.y, camloc.z, 255, 255, 255, 10.0, 100.0)
 
         local label = CreateVarString(10, 'LITERAL_STRING', RSG.GroupPromptText)
@@ -436,33 +443,33 @@ function StartPrompts()
 
         if IsControlPressed(2, RSG.Prompt.CameraUp) then
             local CamCoords = GetCamCoord(CharacterCreatorCamera)
-            local z = math.min(CamCoords.z + 0.01, camloc.z + 1)
+            local z = math.min(CamCoords.z + 0.01 * dt, camloc.z + 1)
             SetCamCoord(CharacterCreatorCamera, camloc.x, camloc.y, z)
         end
 
         if IsControlPressed(2, RSG.Prompt.CameraDown) then
             local CamCoords = GetCamCoord(CharacterCreatorCamera)
             local HasZ, PosZ = GetGroundZAndNormalFor_3dCoord(camloc.x, camloc.y, camloc.z + 0.5)
-            local z = math.max(CamCoords.z - 0.01, PosZ + 0.2)
+            local z = math.max(CamCoords.z - 0.01 * dt, PosZ + 0.2)
             SetCamCoord(CharacterCreatorCamera, camloc.x, camloc.y, z)
         end
 
         if IsControlPressed(2, RSG.Prompt.RotateLeft) then
             local heading = GetEntityHeading(PlayerPedId())
-            SetPedDesiredHeading(PlayerPedId(), heading - 40)
+            SetPedDesiredHeading(PlayerPedId(), heading - 40 * dt)
         end
 
         if IsControlPressed(2, RSG.Prompt.RotateRight) then
             local heading = GetEntityHeading(PlayerPedId())
-            SetPedDesiredHeading(PlayerPedId(), heading + 40)
+            SetPedDesiredHeading(PlayerPedId(), heading + 40 * dt)
         end
 
         if IsControlPressed(2, RSG.Prompt.Zoom1) then
-            SetCamFov(CharacterCreatorCamera, GetCamFov(CharacterCreatorCamera) - 1.5)
+            SetCamFov(CharacterCreatorCamera, GetCamFov(CharacterCreatorCamera) - 1.5 * dt)
         end
 
         if IsControlPressed(2, RSG.Prompt.Zoom2) then
-            SetCamFov(CharacterCreatorCamera, GetCamFov(CharacterCreatorCamera) + 1.5)
+            SetCamFov(CharacterCreatorCamera, GetCamFov(CharacterCreatorCamera) + 1.5 * dt)
         end
     end
 end

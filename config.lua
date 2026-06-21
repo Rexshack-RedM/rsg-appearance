@@ -236,28 +236,30 @@ RSG.Label = {
     gauntlets           = locale('labels.gauntlets'),
     neckties            = locale('labels.neckties'),
     holsters_knife      = locale('labels.holsters_knife'),
-    talisman_holster    = locale('labels.talisman_holster'),
     loadouts            = locale('labels.loadouts'),
     suspenders          = locale('labels.suspenders'),
-    talisman_satchel    = locale('labels.talisman_satchel'),
     satchels            = locale('labels.satchels'),
     gunbelts            = locale('labels.gunbelts'),
     belts               = locale('labels.belts'),
     belt_buckles        = locale('labels.belt_buckles'),
     holsters_left       = locale('labels.holsters_left'),
     holsters_right      = locale('labels.holsters_right'),
-    talisman_wrist      = locale('labels.talisman_wrist'),
     coats               = locale('labels.coats'),
     coats_closed        = locale('labels.coats_closed'),
     ponchos             = locale('labels.ponchos'),
     eyewear             = locale('labels.eyewear'),
     gloves              = locale('labels.gloves'),
     holsters_crossdraw  = locale('labels.holsters_crossdraw'),
-    aprons              = locale('labels.aprons'),
+
     skirts              = locale('labels.skirts'),
     hair_accessories    = locale('labels.hair_accessories'),
     armor               = locale('labels.armor'),
     dresses             = locale('labels.dresses'),
+    ammunition_belts    = locale('labels.ammunition_belts'),
+    gunbelt_ammunition  = locale('labels.gunbelt_ammunition'),
+    gunbelt_accs        = locale('labels.gunbelt_accs'),
+    leg_attachments     = locale('labels.leg_attachments'),
+
 
     -- other
 
@@ -286,21 +288,34 @@ RSG.MenuElements = {
         }
     },
 
-    ["torso"] = {
-        label = locale('menu_elements.torso.label'),
+    ["shirts_vests"] = {
+        label = locale('menu_elements.shirts_vests.label'),
         category = {
-            "cloaks",
-            "vests",
             "shirts_full",
-            "holsters_knife",
-            "loadouts",
+            "vests",
             "suspenders",
+            "loadouts",
+        }
+    },
+
+    ["belts_holsters"] = {
+        label = locale('menu_elements.belts_holsters.label'),
+        category = {
             "gunbelts",
             "belts",
             "holsters_left",
             "holsters_right",
+            "ammunition_belts",
+            "gunbelt_ammunition",
+        }
+    },
+
+    ["coats_outerwear"] = {
+        label = locale('menu_elements.coats_outerwear.label'),
+        category = {
             "coats",
             "coats_closed",
+            "cloaks",
             "ponchos",
             "dresses",
         }
@@ -312,6 +327,7 @@ RSG.MenuElements = {
             "pants",
             "chaps",
             "skirts",
+            "leg_attachments",
         }
     },
     ["foot"] = {
@@ -334,17 +350,19 @@ RSG.MenuElements = {
         }
     },
 
-    ["accessories"] = {
-        label = locale('menu_elements.accessories.label'),
+    ["belts_satchels"] = {
+        label = locale('menu_elements.belts_satchels.label'),
         category = {
             "accessories",
-            "talisman_wrist",
-            "talisman_holster",
             "belt_buckles",
             "satchels",
+        }
+    },
+
+    ["misc_gear"] = {
+        label = locale('menu_elements.misc_gear.label'),
+        category = {
             "holsters_crossdraw",
-            "aprons",
-            "bows",
             "armor",
             "badges",
             "hair_accessories",
@@ -373,28 +391,28 @@ RSG.Price = {
     ["gauntlets"] = 3,
     ["neckties"] = 3,
     ["holsters_knife"] = 3,
-    ["talisman_holster"] = 3,
     ["loadouts"] = 5,
     ["suspenders"] = 3,
-    ["talisman_satchel"] = 3,
     ["satchels"] = 3,
     ["gunbelts"] = 3,
     ["belts"] = 2,
     ["belt_buckles"] = 6,
     ["holsters_left"] = 5,
     ["holsters_right"] = 5,
-    ["talisman_wrist"] = 5,
     ["coats"] = 5,
     ["coats_closed"] = 5,
     ["ponchos"] = 3,
     ["eyewear"] = 5,
     ["gloves"] = 3,
     ["holsters_crossdraw"] = 4,
-    ["aprons"] = 4,
     ["skirts"] = 2,
     ["hair_accessories"] = 2,
     ["dresses"] = 1,
     ["armor"] = 20,
+    ["ammunition_belts"] = 3,
+    ["gunbelt_ammunition"] = 3,
+    ["gunbelt_accs"] = 3,
+    ["leg_attachments"] = 4,
 }
 
 RSG.Prompts = {

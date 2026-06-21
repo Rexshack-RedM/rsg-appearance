@@ -306,7 +306,7 @@ end, false)
 
 local function checkStrings(input)
     if RSG.ProfanityWords[input:lower()] then return false end
-    if not string.match(input, '%u%l*') then
+    if not string.match(input, '^%u%l+$') then
         lib.notify({ title = locale('invalid_character_name.title'), description = locale('invalid_character_name.description'), type = 'error', duration = 7000 })
         return false
     end
@@ -723,7 +723,6 @@ end
 
 function OpenEyesMenu()
     MenuData.CloseAll()
-    local EyesColorOptions = {RSG.Texts.EyesTone1,RSG.Texts.EyesTone2,RSG.Texts.EyesTone3,RSG.Texts.EyesTone4,RSG.Texts.EyesTone5,RSG.Texts.EyesTone5}
     local elements = {
         {label = RSG.Texts.Color,    value = CreatorCache["eyes_color"] or 1,    category = "eyes_color",    desc = "", type = "slider", min = 1,max = 18},
         {label = RSG.Texts.Depth,    value = CreatorCache["eyes_depth"] or 0,    category = "eyes_depth",    desc = "", type = "slider", min = -100, max = 100, hop = 5},
@@ -903,9 +902,9 @@ end
 function OpenChinMenu()
     MenuData.CloseAll()
     local elements = {
-        {label = RSG.Texts.Size, value = CreatorCache["chin_height"] or 0, category = "chin_height", desc = "", type = "slider", min = -100, max = 100, hop = 5},
-        {label = RSG.Texts.Size, value = CreatorCache["chin_width"] or 0,  category = "chin_width",  desc = "", type = "slider", min = -100, max = 100, hop = 5},
-        {label = RSG.Texts.Size, value = CreatorCache["chin_depth"] or 0,  category = "chin_depth",  desc = "", type = "slider", min = -100, max = 100, hop = 5}}
+        {label = RSG.Texts.Height, value = CreatorCache["chin_height"] or 0, category = "chin_height", desc = "", type = "slider", min = -100, max = 100, hop = 5},
+        {label = RSG.Texts.Width,  value = CreatorCache["chin_width"] or 0,  category = "chin_width",  desc = "", type = "slider", min = -100, max = 100, hop = 5},
+        {label = RSG.Texts.Depth,  value = CreatorCache["chin_depth"] or 0,  category = "chin_depth",  desc = "", type = "slider", min = -100, max = 100, hop = 5}}
     MenuData.Open('default', GetCurrentResourceName(), 'chin_character_creator_menu',
         {title = RSG.Texts.Chin, subtext = RSG.Texts.Options, align = RSG.Texts.align, elements = elements, itemHeight = "4vh"}, function(data, menu)
     end, function(data, menu)
@@ -1011,7 +1010,7 @@ exports('GetBodyCurrentComponentHash', function(name)
     else
         local id = LoadedComponents[name]
         if not id then
-            return
+            id = 1
         end
         if IsPedMale(PlayerPedId()) then
             if ComponentsMale[name] ~= nil then

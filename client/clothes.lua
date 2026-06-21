@@ -3,6 +3,34 @@ local ClothingCamera = nil
 local c_zoom = 2.4
 local c_offset = -0.15
 local Outfits_tab = {}
+
+local BODY_CATEGORY_MAP = {
+    shirts_full = "BODIES_UPPER",
+    coats = "BODIES_UPPER",
+    coats_closed = "BODIES_UPPER",
+    vests = "BODIES_UPPER",
+    ponchos = "BODIES_UPPER",
+    cloaks = "BODIES_UPPER",
+    suspenders = "BODIES_UPPER",
+    loadouts = "BODIES_UPPER",
+    armor = "BODIES_UPPER",
+    pants = "BODIES_LOWER",
+    chaps = "BODIES_LOWER",
+    skirts = "BODIES_LOWER",
+    boots = "BODIES_LOWER",
+    spats = "BODIES_LOWER",
+    boot_accessories = "BODIES_LOWER",
+    leg_attachments = "BODIES_LOWER",
+}
+
+function GetBodyFallbackHash(name)
+    local hash = exports['rsg-appearance']:GetBodyCurrentComponentHash(name)
+    if not hash then
+        local comps = IsPedMale(PlayerPedId()) and ComponentsMale or ComponentsFemale
+        hash = comps[name] and comps[name][1]
+    end
+    return hash
+end
 local CurrentPrice = 0
 local CurentCoords = {}
 local playerHeading = nil
@@ -57,8 +85,6 @@ function OpenClothingMenu()
                     centered = true,
                     cancel = true,
                 })
-                local ClothesHash = ConvertCacheToHash(ClothesCache)
-                local isMale = IsPedMale(PlayerPedId())
                 if alert == 'confirm' then
                     local input = lib.inputDialog(locale('save_outfit_2_header'), {
                         {
@@ -67,20 +93,25 @@ function OpenClothingMenu()
                             required = true,
                         },
                     })
+                    local ClothesHash = ConvertCacheToHash(ClothesCache)
+                    local isMale = IsPedMale(PlayerPedId())
                     if input and input[1] then
                         TriggerServerEvent("rsg-appearance:server:saveOutfit", ClothesHash, isMale, input[1])
                     else
                         TriggerServerEvent("rsg-appearance:server:saveOutfit", ClothesHash, isMale)
                     end
+                    if next(CurentCoords) == nil then
+                        CurentCoords = RSG.Zones1[1]
+                    end
+                    TeleportAndFade(CurentCoords.quitcoords, true)
+                    Wait(1000)
+                    ExecuteCommand('loadskin')
                 else
-                    TriggerServerEvent("rsg-appearance:server:saveOutfit", ClothesHash, isMale)
+                    local str = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING", locale('clothing_menu.category_desc'), Citizen.ResultAsLong())
+                    Citizen.InvokeNative(0xFA233F8FE190514C, str)
+                    Wait(100)
+                    GenerateMenu()
                 end
-                if next(CurentCoords) == nil then
-                    CurentCoords = RSG.Zones1[1]
-                end
-                TeleportAndFade(CurentCoords.quitcoords, true)
-                Wait(1000)
-                ExecuteCommand('loadskin')
             end
         end, function(data, menu)
             if (IsInCharCreation or Skinkosong) then
@@ -197,16 +228,15 @@ function MenuUpdateClothes(data, menu)
                 menu.refresh()
                 Change(data.current.value, data.current.category, data.current.change_type)
             else
-                if data.current.category == 'cloaks' then
-                    data.current.category = 'ponchos'
-                end
-                Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey(data.current.category), 0)
+                local clearCategory = data.current.category == 'cloaks' and 'ponchos' or data.current.category
+                Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey(clearCategory), 0)
                 NativeUpdatePedVariation(PlayerPedId())
-                if data.current.category == "pants" or data.current.category == "boots" then
-                    NativeSetPedComponentEnabledClothes(PlayerPedId(), exports['rsg-appearance']:GetBodyCurrentComponentHash("BODIES_LOWER"), false, true, true)
-                end
-                if data.current.category == "shirts_full" then
-                    NativeSetPedComponentEnabledClothes(PlayerPedId(), exports['rsg-appearance']:GetBodyCurrentComponentHash("BODIES_UPPER"), false, true, true)
+                local bodyPart = BODY_CATEGORY_MAP[data.current.category]
+                if bodyPart then
+                    local hash = GetBodyFallbackHash(bodyPart)
+                    if hash then
+                        NativeSetPedComponentEnabledClothes(PlayerPedId(), hash, false, true, true)
+                    end
                 end
                 menu.setElement(data.current.id + 1, "max", 0)
                 menu.setElement(data.current.id + 1, "min", 0)
@@ -229,41 +259,46 @@ function MenuUpdateClothes(data, menu)
     end
 end
 
+local clothingLastFrame = GetGameTimer()
+
 function ClothingLight()
     while ClothingCamera do
         Wait(0)
+        local now = GetGameTimer()
+        local dt = math.min((now - clothingLastFrame) / 16.667, 3.0)
+        clothingLastFrame = now
 
         TogglePrompts({ "TURN_LR", "CAM_UD", "ZOOM_IO" }, true)
 
         if IsControlPressed(2, RSGCore.Shared.Keybinds['D']) then
             local heading = GetEntityHeading(PlayerPedId())
-            SetEntityHeading(PlayerPedId(), heading + 2)
+            SetEntityHeading(PlayerPedId(), heading + 2 * dt)
         end
         if IsControlPressed(2, RSGCore.Shared.Keybinds['A']) then
             local heading = GetEntityHeading(PlayerPedId())
-            SetEntityHeading(PlayerPedId(), heading - 2)
+            SetEntityHeading(PlayerPedId(), heading - 2 * dt)
         end
         if IsControlPressed(2, 0x8BDE7443) then
-            if c_zoom + 0.25 < 2.5 and c_zoom + 0.25 > 0.7 then
-                c_zoom = c_zoom + 0.25
+            if c_zoom + 0.25 * dt < 2.5 and c_zoom + 0.25 * dt > 0.7 then
+                c_zoom = c_zoom + 0.25 * dt
                 camera(c_zoom, c_offset)
             end
         end
         if IsControlPressed(2, 0x62800C92) then
-            if c_zoom - 0.25 < 2.5 and c_zoom - 0.25 > 0.7 then
-                c_zoom = c_zoom - 0.25
+            if c_zoom - 0.25 * dt < 2.5 and c_zoom - 0.25 * dt > 0.7 then
+                c_zoom = c_zoom - 0.25 * dt
                 camera(c_zoom, c_offset)
             end
         end
         if IsControlPressed(2, RSGCore.Shared.Keybinds['W']) then
-            if c_offset + 0.5 / 7 < 1.2 and c_offset + 0.5 / 7 > -1.0 then
-                c_offset = c_offset + 0.5 / 7
+            if c_offset + (0.5 / 7) * dt < 1.2 and c_offset + (0.5 / 7) * dt > -1.0 then
+                c_offset = c_offset + (0.5 / 7) * dt
                 camera(c_zoom, c_offset)
             end
         end
         if IsControlPressed(2, RSGCore.Shared.Keybinds['S']) then
-            if c_offset - 0.5 / 7 < 1.2 and c_offset - 0.5 / 7 > -1.0 then
-                c_offset = c_offset - 0.5 / 7
+            if c_offset - (0.5 / 7) * dt < 1.2 and c_offset - (0.5 / 7) * dt > -1.0 then
+                c_offset = c_offset - (0.5 / 7) * dt
                 camera(c_zoom, c_offset)
             end
         end
@@ -306,8 +341,10 @@ AddEventHandler('rsg-appearance:client:ApplyClothes', function(ClothesComponents
         end
         SetEntityAlpha(_Target, 0)
         ClothesCache = ClothesComponents
+        local appliedCategories = {}
         for k, v in pairs(ClothesComponents) do
             if v ~= nil and v ~= 0 then
+                appliedCategories[k] = true
                 if type(v) ~= "table" then v = { hash = v} end
                 if v.hash and v.hash ~= 0 then
                     NativeSetPedComponentEnabledClothes(_Target, v.hash, false, true, true)
@@ -335,6 +372,14 @@ AddEventHandler('rsg-appearance:client:ApplyClothes', function(ClothesComponents
                             end
                         end
                     end
+                end
+            end
+        end
+        for cat, bodyPart in pairs(BODY_CATEGORY_MAP) do
+            if not appliedCategories[cat] then
+                local hash = GetBodyFallbackHash(bodyPart)
+                if hash then
+                    NativeSetPedComponentEnabledClothes(_Target, hash, false, true, true)
                 end
             end
         end
@@ -508,7 +553,7 @@ end
 CreateThread(function()
     OpenCloakroom()
     while true do
-        Wait(5)
+        Wait(100)
         local sleep = true
         local playerPed = PlayerPedId()
         local coords = GetEntityCoords(playerPed)

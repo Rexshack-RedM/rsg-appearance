@@ -8,6 +8,11 @@ RegisterServerEvent('rsg-appearance:server:saveOutfit', function(newClothes, isM
 
     local newClothes = newClothes or {}
     local currentClothes = json.decode(skinData[1]?.clothes) or {}
+    local valid, reason = ValidateClothesData(newClothes, isMale)
+    if not valid then
+        TriggerClientEvent('ox_lib:notify', src, { title = 'Error', description = reason, type = 'error', duration = 5000 })
+        return
+    end
     local price = CalculatePrice(newClothes, currentClothes, isMale)
 
     if Player.Functions.RemoveMoney('cash', price, 'buy-clothes') then
@@ -32,6 +37,9 @@ RegisterNetEvent('rsg-appearance:server:saveUseOutfit', function(clothes)
     local Player = RSGCore.Functions.GetPlayer(src)
     if not Player then return end
     if clothes ~= nil then
+        local isMale = (Player.PlayerData.charinfo?.gender or 0) == 0
+        local valid = ValidateClothesData(clothes, isMale)
+        if not valid then return end
         MySQL.execute('UPDATE playerskins SET clothes = @clothes WHERE citizenid = @citizenid', {
             ['@citizenid'] = Player.PlayerData.citizenid,
             ['@clothes'] = json.encode(clothes),
@@ -45,7 +53,7 @@ AddEventHandler('rsg-appearance:server:DeleteOutfit', function(name)
     local _name = name
     local Player = RSGCore.Functions.GetPlayer(src)
     local citizenid = Player.PlayerData.citizenid
-    MySQL.Async.fetchAll('DELETE FROM playeroutfit WHERE citizenid = ? AND name =  ?', {citizenid, _name})
+    MySQL.Async.execute('DELETE FROM playeroutfit WHERE citizenid = ? AND name = ?', {citizenid, _name})
 end)
 
 lib.callback.register('rsg-appearance:server:LoadClothes', function(source)

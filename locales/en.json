@@ -113,29 +113,29 @@
         "gauntlets": "Gaunt Lets",
         "neckties": "Neck Ties",
         "holsters_knife": "Holsters Knife",
-        "talisman_holster": "Talisman Holster",
         "loadouts": "Load outs",
         "suspenders": "Suspenders",
-        "talisman_satchel": "Talisman Satchel",
         "satchels": "Satchels",
         "gunbelts": "Gun Belts",
         "belts": "Belts",
         "belt_buckles": "Belt Buckles",
         "holsters_left": "Holsters Left",
         "holsters_right": "Holsters Right",
-        "talisman_wrist": "Talisman Wrist",
         "coats": "Coats",
         "coats_closed": "Coats Closed",
         "ponchos": "Ponchos",
         "eyewear": "Eyewear",
         "gloves": "Gloves",
         "holsters_crossdraw": "Holsters Crossdraw",
-        "aprons": "Aprons",
         "skirts": "Skirts",
         "hair_accessories": "Hair Accessories",
         "armor": "Armor",
         "dresses": "Dresses",
-        "save": "Save Clothes",
+        "ammunition_belts": "Ammunition Belts",
+        "gunbelt_ammunition": "Gunbelt Ammunition",
+        "gunbelt_accs": "Gunbelt Accessories",
+        "leg_attachments": "Leg Attachments",
+"save": "Save Clothes",
         "clothes": "Clothes",
         "options": "options",
         "color": "Color ",
@@ -151,8 +151,14 @@
         "head": {
             "label": "Head"
         },
-        "torso": {
-            "label": "Torso"
+        "shirts_vests": {
+            "label": "Shirts & Vests"
+        },
+        "belts_holsters": {
+            "label": "Belts & Holsters"
+        },
+        "coats_outerwear": {
+            "label": "Coats & Outerwear"
         },
         "legs": {
             "label": "Legs"
@@ -163,8 +169,11 @@
         "hands": {
             "label": "Hands"
         },
-        "accessories": {
-            "label": "Accessories"
+        "belts_satchels": {
+            "label": "Belts & Satchels"
+        },
+        "misc_gear": {
+            "label": "Misc. Gear"
         }
     },
     "prompts": {
