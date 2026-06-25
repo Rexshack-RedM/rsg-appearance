@@ -225,7 +225,6 @@ function ApplySkin()
         LoadBodyFeature(_Target, _SkinData.body_waist, Data.Appearance.body_waist)
         LoadBodyFeature(_Target, _SkinData.chest_size, Data.Appearance.chest_size)
         LoadOverlays(_Target, _SkinData)
-        SetEntityAlpha(_Target, 255)
         SetAttributeCoreValue(_Target, 0, 100)
         SetAttributeCoreValue(_Target, 1, 100)
         SetEntityHealth(_Target, currentHealth, 0)
@@ -1005,6 +1004,19 @@ exports('GetBodyCurrentComponentHash', function(name)
                 if hairs_list["female"][name][model][texture] ~= nil then
                     hash = hairs_list["female"][name][model][texture].hash
                 end
+            end
+        end
+    elseif name == "BODIES_UPPER" or name == "BODIES_LOWER" then
+        local body_size = tonumber(LoadedComponents.body_size or 1)
+        local skin_tone = tonumber(LoadedComponents.skin_tone or 1)
+        local id = GetSkinColorFromBodySize(body_size, skin_tone) or 1
+        if IsPedMale(PlayerPedId()) then
+            if ComponentsMale[name] ~= nil then
+                hash = ComponentsMale[name][id]
+            end
+        else
+            if ComponentsFemale[name] ~= nil then
+                hash = ComponentsFemale[name][id]
             end
         end
     else

@@ -375,8 +375,15 @@ AddEventHandler('rsg-appearance:client:ApplyClothes', function(ClothesComponents
                 end
             end
         end
+        local bodyPartCovered = {}
         for cat, bodyPart in pairs(BODY_CATEGORY_MAP) do
-            if not appliedCategories[cat] then
+            if appliedCategories[cat] then
+                bodyPartCovered[bodyPart] = true
+            end
+        end
+        for cat, bodyPart in pairs(BODY_CATEGORY_MAP) do
+            if not bodyPartCovered[bodyPart] then
+                bodyPartCovered[bodyPart] = true
                 local hash = GetBodyFallbackHash(bodyPart)
                 if hash then
                     NativeSetPedComponentEnabledClothes(_Target, hash, false, true, true)
