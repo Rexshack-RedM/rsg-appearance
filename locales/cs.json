@@ -1,0 +1,249 @@
+{
+    "blips": {
+        "clothing_store": "Obchod s oblečením",
+        "wardrobe": "Šatník"
+    },
+    "texts": {
+        "body": "Postava",
+        "face": "Obličej",
+        "hair_beard": "Vlasy a vousy",
+        "hair_style": "Účes",
+        "hair_color": "Barva vlasů",
+        "beard_style": "Styl vousů",
+        "beard_color": "Barva vousů",
+        "makeup": "Make-up",
+        "appearance": "Vzhled",
+        "slim": "Štíhlá",
+        "sporty": "Sportovní",
+        "medium": "Střední",
+        "fat": "Plnější",
+        "strong": "Svalnatá",
+        "face_width": "Šířka obličeje",
+        "skin_tone": "Tón pleti",
+        "eyes": "Oči",
+        "eyelids": "Víčka",
+        "eyebrows": "Obočí",
+        "nose": "Nos",
+        "mouth": "Ústa",
+        "teeth": "Zuby",
+        "cheekbones": "Lícní kosti",
+        "jaw": "Čelist",
+        "ears": "Uši",
+        "chin": "Brada",
+        "defects": "Vady",
+        "hair": "Vlasy",
+        "beard": "Vousy",
+        "type": "Typ",
+        "visibility": "Viditelnost",
+        "color_palette": "Paleta barev ",
+        "color_firstrate": "Prvotřídní barva",
+        "eyebrow": "Obočí",
+        "nose_curvature": "Zakřivení nosu",
+        "up_down": "NAHORU / DOLŮ",
+        "left_right": "doleva / doprava",
+        "upper_lip_height": "Výška horního rtu",
+        "upper_lip_width": "Šířka horního rtu",
+        "upper_lip_depth": "Hloubka horního rtu",
+        "lower_lip_height": "Výška dolního rtu",
+        "lower_lip_width": "Šířka dolního rtu",
+        "lower_lip_depth": "Hloubka dolního rtu",
+        "make_up": "Líčení",
+        "older": "Stárnutí",
+        "scars": "Typ jizev",
+        "freckles": "Typ pih",
+        "moles": "Mateřská znaménka",
+        "disadvantages": "Nedostatky",
+        "spots": "Skvrny",
+        "shadow": "Stín",
+        "color_shadow": "Barva stínu",
+        "color_first_class": "Prvotřídní barva (blud)",
+        "blushing_cheek": "Červenající se tváře",
+        "blush_id": "Barva ruměnce na tvářích",
+        "blush_c1": "Prvotřídní barva ruměnce",
+        "lipstick": "Typ rtěnky",
+        "color_lipstick": "Barva rtěnky",
+        "lipsticks_c1": "Prvotřídní barva rtěnky",
+        "lipsticks_c2": "Druhá barva rtěnky",
+        "eyeliners": "Oční linky",
+        "eyeliners_id": "Barva očních linek",
+        "eyeliners_c1": "Hlavní barva očních linek",
+        "save": "Uložit",
+        "options": "Možnosti",
+        "align": "vlevo nahoře",
+        "style": "Styl ",
+        "color": "Barva ",
+        "size": "Velikost",
+        "width": "Šířka ",
+        "height": "Výška",
+        "depth": "Hloubka",
+        "waist": "Pas",
+        "chest": "Hrudník",
+        "distance": "Vzdálenost",
+        "angle": "Úhel",
+        "clarity": "Čistota",
+        "creator": "TVORBA POSTAVY",
+        "first_menu": {
+            "label_firstname": "Křestní jméno",
+            "label_lastname": "Příjmení",
+            "desc": "Jak chcete být oslovováni?",
+            "none": "Prázdné",
+            "start": "Začněte svou cestu",
+            "empty": "Nejprve vyplňte vše",
+            "nationality": "Národnost",
+            "birthdate": "Datum narození"
+        }
+    },
+    "labels": {
+        "boot_accessories": "Doplňky k botám",
+        "pants": "Kalhoty",
+        "cloaks": "Pláště",
+        "hats": "Klobouky",
+        "vests": "Vesty",
+        "chaps": "Kožené návleky",
+        "shirts_full": "Košile (dlouhý rukáv)",
+        "badges": "Odznaky",
+        "masks": "Masky",
+        "spats": "Návleky na boty",
+        "neckwear": "Krk",
+        "boots": "Boty",
+        "accessories": "Doplňky",
+        "jewelry_rings_right": "Prsteny (pravá ruka)",
+        "jewelry_rings_left": "Prsteny (levá ruka)",
+        "jewelry_bracelets": "Náramky",
+        "gauntlets": "Rukavice (dlouhé)",
+        "neckties": "Kravaty",
+        "holsters_knife": "Pouzdro na nůž",
+        "talisman_holster": "Talisman (pouzdro)",
+        "loadouts": "Výstroj",
+        "suspenders": "Šle",
+        "talisman_satchel": "Talisman (brašna)",
+        "satchels": "Brašny",
+        "gunbelts": "Opasky na zbraň",
+        "belts": "Opasky",
+        "belt_buckles": "Spony opasků",
+        "holsters_left": "Pouzdro (levé)",
+        "holsters_right": "Pouzdro (pravé)",
+        "talisman_wrist": "Talisman (zápěstí)",
+        "coats": "Kabáty",
+        "coats_closed": "Zapnuté kabáty",
+        "ponchos": "Ponča",
+        "eyewear": "Brýle",
+        "gloves": "Rukavice",
+        "holsters_crossdraw": "Pouzdro (zkřížené)",
+        "aprons": "Zástěry",
+        "skirts": "Sukně",
+        "hair_accessories": "Doplňky do vlasů",
+        "armor": "Brnění",
+        "dresses": "Šaty",
+        "save": "Uložit oblečení",
+        "clothes": "Oblečení",
+        "options": "možnosti",
+        "color": "Barva ",
+        "choose": "vyberte si oblečení",
+        "wear": "Obléknout outfit",
+        "wear_desc": "obléknout",
+        "delete": "Smazat outfit",
+        "delete_desc": "smazat outfit",
+        "shop": "Obchod s oblečením",
+        "total": "Cena"
+    },
+    "menu_elements": {
+        "head": {
+            "label": "Hlava"
+        },
+        "torso": {
+            "label": "Trup"
+        },
+        "legs": {
+            "label": "Nohy"
+        },
+        "foot": {
+            "label": "Chodidla"
+        },
+        "hands": {
+            "label": "Ruce"
+        },
+        "accessories": {
+            "label": "Doplňky"
+        }
+    },
+    "prompts": {
+        "cloakroom_text": "Otevřít převlékárny",
+        "clothing_store_label": "Obchod s oblečením",
+        "zoom_label": "Přiblížit/Oddálit",
+        "camera_up_label": "Kamera nahoru/dolů",
+        "camera_turn_label": "Otočit doleva/doprava"
+    },
+
+    "cloack_room_prompt_button": "Převlékárna",
+    "save_outfit_1": "Uložit outfit",
+    "save_outfit_2_header": "Uložit outfit",
+    "save_outfit_2_input_label": "Název outfitu",
+    "invalid_character_name": {
+        "title": "Chyba",
+        "description": "Vstup musí začínat velkým písmenem a obsahovat pouze písmena."
+    },
+    "missing_character_info": {
+        "title": "Chyba",
+        "description": "Nejprve musíte vyplnit všechny informace o sobě! (Křestní jméno, Příjmení, Národnost, Datum narození)"
+    },
+    "insufficient_funds": {
+        "title": "Nedostatek prostředků",
+        "description": "Nemáte dostatek hotovosti"
+    },
+    "creator": {
+        "appearance": {
+            "label": "Vzhled",
+            "desc": "Vyberte svůj vzhled"
+        },
+        "clothing": {
+            "label": "Oblečení",
+            "desc": "Vyberte si oblečení"
+        },
+        "firstname": {
+            "desc": "Zvolte své křestní jméno",
+            "input": {
+                "header": "Registrace",
+                "label": "Křestní jméno",
+                "placeholder": "Hank"
+            }
+        },
+        "lastname": {
+            "desc": "Zvolte své příjmení",
+            "input": {
+                "header": "Registrace",
+                "label": "Příjmení",
+                "placeholder": "Jordan"
+            }
+        },
+        "nationality": {
+            "desc": "Zvolte svou národnost",
+            "input": {
+                "header": "Registrace",
+                "label": "Národnost",
+                "placeholder": "Mexičan"
+            }
+        },
+        "birthdate": {
+            "desc": "Zvolte své datum narození",
+            "input": {
+                "header": "Registrace",
+                "label": "Datum narození"
+            }
+        },
+        "male": "Muž",
+        "female": "Žena",
+        "confirm": "Potvrdit",
+        "select_gender_1": "Vyberte pohlaví",
+        "select_gender_2": "Vyberte pohlaví",
+        "photo_tip": "Nyní pořiďte snímek obrazovky"
+    },
+    "clothing_menu": {
+        "category_desc": "Možnosti oblečení pro tuto kategorii",
+        "confirm_purhcase": "Potvrdit nákup"
+    },
+    "camera_prompt_text": "Nahoru/Dolů",
+    "rotate_prompt_text": "Doleva/Doprava",
+    "zoom_prompt_text": "Přiblížit",
+    "group_prompt_text": "RSGCore Creator"
+}
