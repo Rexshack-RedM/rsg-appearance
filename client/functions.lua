@@ -892,12 +892,12 @@ end
 
 function LoadHead(target, data)
     local headNum = math.ceil((data.head or 1)/6)
-    local head = GetHashHead(IsPedMale(target) == 1,headNum,data.skin_tone)
+    local head = GetHashHead(IsPedMale(target),headNum,data.skin_tone)
     NativeSetPedComponentEnabled(target, tonumber(head), false, true, true)
 end
 
 function LoadEyes(target, data)
-    if IsPedMale(target) == 1 then
+    if IsPedMale(target) then
         local eyes_color = ComponentsMale["eyes"][tonumber(data.eyes_color) or 1]
         NativeSetPedComponentEnabled(target, tonumber(eyes_color), false, true, true)
     else

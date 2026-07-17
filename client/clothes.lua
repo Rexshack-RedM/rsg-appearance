@@ -334,9 +334,11 @@ AddEventHandler('rsg-appearance:client:ApplyClothes', function(ClothesComponents
     CreateThread(function()
         local _Target = Target or PlayerPedId()
         if type(ClothesComponents) ~= "table" then
+            SetEntityAlpha(_Target, 255)
             return
         end
         if next(ClothesComponents) == nil then
+            SetEntityAlpha(_Target, 255)
             return
         end
         SetEntityAlpha(_Target, 0)
