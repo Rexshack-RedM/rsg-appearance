@@ -716,7 +716,11 @@ function GetHashHead(aMale,num,color)
     end
     local suffix = ("%03d"):format(num or 1)..'_V_'..("%03d"):format(color or 1)
     local sex = (aMale == true) and "M" or "F"
-    return GetHashKey(('CLOTHING_ITEM_%s_HEAD_%s'):format(sex,suffix))
+    local hashname = ('CLOTHING_ITEM_%s_HEAD_%s'):format(sex,suffix)
+    if HeadHashTable and HeadHashTable[hashname] then
+        return HeadHashTable[hashname]
+    end
+    return GetHashKey(hashname)
 end
 
 function LoadBoody(target, data)

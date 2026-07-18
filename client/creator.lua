@@ -182,6 +182,12 @@ CreateThread(function()
                 table.insert(ComponentsMale[v.category_hashname], v.hash)
             end
         end
+        if v.category_hashname == "heads" and v.is_multiplayer and v.hashname ~= "" then
+            if HeadHashTable == nil then
+                HeadHashTable = {}
+            end
+            HeadHashTable[v.hashname] = v.hash
+        end
     end
     if not IsImapActive(183712523) then
         RequestImap(183712523) -- CharacterCreator
