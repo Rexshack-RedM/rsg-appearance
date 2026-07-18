@@ -51,8 +51,7 @@ local MainMenus = {
 
 local BodyFunctions = {
     ["head"] = function(target, data)
-        LoadHead(target, data)
-        LoadOverlays(target, data)
+        LoadBoody(target, data)
     end,
     ["face_width"] = function(target, data)
         LoadFeatures(target, data)

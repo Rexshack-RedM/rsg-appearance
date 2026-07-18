@@ -897,6 +897,12 @@ end
 function LoadHead(target, data)
     local headNum = math.ceil((data.head or 1)/6)
     local head = GetHashHead(IsPedMale(target),headNum,data.skin_tone)
+    local sex = (IsPedMale(target) == true) and "M" or "F"
+    local color = data.skin_tone or 1
+    local suffix = ("%03d"):format(headNum)..'_V_'..("%03d"):format(color)
+    local hashname = ('CLOTHING_ITEM_%s_HEAD_%s'):format(sex,suffix)
+    local fromTable = HeadHashTable and HeadHashTable[hashname] ~= nil
+    --print("LoadHead - hashname:", hashname, "fromTable:", fromTable, "hash:", head)
     NativeSetPedComponentEnabled(target, tonumber(head), false, true, true)
 end
 
