@@ -37,5 +37,6 @@ ox_libs {
 
 dependencies {
     'rsg-core',
-    'ox_lib'
+    'ox_lib',
+    'rsg-menubase'
 }
