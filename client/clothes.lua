@@ -562,7 +562,6 @@ end
 CreateThread(function()
     OpenCloakroom()
     while true do
-        Wait(100)
         local sleep = true
         local playerPed = PlayerPedId()
         local coords = GetEntityCoords(playerPed)
@@ -578,9 +577,9 @@ CreateThread(function()
                 end
             end
         end
-        if sleep then
-            Wait(1500)
-        end
+        -- The prompt native must be refreshed every frame to stay visible;
+        -- only fall back to a slower tick once the player is out of range.
+        Wait(sleep and 1500 or 0)
     end
 end)
 
