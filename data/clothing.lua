@@ -68214,7 +68214,97 @@ local clothing = {
                     ['hashname'] = 'CLOTHING_ITEM_F_MASK_009_VAR_002',
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
-                }
+                },
+				[3] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 847707883,
+                    ['hash_dec_signed'] = 847707883,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[4] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1134235155,
+                    ['hash_dec_signed'] = 1134235155,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[5] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1938915587,
+                    ['hash_dec_signed'] = 1938915587,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[6] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 2221744826,
+                    ['hash_dec_signed'] = -2073222470,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[7] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 2986311134,
+                    ['hash_dec_signed'] = -1308656162,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[8] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3262024636,
+                    ['hash_dec_signed'] = -1032942660,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[9] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3377998991,
+                    ['hash_dec_signed'] = -916968305,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[10] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3673870292,
+                    ['hash_dec_signed'] = -621097004,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[11] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3859473908,
+                    ['hash_dec_signed'] = -435493388,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
             },
             [3] = {
                 [1] = {
@@ -68226,7 +68316,207 @@ local clothing = {
                     ['hashname'] = 'CLOTHING_ITEM_F_MASK_400_VAR_000',
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
-                }
+                },
+				[2] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 542659066,
+                    ['hash_dec_signed'] = 542659066,
+                    ['hashname'] = 'masquerade',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[3] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 895384582,
+                    ['hash_dec_signed'] = 895384582,
+                    ['hashname'] = 'masquerade',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[4] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1116870557,
+                    ['hash_dec_signed'] = 1116870557,
+                    ['hashname'] = 'masquerade',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[5] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1136793805,
+                    ['hash_dec_signed'] = 1136793805,
+                    ['hashname'] = 'masquerade',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[6] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1915909545,
+                    ['hash_dec_signed'] = 1915909545,
+                    ['hashname'] = 'masquerade',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[7] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3284048076,
+                    ['hash_dec_signed'] = -1010919220,
+                    ['hashname'] = 'masquerade',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[8] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3408439200,
+                    ['hash_dec_signed'] = -886528096,
+                    ['hashname'] = 'masquerade',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[9] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3630383637,
+                    ['hash_dec_signed'] = -664583659,
+                    ['hashname'] = 'masquerade',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[10] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 4005064383,
+                    ['hash_dec_signed'] = -289902913,
+                    ['hashname'] = 'masquerade',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[11] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 302626141,
+                    ['hash_dec_signed'] = 302626141,
+                    ['hashname'] = 'masquerade',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[12] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 895384582,
+                    ['hash_dec_signed'] = 895384582,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+                [13] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1116870557,
+                    ['hash_dec_signed'] = 1116870557,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+                [14] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1136793805,
+                    ['hash_dec_signed'] = 1136793805,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[15] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1915909545,
+                    ['hash_dec_signed'] = 1915909545,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[16] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3284048076,
+                    ['hash_dec_signed'] = -1010919220,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[17] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3408439200,
+                    ['hash_dec_signed'] = -886528096,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[18] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3630383637,
+                    ['hash_dec_signed'] = -664583659,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[19] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 4005064383,
+                    ['hash_dec_signed'] = -289902913,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[20] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 542659066,
+                    ['hash_dec_signed'] = 542659066,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[21] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 302626141,
+                    ['hash_dec_signed'] = 302626141,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
             },
             [4] = {
                 [1] = {
@@ -68238,7 +68528,177 @@ local clothing = {
                     ['hashname'] = 'CLOTHING_ITEM_F_MASK_401_VAR_000',
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
-                }
+                },
+				[2] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 406745490,
+                    ['hash_dec_signed'] = 406745490,
+                    ['hashname'] = 'horror',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[3] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 507575991,
+                    ['hash_dec_signed'] = 507575991,
+                    ['hashname'] = 'horror',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[4] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 529826142,
+                    ['hash_dec_signed'] = 529826142,
+                    ['hashname'] = 'horror',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[5] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 555844684,
+                    ['hash_dec_signed'] = 555844684,
+                    ['hashname'] = 'horror',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[6] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 794566849,
+                    ['hash_dec_signed'] = 794566849,
+                    ['hashname'] = 'horror',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[7] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1169771899,
+                    ['hash_dec_signed'] = 1169771899,
+                    ['hashname'] = 'horror',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[8] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1399777510,
+                    ['hash_dec_signed'] = 1399777510,
+                    ['hashname'] = 'horror',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[9] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3327250138,
+                    ['hash_dec_signed'] = -967717158,
+                    ['hashname'] = 'horror',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[10] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3959298610,
+                    ['hash_dec_signed'] = -335668686,
+                    ['hashname'] = 'horror',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[11] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3959298610,
+                    ['hash_dec_signed'] = -335668686,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[12] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3327250138,
+                    ['hash_dec_signed'] = -967717158,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[13] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1399777510,
+                    ['hash_dec_signed'] = 1399777510,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[14] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 794566849,
+                    ['hash_dec_signed'] = 794566849,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+                [15] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1169771899,
+                    ['hash_dec_signed'] = 1169771899,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[16] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 406745490,
+                    ['hash_dec_signed'] = 406745490,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+                [17] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 507575991,
+                    ['hash_dec_signed'] = 507575991,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+                [18] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 529826142,
+                    ['hash_dec_signed'] = 529826142,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
             },
             [5] = {
                 [1] = {
@@ -68250,7 +68710,237 @@ local clothing = {
                     ['hashname'] = 'CLOTHING_ITEM_F_MASK_402_VAR_000',
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
-                }
+                },
+				[2] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3915493414,
+                    ['hash_dec_signed'] = -379473882,
+                    ['hashname'] = 'rcp_e961b026',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[3] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 500407978,
+                    ['hash_dec_signed'] = 500407978,
+                    ['hashname'] = 'freak',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[4] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 724155070,
+                    ['hash_dec_signed'] = 724155070,
+                    ['hashname'] = 'freak',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[5] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1281293608,
+                    ['hash_dec_signed'] = 1281293608,
+                    ['hashname'] = 'freak',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[6] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1432883002,
+                    ['hash_dec_signed'] = 1432883002,
+                    ['hashname'] = 'freak',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[7] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1643554903,
+                    ['hash_dec_signed'] = 1643554903,
+                    ['hashname'] = 'freak',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[8] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 2170644268,
+                    ['hash_dec_signed'] = -2124323028,
+                    ['hashname'] = 'freak',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[9] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 2591136076,
+                    ['hash_dec_signed'] = -1703831220,
+                    ['hashname'] = 'freak',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[10] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3085390903,
+                    ['hash_dec_signed'] = -1209576393,
+                    ['hashname'] = 'freak',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[11] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3329814874,
+                    ['hash_dec_signed'] = -965152422,
+                    ['hashname'] = 'freak',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[12] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 4036445598,
+                    ['hash_dec_signed'] = -258521698,
+                    ['hashname'] = 'freak',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[13] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 4036445598,
+                    ['hash_dec_signed'] = -258521698,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[14] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3915493414,
+                    ['hash_dec_signed'] = -379473882,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[15] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3329814874,
+                    ['hash_dec_signed'] = -965152422,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[16] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3085390903,
+                    ['hash_dec_signed'] = -1209576393,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[17] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 2591136076,
+                    ['hash_dec_signed'] = -1703831220,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[18] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 2170644268,
+                    ['hash_dec_signed'] = -2124323028,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[19] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1643554903,
+                    ['hash_dec_signed'] = 1643554903,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                }, 
+				[20] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1432883002,
+                    ['hash_dec_signed'] = 1432883002,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+                [21] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1635127146,
+                    ['hash_dec_signed'] = 1635127146,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[22] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1281293608,
+                    ['hash_dec_signed'] = 1281293608,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[23] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 724155070,
+                    ['hash_dec_signed'] = 724155070,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[24] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 500407978,
+                    ['hash_dec_signed'] = 500407978,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
             },
             [6] = {
                 [1] = {
@@ -68262,7 +68952,207 @@ local clothing = {
                     ['hashname'] = 'CLOTHING_ITEM_F_MASK_403_VAR_000',
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
-                }
+                },
+				[2] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 4289860581,
+                    ['hash_dec_signed'] = -5106715,
+                    ['hashname'] = 'slaughter',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[3] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 290174772,
+                    ['hash_dec_signed'] = 290174772,
+                    ['hashname'] = 'slaughter',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[4] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 4287566779,
+                    ['hash_dec_signed'] = -7400517,
+                    ['hashname'] = 'slaughter',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[5] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 2738510583,
+                    ['hash_dec_signed'] = -1556456713,
+                    ['hashname'] = 'slaughter',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[6] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1813146792,
+                    ['hash_dec_signed'] = 1813146792,
+                    ['hashname'] = 'slaughter',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[7] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1510656153,
+                    ['hash_dec_signed'] = 1510656153,
+                    ['hashname'] = 'slaughter',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[8] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1243293286,
+                    ['hash_dec_signed'] = 1243293286,
+                    ['hashname'] = 'slaughter',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[9] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 902627358,
+                    ['hash_dec_signed'] = 902627358,
+                    ['hashname'] = 'slaughter',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[10] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 886537803,
+                    ['hash_dec_signed'] = 886537803,
+                    ['hashname'] = 'slaughter',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[11] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 588372672,
+                    ['hash_dec_signed'] = 588372672,
+                    ['hashname'] = 'slaughter',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[12] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 290174772,
+                    ['hash_dec_signed'] = 290174772,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[13] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 588372672,
+                    ['hash_dec_signed'] = 588372672,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[14] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 886537803,
+                    ['hash_dec_signed'] = 886537803,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[15] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 902627358,
+                    ['hash_dec_signed'] = 902627358,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[16] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1243293286,
+                    ['hash_dec_signed'] = 1243293286,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[17] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1510656153,
+                    ['hash_dec_signed'] = 1510656153,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[18] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1813146792,
+                    ['hash_dec_signed'] = 1813146792,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[19] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 2738510583,
+                    ['hash_dec_signed'] = -1556456713,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[20] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 4287566779,
+                    ['hash_dec_signed'] = -7400517,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+                [21] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 4289860581,
+                    ['hash_dec_signed'] = -5106715,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
             },
             [7] = {
                 [1] = {
@@ -68274,852 +69164,28 @@ local clothing = {
                     ['hashname'] = 'CLOTHING_ITEM_F_MASK_404_VAR_000',
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
-                }
-            },
-            [8] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 4191522985,
-                    ['hash_dec_signed'] = -103444311,
-                    ['hashname'] = 'CLOTHING_ITEM_F_MASK_405_VAR_000',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                }
-            },
-            [9] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 12494808,
-                    ['hash_dec_signed'] = 12494808,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
                 },
-                [2] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 12950046,
-                    ['hash_dec_signed'] = 12950046,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [3] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 13477858,
-                    ['hash_dec_signed'] = 13477858,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [4] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 223042764,
-                    ['hash_dec_signed'] = 223042764,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [5] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 271199050,
-                    ['hash_dec_signed'] = 271199050,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [6] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 290174772,
-                    ['hash_dec_signed'] = 290174772,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [7] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 302626141,
-                    ['hash_dec_signed'] = 302626141,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [8] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 406745490,
-                    ['hash_dec_signed'] = 406745490,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [9] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 500407978,
-                    ['hash_dec_signed'] = 500407978,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [10] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 507575991,
-                    ['hash_dec_signed'] = 507575991,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [11] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 529826142,
-                    ['hash_dec_signed'] = 529826142,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [12] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 542659066,
-                    ['hash_dec_signed'] = 542659066,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [13] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 555844684,
-                    ['hash_dec_signed'] = 555844684,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [14] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 588372672,
-                    ['hash_dec_signed'] = 588372672,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [15] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 703192777,
-                    ['hash_dec_signed'] = 703192777,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [16] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 718797834,
-                    ['hash_dec_signed'] = 718797834,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [17] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 724155070,
-                    ['hash_dec_signed'] = 724155070,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [18] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 748545073,
-                    ['hash_dec_signed'] = 748545073,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [19] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 768275496,
-                    ['hash_dec_signed'] = 768275496,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [20] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 794566849,
-                    ['hash_dec_signed'] = 794566849,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [21] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 847707883,
-                    ['hash_dec_signed'] = 847707883,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [22] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 886537803,
-                    ['hash_dec_signed'] = 886537803,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [23] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 895384582,
-                    ['hash_dec_signed'] = 895384582,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [24] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 902627358,
-                    ['hash_dec_signed'] = 902627358,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [25] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 958698871,
-                    ['hash_dec_signed'] = 958698871,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [26] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1116870557,
-                    ['hash_dec_signed'] = 1116870557,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [27] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1134235155,
-                    ['hash_dec_signed'] = 1134235155,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [28] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1136793805,
-                    ['hash_dec_signed'] = 1136793805,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [29] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1169771899,
-                    ['hash_dec_signed'] = 1169771899,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [30] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1185191189,
-                    ['hash_dec_signed'] = 1185191189,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [31] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1243293286,
-                    ['hash_dec_signed'] = 1243293286,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [32] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1281293608,
-                    ['hash_dec_signed'] = 1281293608,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [33] = {
+				[2] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
                     ['category_hashname'] = 'masks',
                     ['hash'] = 1313838342,
                     ['hash_dec_signed'] = 1313838342,
-                    ['hashname'] = '',
+                    ['hashname'] = 'creature',
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
-                [34] = {
+				[3] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
                     ['category_hashname'] = 'masks',
-                    ['hash'] = 1375095346,
-                    ['hash_dec_signed'] = 1375095346,
+                    ['hash'] = 4293556285,
+                    ['hash_dec_signed'] = -1411011,
                     ['hashname'] = '',
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
-                [35] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1399777510,
-                    ['hash_dec_signed'] = 1399777510,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [36] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1432883002,
-                    ['hash_dec_signed'] = 1432883002,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [37] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1510656153,
-                    ['hash_dec_signed'] = 1510656153,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [38] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1635127146,
-                    ['hash_dec_signed'] = 1635127146,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [39] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1643554903,
-                    ['hash_dec_signed'] = 1643554903,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [40] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1682173645,
-                    ['hash_dec_signed'] = 1682173645,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [41] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1813146792,
-                    ['hash_dec_signed'] = 1813146792,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [42] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1915909545,
-                    ['hash_dec_signed'] = 1915909545,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [43] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1936023345,
-                    ['hash_dec_signed'] = 1936023345,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [44] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1938915587,
-                    ['hash_dec_signed'] = 1938915587,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [45] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 2170644268,
-                    ['hash_dec_signed'] = -2124323028,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [46] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 2189041121,
-                    ['hash_dec_signed'] = -2105926175,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [47] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 2221744826,
-                    ['hash_dec_signed'] = -2073222470,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [48] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 2222522452,
-                    ['hash_dec_signed'] = -2072444844,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [49] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 2272593744,
-                    ['hash_dec_signed'] = -2022373552,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [50] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 2528814555,
-                    ['hash_dec_signed'] = -1766152741,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [51] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 2564806660,
-                    ['hash_dec_signed'] = -1730160636,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [52] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 2591136076,
-                    ['hash_dec_signed'] = -1703831220,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [53] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 2659061882,
-                    ['hash_dec_signed'] = -1635905414,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [54] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 2668025594,
-                    ['hash_dec_signed'] = -1626941702,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [55] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 2738510583,
-                    ['hash_dec_signed'] = -1556456713,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [56] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 2868170319,
-                    ['hash_dec_signed'] = -1426796977,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [57] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 2907468677,
-                    ['hash_dec_signed'] = -1387498619,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [58] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 2986311134,
-                    ['hash_dec_signed'] = -1308656162,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [59] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3025858688,
-                    ['hash_dec_signed'] = -1269108608,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [60] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3085390903,
-                    ['hash_dec_signed'] = -1209576393,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [61] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3087886464,
-                    ['hash_dec_signed'] = -1207080832,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [62] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3160055569,
-                    ['hash_dec_signed'] = -1134911727,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [63] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3262024636,
-                    ['hash_dec_signed'] = -1032942660,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [64] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3284048076,
-                    ['hash_dec_signed'] = -1010919220,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [65] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3327250138,
-                    ['hash_dec_signed'] = -967717158,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [66] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3329814874,
-                    ['hash_dec_signed'] = -965152422,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [67] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3377998991,
-                    ['hash_dec_signed'] = -916968305,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [68] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3408439200,
-                    ['hash_dec_signed'] = -886528096,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [69] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3417059308,
-                    ['hash_dec_signed'] = -877907988,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [70] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3578544940,
-                    ['hash_dec_signed'] = -716422356,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [71] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3630383637,
-                    ['hash_dec_signed'] = -664583659,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [72] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3637080009,
-                    ['hash_dec_signed'] = -657887287,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [73] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3673870292,
-                    ['hash_dec_signed'] = -621097004,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [74] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3859473908,
-                    ['hash_dec_signed'] = -435493388,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [75] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3863762022,
-                    ['hash_dec_signed'] = -431205274,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [76] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3875530387,
-                    ['hash_dec_signed'] = -419436909,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [77] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3915493414,
-                    ['hash_dec_signed'] = -379473882,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [78] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3959298610,
-                    ['hash_dec_signed'] = -335668686,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [79] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 4000908089,
-                    ['hash_dec_signed'] = -294059207,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [80] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 4001235799,
-                    ['hash_dec_signed'] = -293731497,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [81] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 4005064383,
-                    ['hash_dec_signed'] = -289902913,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [82] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 4036445598,
-                    ['hash_dec_signed'] = -258521698,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [83] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 4041660978,
-                    ['hash_dec_signed'] = -253306318,
-                    ['hashname'] = '',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-                [84] = {
+				[4] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
                     ['category_hashname'] = 'masks',
@@ -69129,58 +69195,200 @@ local clothing = {
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
-                [85] = {
+				[5] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
                     ['category_hashname'] = 'masks',
-                    ['hash'] = 4170086634,
-                    ['hash_dec_signed'] = -124880662,
+                    ['hash'] = 4041660978,
+                    ['hash_dec_signed'] = -253306318,
                     ['hashname'] = '',
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
-                [86] = {
+				[6] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
                     ['category_hashname'] = 'masks',
-                    ['hash'] = 4283402645,
-                    ['hash_dec_signed'] = -11564651,
-                    ['hashname'] = '',
+                    ['hash'] = 1936023345,
+                    ['hash_dec_signed'] = 1936023345,
+                    ['hashname'] = 'creature',
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
-                [87] = {
+				[7] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
                     ['category_hashname'] = 'masks',
-                    ['hash'] = 4287566779,
-                    ['hash_dec_signed'] = -7400517,
-                    ['hashname'] = '',
+                    ['hash'] = 2222522452,
+                    ['hash_dec_signed'] = -2072444844,
+                    ['hashname'] = 'creature',
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
-                [88] = {
+				[8] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
                     ['category_hashname'] = 'masks',
-                    ['hash'] = 4289860581,
-                    ['hash_dec_signed'] = -5106715,
-                    ['hashname'] = '',
+                    ['hash'] = 2272593744,
+                    ['hash_dec_signed'] = -2022373552,
+                    ['hashname'] = 'creature',
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
-                [89] = {
+				[9] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 2528814555,
+                    ['hash_dec_signed'] = -1766152741,
+                    ['hashname'] = 'creature',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[10] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 2868170319,
+                    ['hash_dec_signed'] = -1426796977,
+                    ['hashname'] = 'creature',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[11] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3087886464,
+                    ['hash_dec_signed'] = -1207080832,
+                    ['hashname'] = 'creature',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[12] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 4041660978,
+                    ['hash_dec_signed'] = -253306318,
+                    ['hashname'] = 'creature',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[13] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 4061912224,
+                    ['hash_dec_signed'] = -233055072,
+                    ['hashname'] = 'creature',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[14] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
                     ['category_hashname'] = 'masks',
                     ['hash'] = 4293556285,
                     ['hash_dec_signed'] = -1411011,
+                    ['hashname'] = 'creature',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[15] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3087886464,
+                    ['hash_dec_signed'] = -1207080832,
                     ['hashname'] = '',
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
-                }
+                },
+				[16] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 2868170319,
+                    ['hash_dec_signed'] = -1426796977,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                }, 
+				[17] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 2528814555,
+                    ['hash_dec_signed'] = -1766152741,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[18] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1936023345,
+                    ['hash_dec_signed'] = 1936023345,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+                [19] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 2222522452,
+                    ['hash_dec_signed'] = -2072444844,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+                [20] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 2272593744,
+                    ['hash_dec_signed'] = -2022373552,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[21] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1313838342,
+                    ['hash_dec_signed'] = 1313838342,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
             },
-            [10] = {
+            [8] = {
+                [1] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 223042764,
+                    ['hash_dec_signed'] = 223042764,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+                [2] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 555844684,
+                    ['hash_dec_signed'] = 555844684,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },         
+            },
+            [9] = {
                 [1] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
@@ -69191,9 +69399,7 @@ local clothing = {
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
-            },
-            [11] = {
-                [1] = {
+				[2] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
                     ['category_hashname'] = 'masks',
@@ -69203,9 +69409,7 @@ local clothing = {
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
-            },
-            [12] = {
-                [1] = {
+				[3] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
                     ['category_hashname'] = 'masks',
@@ -69215,8 +69419,58 @@ local clothing = {
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
+				[4] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 4283402645,
+                    ['hash_dec_signed'] = -11564651,
+                    ['hashname'] = 'rcp_ff4f8995',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[5] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 271199050,
+                    ['hash_dec_signed'] = 271199050,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[6] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 703192777,
+                    ['hash_dec_signed'] = 703192777,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[7] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 4283402645,
+                    ['hash_dec_signed'] = -11564651,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[8] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 748545073,
+                    ['hash_dec_signed'] = 748545073,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
             },
-            [13] = {
+            [10] = {
                 [1] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
@@ -69227,9 +69481,49 @@ local clothing = {
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
+				[2] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3578544940,
+                    ['hash_dec_signed'] = -716422356,
+                    ['hashname'] = 'rcp_d54c432c',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[3] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 768275496,
+                    ['hash_dec_signed'] = 768275496,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[4] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3578544940,
+                    ['hash_dec_signed'] = -716422356,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
             },
-            [14] = {
+            [11] = {
                 [1] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1185191189,
+                    ['hash_dec_signed'] = 1185191189,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[2] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
                     ['category_hashname'] = 'masks',
@@ -69239,8 +69533,68 @@ local clothing = {
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
+				[3] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3025858688,
+                    ['hash_dec_signed'] = -1269108608,
+                    ['hashname'] = 'rcp_b45af080',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[4] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3863762022,
+                    ['hash_dec_signed'] = -431205274,
+                    ['hashname'] = 'rcp_e64c5466',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[5] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 4170086634,
+                    ['hash_dec_signed'] = -124880662,
+                    ['hashname'] = 'rcp_f88e78ea',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[6] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 4170086634,
+                    ['hash_dec_signed'] = -124880662,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[7] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3863762022,
+                    ['hash_dec_signed'] = -431205274,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[8] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3025858688,
+                    ['hash_dec_signed'] = -1269108608,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
             },
-            [15] = {
+            [12] = {
                 [1] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
@@ -69251,20 +69605,48 @@ local clothing = {
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
-            },
-            [16] = {
-                [1] = {
+				[2] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
                     ['category_hashname'] = 'masks',
-                    ['hash'] = 2659061882,
-                    ['hash_dec_signed'] = -1635905414,
-                    ['hashname'] = 'rcp_9e7e107a',
+                    ['hash'] = 3637080009,
+                    ['hash_dec_signed'] = -657887287,
+                    ['hashname'] = 'rcp_d8c96fc9',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[3] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 12950046,
+                    ['hash_dec_signed'] = 12950046,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[4] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 2189041121,
+                    ['hash_dec_signed'] = -2105926175,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[5] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3637080009,
+                    ['hash_dec_signed'] = -657887287,
+                    ['hashname'] = '',
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
             },
-            [17] = {
+            [13] = {
                 [1] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
@@ -69275,8 +69657,38 @@ local clothing = {
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
+				[2] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3875530387,
+                    ['hash_dec_signed'] = -419436909,
+                    ['hashname'] = 'rcp_e6ffe693',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[3] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3875530387,
+                    ['hash_dec_signed'] = -419436909,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[4] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 2668025594,
+                    ['hash_dec_signed'] = -1626941702,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
             },
-            [18] = {
+            [14] = {
                 [1] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
@@ -69287,21 +69699,7 @@ local clothing = {
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
-            },
-            [19] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3025858688,
-                    ['hash_dec_signed'] = -1269108608,
-                    ['hashname'] = 'rcp_b45af080',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [20] = {
-                [1] = {
+				[2] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
                     ['category_hashname'] = 'masks',
@@ -69311,728 +69709,28 @@ local clothing = {
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
-            },
-            [21] = {
-                [1] = {
+				[3] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
                     ['category_hashname'] = 'masks',
-                    ['hash'] = 1313838342,
-                    ['hash_dec_signed'] = 1313838342,
-                    ['hashname'] = 'creature',
+                    ['hash'] = 3417059308,
+                    ['hash_dec_signed'] = -877907988,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[4] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 2907468677,
+                    ['hash_dec_signed'] = -1387498619,
+                    ['hashname'] = '',
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
             },
-            [22] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1936023345,
-                    ['hash_dec_signed'] = 1936023345,
-                    ['hashname'] = 'creature',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [23] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 2222522452,
-                    ['hash_dec_signed'] = -2072444844,
-                    ['hashname'] = 'creature',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [24] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 2272593744,
-                    ['hash_dec_signed'] = -2022373552,
-                    ['hashname'] = 'creature',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [25] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 2528814555,
-                    ['hash_dec_signed'] = -1766152741,
-                    ['hashname'] = 'creature',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [26] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 2868170319,
-                    ['hash_dec_signed'] = -1426796977,
-                    ['hashname'] = 'creature',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [27] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3087886464,
-                    ['hash_dec_signed'] = -1207080832,
-                    ['hashname'] = 'creature',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [28] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 4041660978,
-                    ['hash_dec_signed'] = -253306318,
-                    ['hashname'] = 'creature',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [29] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 4061912224,
-                    ['hash_dec_signed'] = -233055072,
-                    ['hashname'] = 'creature',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [30] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 4293556285,
-                    ['hash_dec_signed'] = -1411011,
-                    ['hashname'] = 'creature',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [31] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3578544940,
-                    ['hash_dec_signed'] = -716422356,
-                    ['hashname'] = 'rcp_d54c432c',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [32] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3637080009,
-                    ['hash_dec_signed'] = -657887287,
-                    ['hashname'] = 'rcp_d8c96fc9',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [33] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3863762022,
-                    ['hash_dec_signed'] = -431205274,
-                    ['hashname'] = 'rcp_e64c5466',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [34] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3875530387,
-                    ['hash_dec_signed'] = -419436909,
-                    ['hashname'] = 'rcp_e6ffe693',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [35] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3915493414,
-                    ['hash_dec_signed'] = -379473882,
-                    ['hashname'] = 'rcp_e961b026',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [36] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 4170086634,
-                    ['hash_dec_signed'] = -124880662,
-                    ['hashname'] = 'rcp_f88e78ea',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [37] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 4283402645,
-                    ['hash_dec_signed'] = -11564651,
-                    ['hashname'] = 'rcp_ff4f8995',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [38] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 500407978,
-                    ['hash_dec_signed'] = 500407978,
-                    ['hashname'] = 'freak',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [39] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 724155070,
-                    ['hash_dec_signed'] = 724155070,
-                    ['hashname'] = 'freak',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [40] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1281293608,
-                    ['hash_dec_signed'] = 1281293608,
-                    ['hashname'] = 'freak',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [41] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1432883002,
-                    ['hash_dec_signed'] = 1432883002,
-                    ['hashname'] = 'freak',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [42] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1643554903,
-                    ['hash_dec_signed'] = 1643554903,
-                    ['hashname'] = 'freak',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [43] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 2170644268,
-                    ['hash_dec_signed'] = -2124323028,
-                    ['hashname'] = 'freak',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [44] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 2591136076,
-                    ['hash_dec_signed'] = -1703831220,
-                    ['hashname'] = 'freak',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [45] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3085390903,
-                    ['hash_dec_signed'] = -1209576393,
-                    ['hashname'] = 'freak',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [46] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3329814874,
-                    ['hash_dec_signed'] = -965152422,
-                    ['hashname'] = 'freak',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [47] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 4036445598,
-                    ['hash_dec_signed'] = -258521698,
-                    ['hashname'] = 'freak',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [48] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 406745490,
-                    ['hash_dec_signed'] = 406745490,
-                    ['hashname'] = 'horror',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [49] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 507575991,
-                    ['hash_dec_signed'] = 507575991,
-                    ['hashname'] = 'horror',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [50] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 529826142,
-                    ['hash_dec_signed'] = 529826142,
-                    ['hashname'] = 'horror',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [51] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 555844684,
-                    ['hash_dec_signed'] = 555844684,
-                    ['hashname'] = 'horror',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [52] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 794566849,
-                    ['hash_dec_signed'] = 794566849,
-                    ['hashname'] = 'horror',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [53] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1169771899,
-                    ['hash_dec_signed'] = 1169771899,
-                    ['hashname'] = 'horror',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [54] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1399777510,
-                    ['hash_dec_signed'] = 1399777510,
-                    ['hashname'] = 'horror',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [55] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3327250138,
-                    ['hash_dec_signed'] = -967717158,
-                    ['hashname'] = 'horror',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [56] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3959298610,
-                    ['hash_dec_signed'] = -335668686,
-                    ['hashname'] = 'horror',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [57] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 302626141,
-                    ['hash_dec_signed'] = 302626141,
-                    ['hashname'] = 'masquerade',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [58] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 542659066,
-                    ['hash_dec_signed'] = 542659066,
-                    ['hashname'] = 'masquerade',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [59] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 895384582,
-                    ['hash_dec_signed'] = 895384582,
-                    ['hashname'] = 'masquerade',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [60] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1116870557,
-                    ['hash_dec_signed'] = 1116870557,
-                    ['hashname'] = 'masquerade',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [61] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1136793805,
-                    ['hash_dec_signed'] = 1136793805,
-                    ['hashname'] = 'masquerade',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [62] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1915909545,
-                    ['hash_dec_signed'] = 1915909545,
-                    ['hashname'] = 'masquerade',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [63] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3284048076,
-                    ['hash_dec_signed'] = -1010919220,
-                    ['hashname'] = 'masquerade',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [64] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3408439200,
-                    ['hash_dec_signed'] = -886528096,
-                    ['hashname'] = 'masquerade',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [65] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 3630383637,
-                    ['hash_dec_signed'] = -664583659,
-                    ['hashname'] = 'masquerade',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [66] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 4005064383,
-                    ['hash_dec_signed'] = -289902913,
-                    ['hashname'] = 'masquerade',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [67] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 290174772,
-                    ['hash_dec_signed'] = 290174772,
-                    ['hashname'] = 'slaughter',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [68] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 588372672,
-                    ['hash_dec_signed'] = 588372672,
-                    ['hashname'] = 'slaughter',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [69] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 886537803,
-                    ['hash_dec_signed'] = 886537803,
-                    ['hashname'] = 'slaughter',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [70] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 902627358,
-                    ['hash_dec_signed'] = 902627358,
-                    ['hashname'] = 'slaughter',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [71] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1243293286,
-                    ['hash_dec_signed'] = 1243293286,
-                    ['hashname'] = 'slaughter',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [72] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1510656153,
-                    ['hash_dec_signed'] = 1510656153,
-                    ['hashname'] = 'slaughter',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [73] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1813146792,
-                    ['hash_dec_signed'] = 1813146792,
-                    ['hashname'] = 'slaughter',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [74] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 2738510583,
-                    ['hash_dec_signed'] = -1556456713,
-                    ['hashname'] = 'slaughter',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [75] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 4287566779,
-                    ['hash_dec_signed'] = -7400517,
-                    ['hashname'] = 'slaughter',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [76] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 4289860581,
-                    ['hash_dec_signed'] = -5106715,
-                    ['hashname'] = 'slaughter',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [77] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 718797834,
-                    ['hash_dec_signed'] = 718797834,
-                    ['hashname'] = 'swine',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [78] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 958698871,
-                    ['hash_dec_signed'] = 958698871,
-                    ['hashname'] = 'swine',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [79] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1375095346,
-                    ['hash_dec_signed'] = 1375095346,
-                    ['hashname'] = 'swine',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [80] = {
-                [1] = {
-                    ['category_hash'] = 1963323202,
-                    ['category_hash_dec_signed'] = 1963323202,
-                    ['category_hashname'] = 'masks',
-                    ['hash'] = 1682173645,
-                    ['hash_dec_signed'] = 1682173645,
-                    ['hashname'] = 'swine',
-                    ['is_multiplayer'] = true,
-                    ['ped_type'] = 'female'
-                },
-            },
-            [81] = {
+            [15] = {
                 [1] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
@@ -70043,21 +69741,17 @@ local clothing = {
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
-            },
-            [82] = {
-                [1] = {
+				[2] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
                     ['category_hashname'] = 'masks',
-                    ['hash'] = 3160055569,
-                    ['hash_dec_signed'] = -1134911727,
+                    ['hash'] = 4001235799,
+                    ['hash_dec_signed'] = -293731497,
                     ['hashname'] = 'swine',
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
-            },
-            [83] = {
-                [1] = {
+				[3] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
                     ['category_hashname'] = 'masks',
@@ -70067,15 +69761,187 @@ local clothing = {
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
-            },
-            [84] = {
-                [1] = {
+				[4] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3160055569,
+                    ['hash_dec_signed'] = -1134911727,
+                    ['hashname'] = 'swine',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[5] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1682173645,
+                    ['hash_dec_signed'] = 1682173645,
+                    ['hashname'] = 'swine',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[6] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1375095346,
+                    ['hash_dec_signed'] = 1375095346,
+                    ['hashname'] = 'swine',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[7] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 958698871,
+                    ['hash_dec_signed'] = 958698871,
+                    ['hashname'] = 'swine',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[8] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 718797834,
+                    ['hash_dec_signed'] = 718797834,
+                    ['hashname'] = 'swine',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[9] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 4191522985,
+                    ['hash_dec_signed'] = -103444311,
+                    ['hashname'] = 'CLOTHING_ITEM_F_MASK_405_VAR_000',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[10] = {
                     ['category_hash'] = 1963323202,
                     ['category_hash_dec_signed'] = 1963323202,
                     ['category_hashname'] = 'masks',
                     ['hash'] = 4001235799,
                     ['hash_dec_signed'] = -293731497,
-                    ['hashname'] = 'swine',
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[11] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 4000908089,
+                    ['hash_dec_signed'] = -294059207,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[12] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 3160055569,
+                    ['hash_dec_signed'] = -1134911727,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				 [13] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 2564806660,
+                    ['hash_dec_signed'] = -1730160636,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[14] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1682173645,
+                    ['hash_dec_signed'] = 1682173645,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[15] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 1375095346,
+                    ['hash_dec_signed'] = 1375095346,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[16] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 958698871,
+                    ['hash_dec_signed'] = 958698871,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[17] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 718797834,
+                    ['hash_dec_signed'] = 718797834,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[16] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 12494808,
+                    ['hash_dec_signed'] = 12494808,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+				[17] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 13477858,
+                    ['hash_dec_signed'] = 13477858,
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+                },
+            },
+			[16] = {
+                [1] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 2659061882,
+                    ['hash_dec_signed'] = -1635905414,
+                    ['hashname'] = 'rcp_9e7e107a',
+                    ['is_multiplayer'] = true,
+                    ['ped_type'] = 'female'
+               },
+            },
+			[17] = {
+                [1] = {
+                    ['category_hash'] = 1963323202,
+                    ['category_hash_dec_signed'] = 1963323202,
+                    ['category_hashname'] = 'masks',
+                    ['hash'] = 2659061882,
+                    ['hash_dec_signed'] = -1635905414,
+                    ['hashname'] = '',
                     ['is_multiplayer'] = true,
                     ['ped_type'] = 'female'
                 },
