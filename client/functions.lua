@@ -519,6 +519,8 @@ function StartCharacterCreatorCamera(selected, camera)
     repeat Wait(0) until IsScreenFadedIn()
     PrepareCreatorMusic()
 
+    RandomizeCreatorAppearance(PlayerPedId())
+
     IsInCharCreation = true
     FirstMenu()
 end
@@ -1190,3 +1192,79 @@ CreateThread(function()
         Wait(sleep)
     end
 end)
+
+
+-- Random starting look for a new character (body/face/hair only - no clothing)
+local function randFeature(range)
+    return math.random(-range, range) * 5 -- sliders use steps of 5
+end
+
+function RandomizeCreatorAppearance(ped)
+    math.randomseed(GetGameTimer() + GetRandomIntInRange(0, 99999))
+    local isMale = IsPedMale(ped)
+    local sexKey = isMale and "male" or "female"
+
+    -- body / skin
+    CreatorCache["head"] = math.random(1, 120)
+    CreatorCache["skin_tone"] = math.random(1, 6)
+    CreatorCache["body_size"] = math.random(1, #Data.Appearance.body_size)
+    CreatorCache["body_waist"] = math.random(1, #Data.Appearance.body_waist)
+    CreatorCache["chest_size"] = math.random(1, #Data.Appearance.chest_size)
+    CreatorCache["height"] = math.random(97, 103)
+
+    -- hair
+    local hairs = hairs_list[sexKey]["hair"]
+    local hModel = math.random(1, #hairs)
+    CreatorCache["hair"] = { model = hModel, texture = math.random(1, #hairs[hModel]) }
+    if isMale then
+        local beards = hairs_list["male"]["beard"]
+        if math.random() < 0.6 and #beards > 0 then
+            local bModel = math.random(1, #beards)
+            CreatorCache["beard"] = { model = bModel, texture = math.random(1, #beards[bModel]) }
+        else
+            CreatorCache["beard"] = { model = 0, texture = 1 }
+        end
+    end
+
+    -- eyes / eyebrows / teeth
+    CreatorCache["eyes_color"] = math.random(1, 18)
+    CreatorCache["eyebrows_t"] = math.random(1, 15)
+    CreatorCache["eyebrows_op"] = math.random(15, 20) * 5
+    CreatorCache["eyebrows_id"] = math.random(1, 25)
+    CreatorCache["eyebrows_c1"] = math.random(0, 64)
+    CreatorCache["teeth"] = math.random(1, 7)
+
+    -- face shape (kept moderate so faces stay natural)
+    local faceKeys = {
+        "face_width", "eyes_depth", "eyes_angle", "eyes_distance", "eyelid_height", "eyelid_width",
+        "eyebrow_height", "eyebrow_width", "eyebrow_depth",
+        "nose_width", "nose_size", "nose_height", "nose_angle", "nose_curvature", "nostrils_distance",
+        "mouth_width", "mouth_depth", "mouth_x_pos", "mouth_y_pos",
+        "upper_lip_height", "upper_lip_width", "upper_lip_depth",
+        "lower_lip_height", "lower_lip_width", "lower_lip_depth",
+        "cheekbones_height", "cheekbones_width", "cheekbones_depth",
+        "jaw_height", "jaw_width", "jaw_depth", "chin_height", "chin_width", "chin_depth",
+        "ears_width", "ears_angle", "ears_height", "ears_size",
+    }
+    for _, k in ipairs(faceKeys) do
+        CreatorCache[k] = randFeature(8) -- -40 .. 40
+    end
+
+    -- apply
+    LoadHeight(ped, CreatorCache)
+    LoadBoody(ped, CreatorCache)
+    LoadHead(ped, CreatorCache)
+    LoadHair(ped, CreatorCache)
+    if isMale then LoadBeard(ped, CreatorCache) end
+    LoadEyes(ped, CreatorCache)
+    LoadBodyFeature(ped, CreatorCache.body_size, Data.Appearance.body_size)
+    LoadBodyFeature(ped, CreatorCache.body_waist, Data.Appearance.body_waist)
+    LoadBodyFeature(ped, CreatorCache.chest_size, Data.Appearance.chest_size)
+    LoadFeatures(ped, CreatorCache)
+    local teeth = (isMale and ComponentsMale or ComponentsFemale)["teeth"]
+    if teeth and teeth[CreatorCache["teeth"]] then
+        NativeSetPedComponentEnabled(ped, tonumber(teeth[CreatorCache["teeth"]]), false, true, true)
+    end
+    LoadOverlays(ped, CreatorCache)
+    NativeUpdatePedVariation(ped)
+end
